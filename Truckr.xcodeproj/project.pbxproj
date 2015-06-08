@@ -7,14 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14DE2CD51B25F2AB00B56241 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14DE2CD41B25F2AB00B56241 /* ParseUI.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		14DE2CD71B25F2BA00B56241 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14DE2CD61B25F2BA00B56241 /* Bolts.framework */; };
+		14DE2CD91B25F2D300B56241 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14DE2CD81B25F2D300B56241 /* Parse.framework */; };
+		14DE2CDF1B25FDF600B56241 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DE2CDE1B25FDF600B56241 /* SignupViewController.m */; };
 		14F261B81B2200E6009DA2C3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F261B71B2200E6009DA2C3 /* main.m */; };
 		14F261BB1B2200E6009DA2C3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F261BA1B2200E6009DA2C3 /* AppDelegate.m */; };
 		14F261BE1B2200E6009DA2C3 /* Truckr.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 14F261BC1B2200E6009DA2C3 /* Truckr.xcdatamodeld */; };
-		14F261C11B2200E6009DA2C3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F261C01B2200E6009DA2C3 /* ViewController.m */; };
+		14F261C11B2200E6009DA2C3 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F261C01B2200E6009DA2C3 /* LoginViewController.m */; };
 		14F261C41B2200E6009DA2C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14F261C21B2200E6009DA2C3 /* Main.storyboard */; };
 		14F261C61B2200E6009DA2C3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14F261C51B2200E6009DA2C3 /* Images.xcassets */; };
 		14F261C91B2200E6009DA2C3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14F261C71B2200E6009DA2C3 /* LaunchScreen.xib */; };
 		14F261D51B2200E6009DA2C3 /* TruckrTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F261D41B2200E6009DA2C3 /* TruckrTests.m */; };
+		14F261DF1B220799009DA2C3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14F261DE1B220799009DA2C3 /* QuartzCore.framework */; };
+		14F261E71B220AAA009DA2C3 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14F261E61B220AAA009DA2C3 /* Accounts.framework */; };
+		14F261E91B220ADD009DA2C3 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 14F261E81B220ADD009DA2C3 /* libsqlite3.0.dylib */; };
+		14F261EB1B220AE9009DA2C3 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14F261EA1B220AE9009DA2C3 /* AdSupport.framework */; };
+		14F261ED1B220AF9009DA2C3 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14F261EC1B220AF9009DA2C3 /* Social.framework */; };
+		14F261EF1B220B14009DA2C3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14F261EE1B220B14009DA2C3 /* Security.framework */; };
+		14F261F11B220B20009DA2C3 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14F261F01B220B20009DA2C3 /* MobileCoreServices.framework */; };
+		14F261F31B220B29009DA2C3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14F261F21B220B29009DA2C3 /* CoreLocation.framework */; };
+		14F261F51B220B35009DA2C3 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14F261F41B220B35009DA2C3 /* StoreKit.framework */; };
+		14F261F71B220B46009DA2C3 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14F261F61B220B46009DA2C3 /* CFNetwork.framework */; };
+		14F261F91B220B53009DA2C3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14F261F81B220B53009DA2C3 /* AudioToolbox.framework */; };
+		14F261FB1B220B65009DA2C3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14F261FA1B220B65009DA2C3 /* SystemConfiguration.framework */; };
+		14F261FD1B220B6D009DA2C3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14F261FC1B220B6D009DA2C3 /* UIKit.framework */; };
+		14F261FF1B220B7C009DA2C3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14F261FE1B220B7C009DA2C3 /* Foundation.framework */; };
+		14F262011B220E05009DA2C3 /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 14F262001B220E05009DA2C3 /* libz.1.1.3.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,20 +47,40 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		14DE2CD41B25F2AB00B56241 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
+		14DE2CD61B25F2BA00B56241 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		14DE2CD81B25F2D300B56241 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "../parse-starter-project-1.7.4/ParseStarterProject/Parse.framework"; sourceTree = "<group>"; };
+		14DE2CDD1B25FDF600B56241 /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
+		14DE2CDE1B25FDF600B56241 /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
 		14F261B21B2200E6009DA2C3 /* Truckr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Truckr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14F261B61B2200E6009DA2C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14F261B71B2200E6009DA2C3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		14F261B91B2200E6009DA2C3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		14F261BA1B2200E6009DA2C3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		14F261BD1B2200E6009DA2C3 /* Truckr.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Truckr.xcdatamodel; sourceTree = "<group>"; };
-		14F261BF1B2200E6009DA2C3 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		14F261C01B2200E6009DA2C3 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		14F261BF1B2200E6009DA2C3 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		14F261C01B2200E6009DA2C3 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		14F261C31B2200E6009DA2C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		14F261C51B2200E6009DA2C3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		14F261C81B2200E6009DA2C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		14F261CE1B2200E6009DA2C3 /* TruckrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TruckrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		14F261D31B2200E6009DA2C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14F261D41B2200E6009DA2C3 /* TruckrTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TruckrTests.m; sourceTree = "<group>"; };
+		14F261DE1B220799009DA2C3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		14F261E61B220AAA009DA2C3 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		14F261E81B220ADD009DA2C3 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		14F261EA1B220AE9009DA2C3 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		14F261EC1B220AF9009DA2C3 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		14F261EE1B220B14009DA2C3 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		14F261F01B220B20009DA2C3 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		14F261F21B220B29009DA2C3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		14F261F41B220B35009DA2C3 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		14F261F61B220B46009DA2C3 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		14F261F81B220B53009DA2C3 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		14F261FA1B220B65009DA2C3 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		14F261FC1B220B6D009DA2C3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		14F261FE1B220B7C009DA2C3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		14F262001B220E05009DA2C3 /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +88,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14DE2CD91B25F2D300B56241 /* Parse.framework in Frameworks */,
+				14DE2CD71B25F2BA00B56241 /* Bolts.framework in Frameworks */,
+				14DE2CD51B25F2AB00B56241 /* ParseUI.framework in Frameworks */,
+				14F262011B220E05009DA2C3 /* libz.1.1.3.dylib in Frameworks */,
+				14F261FF1B220B7C009DA2C3 /* Foundation.framework in Frameworks */,
+				14F261FD1B220B6D009DA2C3 /* UIKit.framework in Frameworks */,
+				14F261FB1B220B65009DA2C3 /* SystemConfiguration.framework in Frameworks */,
+				14F261F91B220B53009DA2C3 /* AudioToolbox.framework in Frameworks */,
+				14F261F71B220B46009DA2C3 /* CFNetwork.framework in Frameworks */,
+				14F261F51B220B35009DA2C3 /* StoreKit.framework in Frameworks */,
+				14F261F31B220B29009DA2C3 /* CoreLocation.framework in Frameworks */,
+				14F261F11B220B20009DA2C3 /* MobileCoreServices.framework in Frameworks */,
+				14F261EF1B220B14009DA2C3 /* Security.framework in Frameworks */,
+				14F261ED1B220AF9009DA2C3 /* Social.framework in Frameworks */,
+				14F261EB1B220AE9009DA2C3 /* AdSupport.framework in Frameworks */,
+				14F261E91B220ADD009DA2C3 /* libsqlite3.0.dylib in Frameworks */,
+				14F261E71B220AAA009DA2C3 /* Accounts.framework in Frameworks */,
+				14F261DF1B220799009DA2C3 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +125,7 @@
 				14F261B41B2200E6009DA2C3 /* Truckr */,
 				14F261D11B2200E6009DA2C3 /* TruckrTests */,
 				14F261B31B2200E6009DA2C3 /* Products */,
+				14F261E51B220967009DA2C3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -85,8 +143,10 @@
 			children = (
 				14F261B91B2200E6009DA2C3 /* AppDelegate.h */,
 				14F261BA1B2200E6009DA2C3 /* AppDelegate.m */,
-				14F261BF1B2200E6009DA2C3 /* ViewController.h */,
-				14F261C01B2200E6009DA2C3 /* ViewController.m */,
+				14F261BF1B2200E6009DA2C3 /* LoginViewController.h */,
+				14F261C01B2200E6009DA2C3 /* LoginViewController.m */,
+				14DE2CDD1B25FDF600B56241 /* SignupViewController.h */,
+				14DE2CDE1B25FDF600B56241 /* SignupViewController.m */,
 				14F261C21B2200E6009DA2C3 /* Main.storyboard */,
 				14F261C51B2200E6009DA2C3 /* Images.xcassets */,
 				14F261C71B2200E6009DA2C3 /* LaunchScreen.xib */,
@@ -120,6 +180,31 @@
 				14F261D31B2200E6009DA2C3 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		14F261E51B220967009DA2C3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				14DE2CD81B25F2D300B56241 /* Parse.framework */,
+				14DE2CD61B25F2BA00B56241 /* Bolts.framework */,
+				14DE2CD41B25F2AB00B56241 /* ParseUI.framework */,
+				14F262001B220E05009DA2C3 /* libz.1.1.3.dylib */,
+				14F261FE1B220B7C009DA2C3 /* Foundation.framework */,
+				14F261FC1B220B6D009DA2C3 /* UIKit.framework */,
+				14F261FA1B220B65009DA2C3 /* SystemConfiguration.framework */,
+				14F261F81B220B53009DA2C3 /* AudioToolbox.framework */,
+				14F261F61B220B46009DA2C3 /* CFNetwork.framework */,
+				14F261F41B220B35009DA2C3 /* StoreKit.framework */,
+				14F261F21B220B29009DA2C3 /* CoreLocation.framework */,
+				14F261F01B220B20009DA2C3 /* MobileCoreServices.framework */,
+				14F261EE1B220B14009DA2C3 /* Security.framework */,
+				14F261EC1B220AF9009DA2C3 /* Social.framework */,
+				14F261EA1B220AE9009DA2C3 /* AdSupport.framework */,
+				14F261E81B220ADD009DA2C3 /* libsqlite3.0.dylib */,
+				14F261E61B220AAA009DA2C3 /* Accounts.framework */,
+				14F261DE1B220799009DA2C3 /* QuartzCore.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,8 +309,9 @@
 			files = (
 				14F261BE1B2200E6009DA2C3 /* Truckr.xcdatamodeld in Sources */,
 				14F261BB1B2200E6009DA2C3 /* AppDelegate.m in Sources */,
-				14F261C11B2200E6009DA2C3 /* ViewController.m in Sources */,
+				14F261C11B2200E6009DA2C3 /* LoginViewController.m in Sources */,
 				14F261B81B2200E6009DA2C3 /* main.m in Sources */,
+				14DE2CDF1B25FDF600B56241 /* SignupViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,6 +433,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"/Users/matthewhendrickson/Desktop/parse-starter-project-1.7.4/ParseStarterProject",
+				);
 				INFOPLIST_FILE = Truckr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -357,6 +448,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"/Users/matthewhendrickson/Desktop/parse-starter-project-1.7.4/ParseStarterProject",
+				);
 				INFOPLIST_FILE = Truckr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -416,6 +512,7 @@
 				14F261DA1B2200E6009DA2C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		14F261DB1B2200E6009DA2C3 /* Build configuration list for PBXNativeTarget "TruckrTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +521,7 @@
 				14F261DD1B2200E6009DA2C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

@@ -1,27 +1,48 @@
 //
-//  ViewController.m
 //  Truckr
 //
 //  Created by Matthew Hendrickson on 6/5/15.
 //  Copyright (c) 2015 Matthew Hendrickson. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "LoginViewController.h"
 
-@interface ViewController ()
+@interface LoginViewController ()
 
 @end
 
-@implementation ViewController
+@implementation LoginViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
 }
+
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    
+    
+    }
+
+
+
+- (IBAction)signupButtonClicked:(id)sender {
+    NSLog(@"button clicked");
+}
+
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+
+
 
 @end
