@@ -66,8 +66,8 @@
 
         }
         else {
-            NSLog(@"sign up failure");
-            //display alertView
+            NSString *errorString = [error userInfo][@"error"];
+            NSLog(@"%@", errorString);
         }
     }];
 }

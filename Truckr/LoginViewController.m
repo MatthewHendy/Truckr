@@ -22,10 +22,38 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    
+    PFUser *currentUser = [PFUser currentUser];
+    if (currentUser) {
+        NSLog(@"current user is %@", currentUser.username);
+    }
+    else {
+        NSLog(<#NSString *format, ...#>)
+    }
     
     }
 
+- (IBAction)logInButton:(id)sender {
+    
+    NSLog(@"username: %@\npw: %@",_LoginUsername.text,_LoginPassword.text);
+    
+    if (!_LoginUsername.text) {
+        NSLog(@"enter a username");
+    }
+    if (!_LoginPassword.text) {
+        NSLog(@"enter a password");
+    }
+    
+    [PFUser logInWithUsernameInBackground:_LoginUsername.text password:_LoginPassword.text block:^(PFUser *user, NSError *error) {
+        if (user) {
+            NSLog(@"logged in");
+        }
+        else {
+            NSString *errorString = [error userInfo][@"error"];
+            NSLog(@"%@", errorString);
+        }
+    }];
+    
+}
 
 
 - (IBAction)signupButtonClicked:(id)sender {
