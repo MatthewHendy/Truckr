@@ -27,7 +27,7 @@
         NSLog(@"current user is %@", currentUser.username);
     }
     else {
-        NSLog(<#NSString *format, ...#>)
+        NSLog(@"not logged in");
     }
     
     }

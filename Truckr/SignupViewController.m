@@ -63,13 +63,15 @@
         if (!error) {
             NSLog(@"signed up!!");
             //display alertView
-
+            [[self navigationController] popViewControllerAnimated:YES];
         }
         else {
             NSString *errorString = [error userInfo][@"error"];
             NSLog(@"%@", errorString);
         }
     }];
+    
+    
 }
 
 
