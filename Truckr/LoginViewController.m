@@ -22,13 +22,7 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    PFUser *currentUser = [PFUser currentUser];
-    if (currentUser) {
-        NSLog(@"current user is %@", currentUser.username);
-    }
-    else {
-        NSLog(@"not logged in");
-    }
+    
     
     }
 
@@ -46,6 +40,7 @@
     [PFUser logInWithUsernameInBackground:_LoginUsername.text password:_LoginPassword.text block:^(PFUser *user, NSError *error) {
         if (user) {
             NSLog(@"logged in");
+            [[self navigationController] popViewControllerAnimated:YES];
         }
         else {
             NSString *errorString = [error userInfo][@"error"];

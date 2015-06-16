@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>EE1F9A00-1CE5-4321-A9CE-E220ECCF23BC</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Truckr</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>A37D077B6D191FAFC71D39B5C2BE2106BB5F5ECB</key>
+		<string>https://bitbucket.org/matthewHendy/truckr.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Truckr.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>A37D077B6D191FAFC71D39B5C2BE2106BB5F5ECB</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://bitbucket.org/matthewHendy/truckr.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>A37D077B6D191FAFC71D39B5C2BE2106BB5F5ECB</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>A37D077B6D191FAFC71D39B5C2BE2106BB5F5ECB</string>
+			<key>IDESourceControlWCCName</key>
+			<string>truckr</string>
+		</dict>
+	</array>
+</dict>
+</plist>

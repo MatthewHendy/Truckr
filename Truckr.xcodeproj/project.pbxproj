@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		14DE2CD51B25F2AB00B56241 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14DE2CD41B25F2AB00B56241 /* ParseUI.framework */; settings = {ATTRIBUTES = (Required, ); }; };
-		14DE2CD71B25F2BA00B56241 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14DE2CD61B25F2BA00B56241 /* Bolts.framework */; };
-		14DE2CD91B25F2D300B56241 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14DE2CD81B25F2D300B56241 /* Parse.framework */; };
 		14DE2CDF1B25FDF600B56241 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DE2CDE1B25FDF600B56241 /* SignupViewController.m */; };
 		14F261B81B2200E6009DA2C3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F261B71B2200E6009DA2C3 /* main.m */; };
 		14F261BB1B2200E6009DA2C3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F261BA1B2200E6009DA2C3 /* AppDelegate.m */; };
@@ -34,6 +31,10 @@
 		14F261FD1B220B6D009DA2C3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14F261FC1B220B6D009DA2C3 /* UIKit.framework */; };
 		14F261FF1B220B7C009DA2C3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14F261FE1B220B7C009DA2C3 /* Foundation.framework */; };
 		14F262011B220E05009DA2C3 /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 14F262001B220E05009DA2C3 /* libz.1.1.3.dylib */; };
+		18E296771B2F25C10083274F /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E296761B2F25C10083274F /* MapViewController.m */; };
+		18E296821B2F2A030083274F /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E296811B2F2A020083274F /* Bolts.framework */; };
+		18E296841B2F2A110083274F /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E296831B2F2A110083274F /* Parse.framework */; };
+		18E296861B2F2A1E0083274F /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E296851B2F2A1E0083274F /* ParseUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,9 +48,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		14DE2CD41B25F2AB00B56241 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
-		14DE2CD61B25F2BA00B56241 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
-		14DE2CD81B25F2D300B56241 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "../parse-starter-project-1.7.4/ParseStarterProject/Parse.framework"; sourceTree = "<group>"; };
 		14DE2CDD1B25FDF600B56241 /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
 		14DE2CDE1B25FDF600B56241 /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
 		14F261B21B2200E6009DA2C3 /* Truckr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Truckr.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,6 +79,11 @@
 		14F261FC1B220B6D009DA2C3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		14F261FE1B220B7C009DA2C3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		14F262001B220E05009DA2C3 /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
+		18E296751B2F25C10083274F /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		18E296761B2F25C10083274F /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		18E296811B2F2A020083274F /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ParseFrameworks/Bolts.framework; sourceTree = "<group>"; };
+		18E296831B2F2A110083274F /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ParseFrameworks/Parse.framework; sourceTree = "<group>"; };
+		18E296851B2F2A1E0083274F /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseUI.framework; path = ParseFrameworks/ParseUI.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,9 +91,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14DE2CD91B25F2D300B56241 /* Parse.framework in Frameworks */,
-				14DE2CD71B25F2BA00B56241 /* Bolts.framework in Frameworks */,
-				14DE2CD51B25F2AB00B56241 /* ParseUI.framework in Frameworks */,
+				18E296861B2F2A1E0083274F /* ParseUI.framework in Frameworks */,
+				18E296841B2F2A110083274F /* Parse.framework in Frameworks */,
+				18E296821B2F2A030083274F /* Bolts.framework in Frameworks */,
 				14F262011B220E05009DA2C3 /* libz.1.1.3.dylib in Frameworks */,
 				14F261FF1B220B7C009DA2C3 /* Foundation.framework in Frameworks */,
 				14F261FD1B220B6D009DA2C3 /* UIKit.framework in Frameworks */,
@@ -143,6 +146,8 @@
 			children = (
 				14F261B91B2200E6009DA2C3 /* AppDelegate.h */,
 				14F261BA1B2200E6009DA2C3 /* AppDelegate.m */,
+				18E296751B2F25C10083274F /* MapViewController.h */,
+				18E296761B2F25C10083274F /* MapViewController.m */,
 				14F261BF1B2200E6009DA2C3 /* LoginViewController.h */,
 				14F261C01B2200E6009DA2C3 /* LoginViewController.m */,
 				14DE2CDD1B25FDF600B56241 /* SignupViewController.h */,
@@ -185,9 +190,9 @@
 		14F261E51B220967009DA2C3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				14DE2CD81B25F2D300B56241 /* Parse.framework */,
-				14DE2CD61B25F2BA00B56241 /* Bolts.framework */,
-				14DE2CD41B25F2AB00B56241 /* ParseUI.framework */,
+				18E296851B2F2A1E0083274F /* ParseUI.framework */,
+				18E296831B2F2A110083274F /* Parse.framework */,
+				18E296811B2F2A020083274F /* Bolts.framework */,
 				14F262001B220E05009DA2C3 /* libz.1.1.3.dylib */,
 				14F261FE1B220B7C009DA2C3 /* Foundation.framework */,
 				14F261FC1B220B6D009DA2C3 /* UIKit.framework */,
@@ -310,6 +315,7 @@
 				14F261BE1B2200E6009DA2C3 /* Truckr.xcdatamodeld in Sources */,
 				14F261BB1B2200E6009DA2C3 /* AppDelegate.m in Sources */,
 				14F261C11B2200E6009DA2C3 /* LoginViewController.m in Sources */,
+				18E296771B2F25C10083274F /* MapViewController.m in Sources */,
 				14F261B81B2200E6009DA2C3 /* main.m in Sources */,
 				14DE2CDF1B25FDF600B56241 /* SignupViewController.m in Sources */,
 			);
@@ -437,6 +443,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"/Users/matthewhendrickson/Desktop/parse-starter-project-1.7.4/ParseStarterProject",
+					"/Users/apple/Downloads/parse-starter-project-1.7.4/ParseStarterProject",
+					"$(PROJECT_DIR)/ParseFrameworks",
 				);
 				INFOPLIST_FILE = Truckr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -452,6 +460,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"/Users/matthewhendrickson/Desktop/parse-starter-project-1.7.4/ParseStarterProject",
+					"/Users/apple/Downloads/parse-starter-project-1.7.4/ParseStarterProject",
+					"$(PROJECT_DIR)/ParseFrameworks",
 				);
 				INFOPLIST_FILE = Truckr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

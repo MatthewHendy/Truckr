@@ -18,6 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    NSLog(@"username: '%@'",_username.text);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,15 +32,15 @@
     
     NSLog(@"username: %@\npw:%@\nconfpw: %@\nemail:%@",_username.text,_pw.text,_confirmPw.text,_email.text);
     
-    if (!_username.text) {
+    if ([_username.text isEqualToString:@""]) {
         NSLog(@"enter a username");
         return;
     }
-    if (!_pw.text){
+    if ([_pw.text isEqualToString:@""]){
         NSLog(@"enter a password");
         return;
     }
-    if (!_confirmPw.text) {
+    if ([_confirmPw.text isEqualToString:@""]) {
         NSLog(@"enter a confirm password");
         return;
     }
@@ -47,7 +48,7 @@
         NSLog(@"the password and confirm password dont match");
         return;
     }
-    if (!_email.text) {
+    if ([_email.text isEqualToString:@""]) {
         NSLog(@"enter an email");
         return;
     }
@@ -63,7 +64,7 @@
         if (!error) {
             NSLog(@"signed up!!");
             //display alertView
-            [[self navigationController] popViewControllerAnimated:YES];
+            [[self navigationController] popToRootViewControllerAnimated:YES];
         }
         else {
             NSString *errorString = [error userInfo][@"error"];
