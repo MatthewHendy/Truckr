@@ -9,8 +9,12 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 #import "LoginViewController.h"
+#import <MapKit/MapKit.h>
 
 
-@interface MapViewController : UIViewController
+@interface MapViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate>
+@property (strong, nonatomic) IBOutlet MKMapView *map;
+@property (strong, nonatomic) CLLocationManager *locationManager;
+
 
 @end

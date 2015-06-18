@@ -17,13 +17,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Map View" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T6c-1y-9PL">
-                                <rect key="frame" x="66" y="156" width="182" height="21"/>
+                                <rect key="frame" x="98" y="79" width="150" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w5a-dW-zVP">
-                                <rect key="frame" x="116" y="233" width="82" height="30"/>
+                                <rect key="frame" x="8" y="75" width="82" height="30"/>
                                 <state key="normal" title="Log Out">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -31,11 +31,15 @@
                                     <action selector="logout:" destination="PD4-0Z-3ZW" eventType="touchUpInside" id="UrN-Cw-BW9"/>
                                 </connections>
                             </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Fg-hz-I7O">
+                                <rect key="frame" x="16" y="108" width="277" height="357"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="NWo-BY-0f0"/>
                     <connections>
+                        <outlet property="map" destination="7Fg-hz-I7O" id="WHF-P1-kFj"/>
                         <segue destination="vXZ-lx-hvc" kind="show" identifier="login" id="Kbk-zX-h2W"/>
                     </connections>
                 </viewController>

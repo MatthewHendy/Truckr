@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
+#import <MapKit/MapKit.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface AppDelegate ()
 
@@ -21,7 +23,6 @@
     
     [Parse setApplicationId:@"q1z8UUnjXCYVN4bnNcDulVqF8ZaoInbQUkyzGWdk"
                   clientKey:@"Z6UUYyVdqOMR7POAif0HImojwueUdHy1OWiqXJHq"];
-    
     return YES;
 }
 
