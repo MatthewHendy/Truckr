@@ -13,20 +13,31 @@
 
 @interface MapViewController ()
 
+
 @end
 
+static NSString * const kAPIHost           = @"api.yelp.com";
+static NSString * const kSearchPath        = @"/v2/search/";
+static NSString * const kBusinessPath      = @"/v2/business/";
+static NSString * const kSearchLimit       = @"3";
+
 @implementation MapViewController
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     //check for permissions
-    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
-        [self.locationManager requestWhenInUseAuthorization];
-    }
+   
     
     //instantiate location manager
     _locationManager = [[CLLocationManager alloc] init];
     _locationManager.delegate = self;
+    
+    if ([_locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+        [_locationManager requestWhenInUseAuthorization];
+    }
+    
     [_locationManager startUpdatingLocation];
 
     //set map properties
@@ -34,8 +45,13 @@
     [_map setUserTrackingMode:MKUserTrackingModeFollow animated:YES];    
     [_map setCenterCoordinate:_map.userLocation.location.coordinate animated:YES];
  
-    [self quickSearch:@"4429 Duval St Austin TX 78751"];
+    //make the slider vertical
+    _SearchDistSlider.transform=CGAffineTransformRotate(_SearchDistSlider.transform,270.0/180*M_PI);
+    
+    
+    [self dropPinOnAddress:@"4604 Duval St. Austin, TX 78751"];
 }
+
 
 
 
@@ -60,9 +76,9 @@
     
 }
 
-- (void) quickSearch:(NSString*) query { //from Apple documentation. Source 1
+- (void) dropPinOnAddress:(NSString*) address { //from Apple documentation. Source 1
     MKLocalSearchRequest *request = [[MKLocalSearchRequest alloc] init];
-    request.naturalLanguageQuery = query;
+    request.naturalLanguageQuery = address;
     request.region = self.map.region;
     
     // Create and initialize a search object.
