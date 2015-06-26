@@ -12,10 +12,10 @@
 #import <MapKit/MapKit.h>
 
 
-@interface MapViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate>
+@interface MapViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate, UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet MKMapView *map;
 @property (strong, nonatomic) CLLocationManager *locationManager;
-@property (weak, nonatomic) IBOutlet UISlider *SearchDistSlider;
+@property (nonatomic) IBOutlet UISlider *SearchDistSlider;
 
 
 @end

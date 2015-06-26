@@ -10,8 +10,10 @@
 //  https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/LocationAwarenessPG/EnablingSearch/EnablingSearch.html#//apple_ref/doc/uid/TP40009497-CH10-SW1
 
 #import "MapViewController.h"
+#import "YPAPISample.h"
 
 @interface MapViewController ()
+@property (retain, nonatomic) IBOutlet UITextField *quickSearchField;
 
 
 @end
@@ -20,6 +22,7 @@ static NSString * const kAPIHost           = @"api.yelp.com";
 static NSString * const kSearchPath        = @"/v2/search/";
 static NSString * const kBusinessPath      = @"/v2/business/";
 static NSString * const kSearchLimit       = @"3";
+static NSString * const searchLocation = @"Austin, TX";
 
 @implementation MapViewController
 
@@ -44,15 +47,68 @@ static NSString * const kSearchLimit       = @"3";
     _map.delegate = self;
     [_map setUserTrackingMode:MKUserTrackingModeFollow animated:YES];    
     [_map setCenterCoordinate:_map.userLocation.location.coordinate animated:YES];
+    
+    _quickSearchField.delegate = self;
  
-    //make the slider vertical
-    _SearchDistSlider.transform=CGAffineTransformRotate(_SearchDistSlider.transform,270.0/180*M_PI);
     
-    
-    [self dropPinOnAddress:@"4604 Duval St. Austin, TX 78751"];
+    //[self dropPinOnAddress:@"4604 Duval St. Austin, TX 78751"];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    NSLog(@"enter pressed");
+    if (textField.tag == 1) {
+        [self yelp:_quickSearchField.text];
+        return YES;
+    }
+    return NO;
 }
 
 
+-(void) yelp:(NSString*) searchParam {
+    YPAPISample *APISample = [[YPAPISample alloc] init];
+    dispatch_group_t requestGroup = dispatch_group_create();
+    
+    dispatch_group_enter(requestGroup);
+    [APISample queryTopBusinessInfoForTerm:searchParam location:searchLocation completionHandler:^(NSDictionary *topBusinessJSON, NSError *error) {
+        
+        if (error) {
+            NSLog(@"An error happened during the request: %@", error);
+        } else if (topBusinessJSON) {
+            NSLog(@"Top business info: \n %@", topBusinessJSON);
+            NSString* busId = topBusinessJSON[@"id"];
+            NSLog(@"business id %@", busId);
+            NSDictionary * location = topBusinessJSON[@"location"];
+            NSLog(@"Top address info: \n %@", location);
+            NSArray * addressParts = location[@"display_address"];
+            NSLog(@"Top address parts info: \n %@",addressParts);
+            
+            NSString * address = [self appendFromArrayOfStrings:addressParts];
+            NSLog(@"Top business address info: \n %@", address);
+
+            
+            [self dropPinOnAddress:address];
+
+        } else {
+            NSLog(@"No business was found");
+        }
+        
+        dispatch_group_leave(requestGroup);
+    }];
+    
+    dispatch_group_wait(requestGroup, DISPATCH_TIME_FOREVER); // This avoids the program exiting before all our asynchronous callbacks have been made.
+}
+
+- (NSString*) appendFromArrayOfStrings:(NSArray*) array {
+    NSMutableString* address = [[NSMutableString alloc] init];
+
+    for (NSString * string in array) {
+        [address appendString:string];
+        if ( !([string isEqualToString:[array lastObject]]) )
+            [address  appendString: @", "];
+    }
+    NSString* ret = address;
+    return ret;
+}
 
 
 - (void)didReceiveMemoryWarning {
@@ -150,4 +206,8 @@ static NSString * const kSearchLimit       = @"3";
 }
 */
 
+- (void)dealloc {
+    [_quickSearchField release];
+    [super dealloc];
+}
 @end

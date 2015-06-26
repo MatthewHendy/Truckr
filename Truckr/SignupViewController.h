@@ -10,9 +10,9 @@
 #import <Parse/Parse.h>
 
 @interface SignupViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UITextField *username;
-@property (weak, nonatomic) IBOutlet UITextField *pw;
-@property (weak, nonatomic) IBOutlet UITextField *confirmPw;
-@property (weak, nonatomic) IBOutlet UITextField *email;
+@property (nonatomic) IBOutlet UITextField *username;
+@property (nonatomic) IBOutlet UITextField *pw;
+@property (nonatomic) IBOutlet UITextField *confirmPw;
+@property (nonatomic) IBOutlet UITextField *email;
 
 @end

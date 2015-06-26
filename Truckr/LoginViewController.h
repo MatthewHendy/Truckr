@@ -11,10 +11,10 @@
 #import "SignupViewController.h"
 
 @interface LoginViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UITextField *LoginUsername;
-@property (weak, nonatomic) IBOutlet UITextField *LoginPassword;
-@property (weak, nonatomic) IBOutlet UILabel *SignUpLabel;
-@property (weak, nonatomic) IBOutlet UIButton *SignupButton;
+@property (nonatomic) IBOutlet UITextField *LoginUsername;
+@property (nonatomic) IBOutlet UITextField *LoginPassword;
+@property (nonatomic) IBOutlet UILabel *SignUpLabel;
+@property (nonatomic) IBOutlet UIButton *SignupButton;
 
 
 @end

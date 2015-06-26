@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>A724B6E1-5F1A-4267-922B-8183A836BB7E</string>
 	<key>IDESourceControlProjectName</key>
-	<string>Truckr</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>A37D077B6D191FAFC71D39B5C2BE2106BB5F5ECB</key>
 		<string>https://bitbucket.org/matthewHendy/truckr.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Truckr.xcodeproj</string>
+	<string>Truckr.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>A37D077B6D191FAFC71D39B5C2BE2106BB5F5ECB</key>
