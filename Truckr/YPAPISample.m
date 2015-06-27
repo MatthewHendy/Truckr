@@ -10,11 +10,40 @@
 static NSString * const kAPIHost           = @"api.yelp.com";
 static NSString * const kSearchPath        = @"/v2/search/";
 static NSString * const kBusinessPath      = @"/v2/business/";
-static NSString * const kSearchLimit       = @"3";
+static NSString * const kSearchLimit       = @"20";
 
 @implementation YPAPISample
 
 #pragma mark - Public
+
+
+- (void) queryForArrayOfResults:(NSString*) term location: (NSString*) location completionHandler:(void (^)(NSDictionary * resultsJSON, NSError *error))completionHandler {
+    
+    NSLog(@"Querying the Search API with term \'%@\' and location \'%@'", term, location);
+    
+    //Make a first request to get the search results with the passed term and location
+    NSURLRequest *searchRequest = [self _searchRequestWithTerm:term location:location];
+    NSURLSession *session = [NSURLSession sharedSession];
+    [[session dataTaskWithRequest:searchRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+        
+        if (!error && httpResponse.statusCode == 200) {
+            
+            NSDictionary *searchResponseJSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+            NSDictionary *businessArray = searchResponseJSON[@"businesses"];
+            
+            
+            completionHandler(businessArray, error);
+            
+            
+        }
+        }] resume];
+    }
+
+
+
+
 
 - (void)queryTopBusinessInfoForTerm:(NSString *)term location:(NSString *)location completionHandler:(void (^)(NSDictionary *topBusinessJSON, NSError *error))completionHandler {
 
@@ -32,6 +61,10 @@ static NSString * const kSearchLimit       = @"3";
       NSDictionary *searchResponseJSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
       NSArray *businessArray = searchResponseJSON[@"businesses"];
 
+        //NSLog(@"%@", searchResponseJSON);
+        
+        
+        
       if ([businessArray count] > 0) {
         NSDictionary *firstBusiness = [businessArray firstObject];
         NSString *firstBusinessID = firstBusiness[@"id"];

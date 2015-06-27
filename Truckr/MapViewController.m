@@ -69,11 +69,28 @@ static NSString * const searchLocation = @"Austin, TX";
     dispatch_group_t requestGroup = dispatch_group_create();
     
     dispatch_group_enter(requestGroup);
-    [APISample queryTopBusinessInfoForTerm:searchParam location:searchLocation completionHandler:^(NSDictionary *topBusinessJSON, NSError *error) {
+    [APISample queryForArrayOfResults:searchParam location:searchLocation completionHandler:^(NSDictionary *resultsJSON, NSError *error) {
         
         if (error) {
             NSLog(@"An error happened during the request: %@", error);
-        } else if (topBusinessJSON) {
+        } else if (resultsJSON) {
+            
+            //this array will have the JSON's that have id's that contain the original user entered search term this trims down the returned trucks to ones that the user wants
+            NSMutableArray* cutResults = [[NSMutableArray alloc] init];
+            
+            //NSLog(@"number of results %d", [resultsJSON count]);
+            
+            for(NSDictionary* d in resultsJSON) {
+                if ([ d[@"id"] containsString:searchParam ]) {
+                    //NSLog(@"id: %@", d[@"id"]);
+                    [cutResults addObject:d];
+                }
+            }
+            
+            
+            
+            
+            /*
             NSLog(@"Top business info: \n %@", topBusinessJSON);
             NSString* busId = topBusinessJSON[@"id"];
             NSLog(@"business id %@", busId);
@@ -85,8 +102,8 @@ static NSString * const searchLocation = @"Austin, TX";
             NSString * address = [self appendFromArrayOfStrings:addressParts];
             NSLog(@"Top business address info: \n %@", address);
 
-            
-            [self dropPinOnAddress:address];
+            */
+            [self dropPinOnAddress:cutResults];
 
         } else {
             NSLog(@"No business was found");
@@ -132,24 +149,35 @@ static NSString * const searchLocation = @"Austin, TX";
     
 }
 
-- (void) dropPinOnAddress:(NSString*) address { //from Apple documentation. Source 1
-    MKLocalSearchRequest *request = [[MKLocalSearchRequest alloc] init];
-    request.naturalLanguageQuery = address;
-    request.region = self.map.region;
+- (void) dropPinOnAddress:(NSMutableArray*) array { //from Apple documentation. Source 1
+    [self.map removeAnnotations:[self.map annotations]];
+    for (NSDictionary* d in array) {
+        
+        NSDictionary * location = d[@"location"];
+        //NSLog(@"Top address info: \n %@", location);
+        NSArray * addressParts = location[@"display_address"];
+        //NSLog(@"Top address parts info: \n %@",addressParts);
+        
+        NSString * address = [self appendFromArrayOfStrings:addressParts];
+        NSLog(@"Top business address info: \n %@", address);
+        
+        MKLocalSearchRequest *request = [[MKLocalSearchRequest alloc] init];
+        request.naturalLanguageQuery = address;
+        request.region = self.map.region;
     
-    // Create and initialize a search object.
-    MKLocalSearch *search = [[MKLocalSearch alloc] initWithRequest:request];
+        // Create and initialize a search object.
+        MKLocalSearch *search = [[MKLocalSearch alloc] initWithRequest:request];
     
-    // Start the search and display the results as annotations on the map.
-    [search startWithCompletionHandler:^(MKLocalSearchResponse *response, NSError *error)
-    {
-        NSMutableArray *placemarks = [NSMutableArray array];
-        for (MKMapItem *item in response.mapItems) {
+        // Start the search and display the results as annotations on the map.
+        [search startWithCompletionHandler:^(MKLocalSearchResponse *response, NSError *error)
+         {
+             NSMutableArray *placemarks = [NSMutableArray array];
+             for (MKMapItem *item in response.mapItems) {
             [placemarks addObject:item.placemark];
-        }
-        [self.map removeAnnotations:[self.map annotations]];
-        [self.map showAnnotations:placemarks animated:NO];
-    }];
+             }
+             [self.map showAnnotations:placemarks animated:NO];
+         }];
+    }
 }
 
 - (IBAction)logout:(id)sender {

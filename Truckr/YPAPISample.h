@@ -25,5 +25,7 @@
  */
 - (void)queryTopBusinessInfoForTerm:(NSString *)term location:(NSString *)location completionHandler:(void (^)(NSDictionary *jsonResponse, NSError *error))completionHandler;
 
+- (void) queryForArrayOfResults:(NSString*) term location: (NSString*) location completionHandler:(void (^)(NSDictionary * resultsJSON, NSError *error))completionHandler;
+
 
 @end
