@@ -11,6 +11,7 @@
 
 #import "MapViewController.h"
 #import "YPAPISample.h"
+#import "AppDelegate.h"
 
 @interface MapViewController ()
 @property (retain, nonatomic) IBOutlet UITextField *quickSearchField;
@@ -31,6 +32,7 @@ static NSString * const searchLocation = @"Austin, TX";
 - (void)viewDidLoad {
     [super viewDidLoad];
     //check for permissions
+    NSLog(@"instantiated MapVC");
    
     
     //instantiate location manager
@@ -51,8 +53,51 @@ static NSString * const searchLocation = @"Austin, TX";
     _quickSearchField.delegate = self;
  
     
-    //[self dropPinOnAddress:@"4604 Duval St. Austin, TX 78751"];
+    //create bar buttons for sidebar stuff
+    UIBarButtonItem *leftMenuButton = [[UIBarButtonItem alloc] initWithTitle:@"Account"
+                                                                       style:UIBarButtonItemStylePlain
+                                                                      target:self
+                                                                      action:@selector(showLeftMenu:)];
+    
+    UIBarButtonItem *rightMenuButton = [[UIBarButtonItem alloc] initWithTitle:@"Trucks"
+                                                                        style:UIBarButtonItemStylePlain
+                                                                       target:self
+                                                                       action:@selector(showRightMenu:)];
+    
+    self.navigationItem.leftBarButtonItem = leftMenuButton;
+    self.navigationItem.rightBarButtonItem = rightMenuButton;
+
 }
+
+
+- (void)showLeftMenu:(id)sender
+{
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+
+    if(appDelegate.sidebarVC.sidebarIsPresenting)
+    {
+        [appDelegate.sidebarVC dismissSidebarViewController];
+    }
+    else
+    {
+        [appDelegate.sidebarVC presentLeftSidebarViewController];
+    }
+}
+
+- (void)showRightMenu:(id)sender
+{
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    if(appDelegate.sidebarVC.sidebarIsPresenting)
+    {
+        [appDelegate.sidebarVC dismissSidebarViewController];
+    }
+    else
+    {
+        [appDelegate.sidebarVC presentLeftSidebarViewController];
+    }
+}
+
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     NSLog(@"enter pressed");
@@ -200,6 +245,9 @@ static NSString * const searchLocation = @"Austin, TX";
 
 
 
+
+
+
 //useful code for dropping annotation points and setting regions
 /*
  double lat = 30.30926;
@@ -234,8 +282,10 @@ static NSString * const searchLocation = @"Austin, TX";
 }
 */
 
+/*
 - (void)dealloc {
     [_quickSearchField release];
     [super dealloc];
 }
+ */
 @end

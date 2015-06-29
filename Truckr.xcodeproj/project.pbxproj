@@ -33,23 +33,34 @@
 		14F262011B220E05009DA2C3 /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 14F262001B220E05009DA2C3 /* libz.1.1.3.dylib */; };
 		14F2704D1B39DD1B00EFD9CC /* NSURLRequest+OAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F270491B39DD1B00EFD9CC /* NSURLRequest+OAuth.m */; };
 		14F2704E1B39DD1B00EFD9CC /* YPAPISample.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F2704C1B39DD1B00EFD9CC /* YPAPISample.m */; };
-		14F270931B39E59C00EFD9CC /* OACall.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F2707A1B39E59C00EFD9CC /* OACall.m */; };
-		14F270941B39E59C00EFD9CC /* OAConsumer.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F2707C1B39E59C00EFD9CC /* OAConsumer.m */; };
-		14F270951B39E59C00EFD9CC /* OADataFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F2707E1B39E59C00EFD9CC /* OADataFetcher.m */; };
-		14F270961B39E59C00EFD9CC /* OAHMAC_SHA1SignatureProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F270801B39E59C00EFD9CC /* OAHMAC_SHA1SignatureProvider.m */; };
-		14F270971B39E59C00EFD9CC /* OAMutableURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F270821B39E59C00EFD9CC /* OAMutableURLRequest.m */; };
-		14F270981B39E59C00EFD9CC /* OAPlaintextSignatureProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F270841B39E59C00EFD9CC /* OAPlaintextSignatureProvider.m */; };
-		14F270991B39E59C00EFD9CC /* OAProblem.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F270861B39E59C00EFD9CC /* OAProblem.m */; };
-		14F2709A1B39E59C00EFD9CC /* OARequestParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F270881B39E59C00EFD9CC /* OARequestParameter.m */; };
-		14F2709B1B39E59C00EFD9CC /* OAServiceTicket.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F2708A1B39E59C00EFD9CC /* OAServiceTicket.m */; };
-		14F2709C1B39E59C00EFD9CC /* OAToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F2708D1B39E59C00EFD9CC /* OAToken.m */; };
-		14F2709D1B39E59C00EFD9CC /* OATokenManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F2708F1B39E59C00EFD9CC /* OATokenManager.m */; };
+		14F270931B39E59C00EFD9CC /* OACall.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F2707A1B39E59C00EFD9CC /* OACall.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		14F270941B39E59C00EFD9CC /* OAConsumer.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F2707C1B39E59C00EFD9CC /* OAConsumer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		14F270951B39E59C00EFD9CC /* OADataFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F2707E1B39E59C00EFD9CC /* OADataFetcher.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		14F270961B39E59C00EFD9CC /* OAHMAC_SHA1SignatureProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F270801B39E59C00EFD9CC /* OAHMAC_SHA1SignatureProvider.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		14F270971B39E59C00EFD9CC /* OAMutableURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F270821B39E59C00EFD9CC /* OAMutableURLRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		14F270981B39E59C00EFD9CC /* OAPlaintextSignatureProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F270841B39E59C00EFD9CC /* OAPlaintextSignatureProvider.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		14F270991B39E59C00EFD9CC /* OAProblem.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F270861B39E59C00EFD9CC /* OAProblem.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		14F2709A1B39E59C00EFD9CC /* OARequestParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F270881B39E59C00EFD9CC /* OARequestParameter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		14F2709B1B39E59C00EFD9CC /* OAServiceTicket.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F2708A1B39E59C00EFD9CC /* OAServiceTicket.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		14F2709C1B39E59C00EFD9CC /* OAToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F2708D1B39E59C00EFD9CC /* OAToken.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		14F2709D1B39E59C00EFD9CC /* OATokenManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F2708F1B39E59C00EFD9CC /* OATokenManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		14F270A51B39E5FF00EFD9CC /* Base64Transcoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 14F2709F1B39E5FF00EFD9CC /* Base64Transcoder.c */; };
 		14F270A61B39E5FF00EFD9CC /* hmac.c in Sources */ = {isa = PBXBuildFile; fileRef = 14F270A11B39E5FF00EFD9CC /* hmac.c */; };
 		14F270A71B39E5FF00EFD9CC /* sha1.c in Sources */ = {isa = PBXBuildFile; fileRef = 14F270A31B39E5FF00EFD9CC /* sha1.c */; };
-		14F270AF1B39E63B00EFD9CC /* NSMutableURLRequest+Parameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F270AA1B39E63B00EFD9CC /* NSMutableURLRequest+Parameters.m */; };
-		14F270B01B39E63B00EFD9CC /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F270AC1B39E63B00EFD9CC /* NSString+URLEncoding.m */; };
+		14F270AF1B39E63B00EFD9CC /* NSMutableURLRequest+Parameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F270AA1B39E63B00EFD9CC /* NSMutableURLRequest+Parameters.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		14F270B01B39E63B00EFD9CC /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F270AC1B39E63B00EFD9CC /* NSString+URLEncoding.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		14F270B11B39E63B00EFD9CC /* NSURL+Base.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F270AE1B39E63B00EFD9CC /* NSURL+Base.m */; };
+		18DF2F091B41941C00866638 /* SidebarAirbnbAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DF2EFC1B41941C00866638 /* SidebarAirbnbAnimation.m */; };
+		18DF2F0A1B41941C00866638 /* SidebarAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DF2EFE1B41941C00866638 /* SidebarAnimation.m */; };
+		18DF2F0B1B41941C00866638 /* SidebarFacebookAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DF2F001B41941C00866638 /* SidebarFacebookAnimation.m */; };
+		18DF2F0C1B41941C00866638 /* SidebarFeedlyAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DF2F021B41941C00866638 /* SidebarFeedlyAnimation.m */; };
+		18DF2F0D1B41941C00866638 /* SidebarFlipboardAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DF2F041B41941C00866638 /* SidebarFlipboardAnimation.m */; };
+		18DF2F0E1B41941C00866638 /* SidebarLuvocracyAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DF2F061B41941C00866638 /* SidebarLuvocracyAnimation.m */; };
+		18DF2F0F1B41941C00866638 /* SidebarWunderlistAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DF2F081B41941C00866638 /* SidebarWunderlistAnimation.m */; };
+		18DF2F121B41943500866638 /* TheSidebarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DF2F111B41943500866638 /* TheSidebarController.m */; };
+		18DF2F151B4197FE00866638 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18DF2F141B4197FE00866638 /* CoreGraphics.framework */; };
+		18DF2F1A1B419EF800866638 /* LeftVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DF2F191B419EF800866638 /* LeftVC.m */; };
+		18DF2F1D1B419F1300866638 /* RightVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DF2F1C1B419F1300866638 /* RightVC.m */; };
 		18E1A82E1B31E66B00A9CC84 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E1A82D1B31E66B00A9CC84 /* MapKit.framework */; };
 		18E296771B2F25C10083274F /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E296761B2F25C10083274F /* MapViewController.m */; };
 		18E296821B2F2A030083274F /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E296811B2F2A020083274F /* Bolts.framework */; };
@@ -140,6 +151,27 @@
 		14F270AC1B39E63B00EFD9CC /* NSString+URLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncoding.m"; sourceTree = "<group>"; };
 		14F270AD1B39E63B00EFD9CC /* NSURL+Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+Base.h"; sourceTree = "<group>"; };
 		14F270AE1B39E63B00EFD9CC /* NSURL+Base.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+Base.m"; sourceTree = "<group>"; };
+		18DF2EFB1B41941C00866638 /* SidebarAirbnbAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidebarAirbnbAnimation.h; sourceTree = "<group>"; };
+		18DF2EFC1B41941C00866638 /* SidebarAirbnbAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidebarAirbnbAnimation.m; sourceTree = "<group>"; };
+		18DF2EFD1B41941C00866638 /* SidebarAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidebarAnimation.h; sourceTree = "<group>"; };
+		18DF2EFE1B41941C00866638 /* SidebarAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidebarAnimation.m; sourceTree = "<group>"; };
+		18DF2EFF1B41941C00866638 /* SidebarFacebookAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidebarFacebookAnimation.h; sourceTree = "<group>"; };
+		18DF2F001B41941C00866638 /* SidebarFacebookAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidebarFacebookAnimation.m; sourceTree = "<group>"; };
+		18DF2F011B41941C00866638 /* SidebarFeedlyAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidebarFeedlyAnimation.h; sourceTree = "<group>"; };
+		18DF2F021B41941C00866638 /* SidebarFeedlyAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidebarFeedlyAnimation.m; sourceTree = "<group>"; };
+		18DF2F031B41941C00866638 /* SidebarFlipboardAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidebarFlipboardAnimation.h; sourceTree = "<group>"; };
+		18DF2F041B41941C00866638 /* SidebarFlipboardAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidebarFlipboardAnimation.m; sourceTree = "<group>"; };
+		18DF2F051B41941C00866638 /* SidebarLuvocracyAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidebarLuvocracyAnimation.h; sourceTree = "<group>"; };
+		18DF2F061B41941C00866638 /* SidebarLuvocracyAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidebarLuvocracyAnimation.m; sourceTree = "<group>"; };
+		18DF2F071B41941C00866638 /* SidebarWunderlistAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidebarWunderlistAnimation.h; sourceTree = "<group>"; };
+		18DF2F081B41941C00866638 /* SidebarWunderlistAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidebarWunderlistAnimation.m; sourceTree = "<group>"; };
+		18DF2F101B41943500866638 /* TheSidebarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TheSidebarController.h; sourceTree = "<group>"; };
+		18DF2F111B41943500866638 /* TheSidebarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TheSidebarController.m; sourceTree = "<group>"; };
+		18DF2F141B4197FE00866638 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		18DF2F181B419EF800866638 /* LeftVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftVC.h; sourceTree = "<group>"; };
+		18DF2F191B419EF800866638 /* LeftVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftVC.m; sourceTree = "<group>"; };
+		18DF2F1B1B419F1300866638 /* RightVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RightVC.h; sourceTree = "<group>"; };
+		18DF2F1C1B419F1300866638 /* RightVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightVC.m; sourceTree = "<group>"; };
 		18E1A82D1B31E66B00A9CC84 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		18E296751B2F25C10083274F /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		18E296761B2F25C10083274F /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
@@ -153,6 +185,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18DF2F151B4197FE00866638 /* CoreGraphics.framework in Frameworks */,
 				18E1A82E1B31E66B00A9CC84 /* MapKit.framework in Frameworks */,
 				18E296861B2F2A1E0083274F /* ParseUI.framework in Frameworks */,
 				18E296841B2F2A110083274F /* Parse.framework in Frameworks */,
@@ -207,19 +240,18 @@
 		14F261B41B2200E6009DA2C3 /* Truckr */ = {
 			isa = PBXGroup;
 			children = (
+				18DF2F131B41945A00866638 /* SideBar */,
 				14F2704F1B39DD2C00EFD9CC /* YelpAPI */,
 				14F261B91B2200E6009DA2C3 /* AppDelegate.h */,
 				14F261BA1B2200E6009DA2C3 /* AppDelegate.m */,
+				18DF2F171B419EA800866638 /* ParseVC's */,
 				18E296751B2F25C10083274F /* MapViewController.h */,
 				18E296761B2F25C10083274F /* MapViewController.m */,
-				14F261BF1B2200E6009DA2C3 /* LoginViewController.h */,
-				14F261C01B2200E6009DA2C3 /* LoginViewController.m */,
-				14DE2CDD1B25FDF600B56241 /* SignupViewController.h */,
-				14DE2CDE1B25FDF600B56241 /* SignupViewController.m */,
+				18DF2F181B419EF800866638 /* LeftVC.h */,
+				18DF2F191B419EF800866638 /* LeftVC.m */,
+				18DF2F1B1B419F1300866638 /* RightVC.h */,
+				18DF2F1C1B419F1300866638 /* RightVC.m */,
 				14F261C21B2200E6009DA2C3 /* Main.storyboard */,
-				14F261C51B2200E6009DA2C3 /* Images.xcassets */,
-				14F261C71B2200E6009DA2C3 /* LaunchScreen.xib */,
-				14F261BC1B2200E6009DA2C3 /* Truckr.xcdatamodeld */,
 				14F261B51B2200E6009DA2C3 /* Supporting Files */,
 			);
 			path = Truckr;
@@ -228,6 +260,9 @@
 		14F261B51B2200E6009DA2C3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				14F261C51B2200E6009DA2C3 /* Images.xcassets */,
+				14F261C71B2200E6009DA2C3 /* LaunchScreen.xib */,
+				14F261BC1B2200E6009DA2C3 /* Truckr.xcdatamodeld */,
 				14F261B61B2200E6009DA2C3 /* Info.plist */,
 				14F261B71B2200E6009DA2C3 /* main.m */,
 			);
@@ -254,6 +289,7 @@
 		14F261E51B220967009DA2C3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				18DF2F141B4197FE00866638 /* CoreGraphics.framework */,
 				18E1A82D1B31E66B00A9CC84 /* MapKit.framework */,
 				18E296851B2F2A1E0083274F /* ParseUI.framework */,
 				18E296831B2F2A110083274F /* Parse.framework */,
@@ -347,6 +383,48 @@
 				14F270AE1B39E63B00EFD9CC /* NSURL+Base.m */,
 			);
 			name = Categories;
+			sourceTree = "<group>";
+		};
+		18DF2F131B41945A00866638 /* SideBar */ = {
+			isa = PBXGroup;
+			children = (
+				18DF2F101B41943500866638 /* TheSidebarController.h */,
+				18DF2F111B41943500866638 /* TheSidebarController.m */,
+				18DF2F161B419CBD00866638 /* Animations */,
+			);
+			name = SideBar;
+			sourceTree = "<group>";
+		};
+		18DF2F161B419CBD00866638 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				18DF2EFB1B41941C00866638 /* SidebarAirbnbAnimation.h */,
+				18DF2EFC1B41941C00866638 /* SidebarAirbnbAnimation.m */,
+				18DF2EFD1B41941C00866638 /* SidebarAnimation.h */,
+				18DF2EFE1B41941C00866638 /* SidebarAnimation.m */,
+				18DF2EFF1B41941C00866638 /* SidebarFacebookAnimation.h */,
+				18DF2F001B41941C00866638 /* SidebarFacebookAnimation.m */,
+				18DF2F011B41941C00866638 /* SidebarFeedlyAnimation.h */,
+				18DF2F021B41941C00866638 /* SidebarFeedlyAnimation.m */,
+				18DF2F031B41941C00866638 /* SidebarFlipboardAnimation.h */,
+				18DF2F041B41941C00866638 /* SidebarFlipboardAnimation.m */,
+				18DF2F051B41941C00866638 /* SidebarLuvocracyAnimation.h */,
+				18DF2F061B41941C00866638 /* SidebarLuvocracyAnimation.m */,
+				18DF2F071B41941C00866638 /* SidebarWunderlistAnimation.h */,
+				18DF2F081B41941C00866638 /* SidebarWunderlistAnimation.m */,
+			);
+			name = Animations;
+			sourceTree = "<group>";
+		};
+		18DF2F171B419EA800866638 /* ParseVC's */ = {
+			isa = PBXGroup;
+			children = (
+				14F261BF1B2200E6009DA2C3 /* LoginViewController.h */,
+				14F261C01B2200E6009DA2C3 /* LoginViewController.m */,
+				14DE2CDD1B25FDF600B56241 /* SignupViewController.h */,
+				14DE2CDE1B25FDF600B56241 /* SignupViewController.m */,
+			);
+			name = "ParseVC's";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -451,18 +529,26 @@
 			files = (
 				14F261BE1B2200E6009DA2C3 /* Truckr.xcdatamodeld in Sources */,
 				14F2709D1B39E59C00EFD9CC /* OATokenManager.m in Sources */,
+				18DF2F0F1B41941C00866638 /* SidebarWunderlistAnimation.m in Sources */,
 				14F261BB1B2200E6009DA2C3 /* AppDelegate.m in Sources */,
+				18DF2F0C1B41941C00866638 /* SidebarFeedlyAnimation.m in Sources */,
 				14F270991B39E59C00EFD9CC /* OAProblem.m in Sources */,
 				14F270B11B39E63B00EFD9CC /* NSURL+Base.m in Sources */,
+				18DF2F1D1B419F1300866638 /* RightVC.m in Sources */,
+				18DF2F1A1B419EF800866638 /* LeftVC.m in Sources */,
 				14F2709C1B39E59C00EFD9CC /* OAToken.m in Sources */,
 				14F270971B39E59C00EFD9CC /* OAMutableURLRequest.m in Sources */,
 				14F270B01B39E63B00EFD9CC /* NSString+URLEncoding.m in Sources */,
 				14F270A71B39E5FF00EFD9CC /* sha1.c in Sources */,
 				14F270951B39E59C00EFD9CC /* OADataFetcher.m in Sources */,
 				14F261C11B2200E6009DA2C3 /* LoginViewController.m in Sources */,
+				18DF2F0A1B41941C00866638 /* SidebarAnimation.m in Sources */,
+				18DF2F0D1B41941C00866638 /* SidebarFlipboardAnimation.m in Sources */,
 				18E296771B2F25C10083274F /* MapViewController.m in Sources */,
+				18DF2F0B1B41941C00866638 /* SidebarFacebookAnimation.m in Sources */,
 				14F261B81B2200E6009DA2C3 /* main.m in Sources */,
 				14F270931B39E59C00EFD9CC /* OACall.m in Sources */,
+				18DF2F121B41943500866638 /* TheSidebarController.m in Sources */,
 				14F2709B1B39E59C00EFD9CC /* OAServiceTicket.m in Sources */,
 				14F2709A1B39E59C00EFD9CC /* OARequestParameter.m in Sources */,
 				14F270A51B39E5FF00EFD9CC /* Base64Transcoder.c in Sources */,
@@ -470,8 +556,10 @@
 				14F270AF1B39E63B00EFD9CC /* NSMutableURLRequest+Parameters.m in Sources */,
 				14F270A61B39E5FF00EFD9CC /* hmac.c in Sources */,
 				14F270941B39E59C00EFD9CC /* OAConsumer.m in Sources */,
+				18DF2F091B41941C00866638 /* SidebarAirbnbAnimation.m in Sources */,
 				14DE2CDF1B25FDF600B56241 /* SignupViewController.m in Sources */,
 				14F2704D1B39DD1B00EFD9CC /* NSURLRequest+OAuth.m in Sources */,
+				18DF2F0E1B41941C00866638 /* SidebarLuvocracyAnimation.m in Sources */,
 				14F270961B39E59C00EFD9CC /* OAHMAC_SHA1SignatureProvider.m in Sources */,
 				14F270981B39E59C00EFD9CC /* OAPlaintextSignatureProvider.m in Sources */,
 			);
@@ -595,7 +683,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -613,7 +701,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

@@ -11,6 +11,11 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 
+#import "TheSidebarController.h"
+#import "MapViewController.h"//center VC
+#import "LeftVC.h"
+#import "RightVC.h"
+
 @interface AppDelegate ()
 
 @end
@@ -23,6 +28,20 @@
     
     [Parse setApplicationId:@"q1z8UUnjXCYVN4bnNcDulVqF8ZaoInbQUkyzGWdk"
                   clientKey:@"Z6UUYyVdqOMR7POAif0HImojwueUdHy1OWiqXJHq"];
+    
+    
+    UIStoryboard *main = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+    
+    //MapViewController* mapVC = [main instantiateViewControllerWithIdentifier:@"mapVC"];
+    UINavigationController *contentViewController = [main instantiateViewControllerWithIdentifier:@"navC"];
+    LeftVC* leftVC = [main instantiateViewControllerWithIdentifier:@"leftVC"];
+    RightVC* rightVC = [main instantiateViewControllerWithIdentifier:@"rightVC"];
+    
+    _sidebarVC = [[TheSidebarController alloc] initWithContentViewController:contentViewController leftSidebarViewController:leftVC rightSidebarViewController:rightVC storyboardsUseAutoLayout:YES];
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.rootViewController = _sidebarVC;
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
