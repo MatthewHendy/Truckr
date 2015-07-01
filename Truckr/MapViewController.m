@@ -72,15 +72,17 @@ static NSString * const searchLocation = @"Austin, TX";
 
 - (void)showLeftMenu:(id)sender
 {
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-
-    if(appDelegate.sidebarVC.sidebarIsPresenting)
+    AppDelegate* dele = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    if(dele.sidebarVC.sidebarIsPresenting)
     {
-        [appDelegate.sidebarVC dismissSidebarViewController];
-    }
+        [dele.sidebarVC dismissSidebarViewController];
+            }
     else
     {
-        [appDelegate.sidebarVC presentLeftSidebarViewController];
+        NSString* name = [PFUser currentUser].username;
+        dele.leftVC.userLabel.text = [NSString stringWithFormat:@"Hi %@!",name];
+        [dele.sidebarVC presentLeftSidebarViewController];
     }
 }
 

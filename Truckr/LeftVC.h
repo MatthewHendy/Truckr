@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface LeftVC : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *userLabel;
+@property (weak, nonatomic) IBOutlet UIButton *logoutButton;
 
 @end
