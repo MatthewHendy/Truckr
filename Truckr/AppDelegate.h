@@ -11,7 +11,6 @@
 #import "TheSidebarController.h"
 #import "MapViewController.h"//center VC
 #import "LeftVC.h"
-#import "RightVC.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -22,6 +21,9 @@
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
 @property (nonatomic) TheSidebarController* sidebarVC;
+@property (nonatomic) UINavigationController * navC;
+@property (nonatomic) MapViewController* mapVC;
+@property (nonatomic) LeftVC * leftVC;
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;

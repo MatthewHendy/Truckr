@@ -188,7 +188,8 @@ static NSString * const searchLocation = @"Austin, TX";
     }
     else {
         //do modal segue to login view controller
-        [self performSegueWithIdentifier:@"login" sender:self];
+        NSLog(@"not logged in");
+        [self performSegueWithIdentifier:@"logout" sender:self];
     }
     
     
@@ -234,7 +235,7 @@ static NSString * const searchLocation = @"Austin, TX";
     }
     else {
         NSLog(@"logged out");
-        [self performSegueWithIdentifier:@"login" sender:self];
+        [self performSegueWithIdentifier:@"logout" sender:self];
     }
 }
 

@@ -60,7 +60,6 @@
 		18DF2F121B41943500866638 /* TheSidebarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DF2F111B41943500866638 /* TheSidebarController.m */; };
 		18DF2F151B4197FE00866638 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18DF2F141B4197FE00866638 /* CoreGraphics.framework */; };
 		18DF2F1A1B419EF800866638 /* LeftVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DF2F191B419EF800866638 /* LeftVC.m */; };
-		18DF2F1D1B419F1300866638 /* RightVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DF2F1C1B419F1300866638 /* RightVC.m */; };
 		18E1A82E1B31E66B00A9CC84 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E1A82D1B31E66B00A9CC84 /* MapKit.framework */; };
 		18E296771B2F25C10083274F /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E296761B2F25C10083274F /* MapViewController.m */; };
 		18E296821B2F2A030083274F /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E296811B2F2A020083274F /* Bolts.framework */; };
@@ -170,8 +169,6 @@
 		18DF2F141B4197FE00866638 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		18DF2F181B419EF800866638 /* LeftVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftVC.h; sourceTree = "<group>"; };
 		18DF2F191B419EF800866638 /* LeftVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftVC.m; sourceTree = "<group>"; };
-		18DF2F1B1B419F1300866638 /* RightVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RightVC.h; sourceTree = "<group>"; };
-		18DF2F1C1B419F1300866638 /* RightVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightVC.m; sourceTree = "<group>"; };
 		18E1A82D1B31E66B00A9CC84 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		18E296751B2F25C10083274F /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		18E296761B2F25C10083274F /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
@@ -249,8 +246,6 @@
 				18E296761B2F25C10083274F /* MapViewController.m */,
 				18DF2F181B419EF800866638 /* LeftVC.h */,
 				18DF2F191B419EF800866638 /* LeftVC.m */,
-				18DF2F1B1B419F1300866638 /* RightVC.h */,
-				18DF2F1C1B419F1300866638 /* RightVC.m */,
 				14F261C21B2200E6009DA2C3 /* Main.storyboard */,
 				14F261B51B2200E6009DA2C3 /* Supporting Files */,
 			);
@@ -534,7 +529,6 @@
 				18DF2F0C1B41941C00866638 /* SidebarFeedlyAnimation.m in Sources */,
 				14F270991B39E59C00EFD9CC /* OAProblem.m in Sources */,
 				14F270B11B39E63B00EFD9CC /* NSURL+Base.m in Sources */,
-				18DF2F1D1B419F1300866638 /* RightVC.m in Sources */,
 				18DF2F1A1B419EF800866638 /* LeftVC.m in Sources */,
 				14F2709C1B39E59C00EFD9CC /* OAToken.m in Sources */,
 				14F270971B39E59C00EFD9CC /* OAMutableURLRequest.m in Sources */,

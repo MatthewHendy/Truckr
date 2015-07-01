@@ -14,7 +14,6 @@
 #import "TheSidebarController.h"
 #import "MapViewController.h"//center VC
 #import "LeftVC.h"
-#import "RightVC.h"
 
 @interface AppDelegate ()
 
@@ -32,12 +31,12 @@
     
     UIStoryboard *main = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
     
-    //MapViewController* mapVC = [main instantiateViewControllerWithIdentifier:@"mapVC"];
-    UINavigationController *contentViewController = [main instantiateViewControllerWithIdentifier:@"navC"];
-    LeftVC* leftVC = [main instantiateViewControllerWithIdentifier:@"leftVC"];
-    RightVC* rightVC = [main instantiateViewControllerWithIdentifier:@"rightVC"];
+    _mapVC = [main instantiateViewControllerWithIdentifier:@"mapVC"];
+    _navC = [[UINavigationController alloc] initWithRootViewController:_mapVC];
     
-    _sidebarVC = [[TheSidebarController alloc] initWithContentViewController:contentViewController leftSidebarViewController:leftVC rightSidebarViewController:rightVC storyboardsUseAutoLayout:YES];
+    _leftVC = [main instantiateViewControllerWithIdentifier:@"leftVC"];
+    
+    _sidebarVC = [[TheSidebarController alloc] initWithContentViewController:_navC leftSidebarViewController:_leftVC storyboardsUseAutoLayout:YES];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = _sidebarVC;
