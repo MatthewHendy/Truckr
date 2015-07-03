@@ -10,12 +10,17 @@
 #import <Parse/Parse.h>
 #import "LoginViewController.h"
 #import <MapKit/MapKit.h>
+#import "TruckCallout.h"
+
+
 
 
 @interface MapViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate, UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet MKMapView *map;
 @property (strong, nonatomic) CLLocationManager *locationManager;
-@property (nonatomic) IBOutlet UISlider *SearchDistSlider;
+@property (weak, nonatomic) TruckCallout* callout;
+
+- (void) closeCallout:(UIGestureRecognizer*) recognizer;
 
 
 @end

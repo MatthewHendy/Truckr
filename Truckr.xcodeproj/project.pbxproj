@@ -60,6 +60,8 @@
 		18DF2F121B41943500866638 /* TheSidebarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DF2F111B41943500866638 /* TheSidebarController.m */; };
 		18DF2F151B4197FE00866638 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18DF2F141B4197FE00866638 /* CoreGraphics.framework */; };
 		18DF2F1A1B419EF800866638 /* LeftVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DF2F191B419EF800866638 /* LeftVC.m */; };
+		18DF2F201B458D0000866638 /* TruckCallout.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DF2F1F1B458D0000866638 /* TruckCallout.m */; };
+		18DF2F221B458E4F00866638 /* TruckCallout.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18DF2F211B458E4F00866638 /* TruckCallout.xib */; };
 		18E1A82E1B31E66B00A9CC84 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E1A82D1B31E66B00A9CC84 /* MapKit.framework */; };
 		18E296771B2F25C10083274F /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E296761B2F25C10083274F /* MapViewController.m */; };
 		18E296821B2F2A030083274F /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E296811B2F2A020083274F /* Bolts.framework */; };
@@ -169,6 +171,9 @@
 		18DF2F141B4197FE00866638 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		18DF2F181B419EF800866638 /* LeftVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftVC.h; sourceTree = "<group>"; };
 		18DF2F191B419EF800866638 /* LeftVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftVC.m; sourceTree = "<group>"; };
+		18DF2F1E1B458D0000866638 /* TruckCallout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TruckCallout.h; sourceTree = "<group>"; };
+		18DF2F1F1B458D0000866638 /* TruckCallout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TruckCallout.m; sourceTree = "<group>"; };
+		18DF2F211B458E4F00866638 /* TruckCallout.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TruckCallout.xib; sourceTree = "<group>"; };
 		18E1A82D1B31E66B00A9CC84 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		18E296751B2F25C10083274F /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		18E296761B2F25C10083274F /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
@@ -244,8 +249,9 @@
 				18DF2F171B419EA800866638 /* ParseVC's */,
 				18E296751B2F25C10083274F /* MapViewController.h */,
 				18E296761B2F25C10083274F /* MapViewController.m */,
-				18DF2F181B419EF800866638 /* LeftVC.h */,
-				18DF2F191B419EF800866638 /* LeftVC.m */,
+				18DF2F1E1B458D0000866638 /* TruckCallout.h */,
+				18DF2F1F1B458D0000866638 /* TruckCallout.m */,
+				18DF2F211B458E4F00866638 /* TruckCallout.xib */,
 				14F261C21B2200E6009DA2C3 /* Main.storyboard */,
 				14F261B51B2200E6009DA2C3 /* Supporting Files */,
 			);
@@ -385,6 +391,8 @@
 			children = (
 				18DF2F101B41943500866638 /* TheSidebarController.h */,
 				18DF2F111B41943500866638 /* TheSidebarController.m */,
+				18DF2F181B419EF800866638 /* LeftVC.h */,
+				18DF2F191B419EF800866638 /* LeftVC.m */,
 				18DF2F161B419CBD00866638 /* Animations */,
 			);
 			name = SideBar;
@@ -504,6 +512,7 @@
 			files = (
 				14F261C41B2200E6009DA2C3 /* Main.storyboard in Resources */,
 				14F261C91B2200E6009DA2C3 /* LaunchScreen.xib in Resources */,
+				18DF2F221B458E4F00866638 /* TruckCallout.xib in Resources */,
 				14F261C61B2200E6009DA2C3 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -526,6 +535,7 @@
 				14F2709D1B39E59C00EFD9CC /* OATokenManager.m in Sources */,
 				18DF2F0F1B41941C00866638 /* SidebarWunderlistAnimation.m in Sources */,
 				14F261BB1B2200E6009DA2C3 /* AppDelegate.m in Sources */,
+				18DF2F201B458D0000866638 /* TruckCallout.m in Sources */,
 				18DF2F0C1B41941C00866638 /* SidebarFeedlyAnimation.m in Sources */,
 				14F270991B39E59C00EFD9CC /* OAProblem.m in Sources */,
 				14F270B11B39E63B00EFD9CC /* NSURL+Base.m in Sources */,

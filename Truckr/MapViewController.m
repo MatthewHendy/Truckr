@@ -53,20 +53,27 @@ static NSString * const searchLocation = @"Austin, TX";
     _quickSearchField.delegate = self;
  
     
-    //create bar buttons for sidebar stuff
+    //create bar button for sidebar stuff
     UIBarButtonItem *leftMenuButton = [[UIBarButtonItem alloc] initWithTitle:@"Account"
                                                                        style:UIBarButtonItemStylePlain
                                                                       target:self
                                                                       action:@selector(showLeftMenu:)];
     
-    UIBarButtonItem *rightMenuButton = [[UIBarButtonItem alloc] initWithTitle:@"Trucks"
-                                                                        style:UIBarButtonItemStylePlain
-                                                                       target:self
-                                                                       action:@selector(showRightMenu:)];
-    
     self.navigationItem.leftBarButtonItem = leftMenuButton;
-    self.navigationItem.rightBarButtonItem = rightMenuButton;
 
+}
+
+
+
+-(void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
+    NSArray* elems = [[NSBundle mainBundle] loadNibNamed:@"TruckCallout" owner:Nil options:nil];
+    _callout = [elems lastObject];
+    [view addSubview:_callout];
+    
+}
+
+- (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view {
+    [_callout removeFromSuperview];
 }
 
 
@@ -83,20 +90,6 @@ static NSString * const searchLocation = @"Austin, TX";
         NSString* name = [PFUser currentUser].username;
         dele.leftVC.userLabel.text = [NSString stringWithFormat:@"Hi %@!",name];
         [dele.sidebarVC presentLeftSidebarViewController];
-    }
-}
-
-- (void)showRightMenu:(id)sender
-{
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    
-    if(appDelegate.sidebarVC.sidebarIsPresenting)
-    {
-        [appDelegate.sidebarVC dismissSidebarViewController];
-    }
-    else
-    {
-        [appDelegate.sidebarVC presentLeftSidebarViewController];
     }
 }
 
@@ -137,19 +130,9 @@ static NSString * const searchLocation = @"Austin, TX";
             
             
             
-            /*
-            NSLog(@"Top business info: \n %@", topBusinessJSON);
-            NSString* busId = topBusinessJSON[@"id"];
-            NSLog(@"business id %@", busId);
-            NSDictionary * location = topBusinessJSON[@"location"];
-            NSLog(@"Top address info: \n %@", location);
-            NSArray * addressParts = location[@"display_address"];
-            NSLog(@"Top address parts info: \n %@",addressParts);
-            
-            NSString * address = [self appendFromArrayOfStrings:addressParts];
-            NSLog(@"Top business address info: \n %@", address);
+           
 
-            */
+            
             [self dropPinOnAddress:cutResults];
 
         } else {
@@ -162,40 +145,11 @@ static NSString * const searchLocation = @"Austin, TX";
     dispatch_group_wait(requestGroup, DISPATCH_TIME_FOREVER); // This avoids the program exiting before all our asynchronous callbacks have been made.
 }
 
-- (NSString*) appendFromArrayOfStrings:(NSArray*) array {
-    NSMutableString* address = [[NSMutableString alloc] init];
-
-    for (NSString * string in array) {
-        [address appendString:string];
-        if ( !([string isEqualToString:[array lastObject]]) )
-            [address  appendString: @", "];
-    }
-    NSString* ret = address;
-    return ret;
-}
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    
-    //check login information
-    PFUser *currentUser = [PFUser currentUser];
-    if (currentUser) {//if logged in, great
-        NSLog(@"current user is %@", currentUser.username);
-    }
-    else {
-        //do modal segue to login view controller
-        NSLog(@"not logged in");
-        [self performSegueWithIdentifier:@"logout" sender:self];
-    }
-    
-    
-}
+
+
 
 - (void) dropPinOnAddress:(NSMutableArray*) array { //from Apple documentation. Source 1
     [self.map removeAnnotations:[self.map annotations]];
@@ -228,6 +182,40 @@ static NSString * const searchLocation = @"Austin, TX";
     }
 }
 
+- (NSString*) appendFromArrayOfStrings:(NSArray*) array {
+    NSMutableString* address = [[NSMutableString alloc] init];
+    
+    for (NSString * string in array) {
+        [address appendString:string];
+        if ( !([string isEqualToString:[array lastObject]]) )
+            [address  appendString: @", "];
+    }
+    NSString* ret = address;
+    return ret;
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    //check login information
+    PFUser *currentUser = [PFUser currentUser];
+    if (currentUser) {//if logged in, great
+        NSLog(@"current user is %@", currentUser.username);
+    }
+    else {
+        //do modal segue to login view controller
+        NSLog(@"not logged in");
+        [self performSegueWithIdentifier:@"logout" sender:self];
+    }
+    
+    
+}
+
 - (IBAction)logout:(id)sender {
     [PFUser logOut];
     PFUser *currentUser = [PFUser currentUser];
@@ -240,7 +228,6 @@ static NSString * const searchLocation = @"Austin, TX";
         [self performSegueWithIdentifier:@"logout" sender:self];
     }
 }
-
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
