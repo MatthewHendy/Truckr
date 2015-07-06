@@ -21,7 +21,7 @@
 - (id) initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        NSLog(@"init'd callout");
+        //NSLog(@"init'd callout");
     }
     return self;
 }

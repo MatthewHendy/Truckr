@@ -67,6 +67,7 @@
 		18E296821B2F2A030083274F /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E296811B2F2A020083274F /* Bolts.framework */; };
 		18E296841B2F2A110083274F /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E296831B2F2A110083274F /* Parse.framework */; };
 		18E296861B2F2A1E0083274F /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E296851B2F2A1E0083274F /* ParseUI.framework */; };
+		18EABD211B4AE89600380392 /* TruckInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EABD201B4AE89600380392 /* TruckInfo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -180,6 +181,8 @@
 		18E296811B2F2A020083274F /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ParseFrameworks/Bolts.framework; sourceTree = "<group>"; };
 		18E296831B2F2A110083274F /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ParseFrameworks/Parse.framework; sourceTree = "<group>"; };
 		18E296851B2F2A1E0083274F /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseUI.framework; path = ParseFrameworks/ParseUI.framework; sourceTree = "<group>"; };
+		18EABD1F1B4AE89600380392 /* TruckInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TruckInfo.h; sourceTree = "<group>"; };
+		18EABD201B4AE89600380392 /* TruckInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TruckInfo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,6 +252,8 @@
 				18DF2F171B419EA800866638 /* ParseVC's */,
 				18E296751B2F25C10083274F /* MapViewController.h */,
 				18E296761B2F25C10083274F /* MapViewController.m */,
+				18EABD1F1B4AE89600380392 /* TruckInfo.h */,
+				18EABD201B4AE89600380392 /* TruckInfo.m */,
 				18DF2F1E1B458D0000866638 /* TruckCallout.h */,
 				18DF2F1F1B458D0000866638 /* TruckCallout.m */,
 				18DF2F211B458E4F00866638 /* TruckCallout.xib */,
@@ -554,6 +559,7 @@
 				14F270931B39E59C00EFD9CC /* OACall.m in Sources */,
 				18DF2F121B41943500866638 /* TheSidebarController.m in Sources */,
 				14F2709B1B39E59C00EFD9CC /* OAServiceTicket.m in Sources */,
+				18EABD211B4AE89600380392 /* TruckInfo.m in Sources */,
 				14F2709A1B39E59C00EFD9CC /* OARequestParameter.m in Sources */,
 				14F270A51B39E5FF00EFD9CC /* Base64Transcoder.c in Sources */,
 				14F2704E1B39DD1B00EFD9CC /* YPAPISample.m in Sources */,

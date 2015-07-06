@@ -149,37 +149,38 @@ static NSString * const searchLocation = @"Austin, TX";
 
 
 
-
-
 - (void) dropPinOnAddress:(NSMutableArray*) array { //from Apple documentation. Source 1
     [self.map removeAnnotations:[self.map annotations]];
+    
+    NSMutableArray* trucksToShow = [[NSMutableArray alloc] init];
+    
     for (NSDictionary* d in array) {
-        
+
         NSDictionary * location = d[@"location"];
-        //NSLog(@"Top address info: \n %@", location);
         NSArray * addressParts = location[@"display_address"];
-        //NSLog(@"Top address parts info: \n %@",addressParts);
-        
+        NSString* name = d[@"id"];
         NSString * address = [self appendFromArrayOfStrings:addressParts];
-        NSLog(@"Top business address info: \n %@", address);
         
-        MKLocalSearchRequest *request = [[MKLocalSearchRequest alloc] init];
-        request.naturalLanguageQuery = address;
-        request.region = self.map.region;
-    
-        // Create and initialize a search object.
-        MKLocalSearch *search = [[MKLocalSearch alloc] initWithRequest:request];
-    
-        // Start the search and display the results as annotations on the map.
-        [search startWithCompletionHandler:^(MKLocalSearchResponse *response, NSError *error)
-         {
-             NSMutableArray *placemarks = [NSMutableArray array];
-             for (MKMapItem *item in response.mapItems) {
-            [placemarks addObject:item.placemark];
-             }
-             [self.map showAnnotations:placemarks animated:NO];
-         }];
+        //NSLog(@"%@ is located at %@",name, address);
+
+        
+        TruckInfo* truckInfo = [[TruckInfo alloc] initWithTitle:name address:address];
+        
+        [_map addAnnotation:truckInfo];
+        [trucksToShow addObject:truckInfo.pl];
+        
+        //[self.map showAnnotations:trucksToShow animated:NO];
+
+        
+        
+        
+        
+        
+        
+        
     }
+    
+    
 }
 
 - (NSString*) appendFromArrayOfStrings:(NSArray*) array {

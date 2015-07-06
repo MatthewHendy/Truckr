@@ -11,6 +11,7 @@
 #import "LoginViewController.h"
 #import <MapKit/MapKit.h>
 #import "TruckCallout.h"
+#import "TruckInfo.h"
 
 
 
