@@ -50,9 +50,13 @@ static NSString * const searchLocation = @"Austin, TX";
     [_map setUserTrackingMode:MKUserTrackingModeFollow animated:YES];    
     [_map setCenterCoordinate:_map.userLocation.location.coordinate animated:YES];
     
+    CLLocationCoordinate2D center = CLLocationCoordinate2DMake(30.30926, -97.723481);
+    MKCoordinateSpan span = MKCoordinateSpanMake(0.5f, 0.5f);
+    MKCoordinateRegion region = MKCoordinateRegionMake (center, span);
+    [_map setRegion:region];
+    
     _quickSearchField.delegate = self;
  
-    
     //create bar button for sidebar stuff
     UIBarButtonItem *leftMenuButton = [[UIBarButtonItem alloc] initWithTitle:@"Account"
                                                                        style:UIBarButtonItemStylePlain
@@ -167,7 +171,7 @@ static NSString * const searchLocation = @"Austin, TX";
         TruckInfo* truckInfo = [[TruckInfo alloc] initWithTitle:name address:address];
         
         [_map addAnnotation:truckInfo];
-        [trucksToShow addObject:truckInfo.pl];
+        //[trucksToShow addObject:truckInfo.pl];
         
         //[self.map showAnnotations:trucksToShow animated:NO];
 
