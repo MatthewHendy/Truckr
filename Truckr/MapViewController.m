@@ -156,7 +156,6 @@ static NSString * const searchLocation = @"Austin, TX";
 - (void) dropPinOnAddress:(NSMutableArray*) array { //from Apple documentation. Source 1
     [self.map removeAnnotations:[self.map annotations]];
     
-    NSMutableArray* trucksToShow = [[NSMutableArray alloc] init];
     
     for (NSDictionary* d in array) {
 
@@ -167,21 +166,10 @@ static NSString * const searchLocation = @"Austin, TX";
         
         //NSLog(@"%@ is located at %@",name, address);
 
-        
-        TruckInfo* truckInfo = [[TruckInfo alloc] initWithTitle:name address:address];
-        
-        [_map addAnnotation:truckInfo];
-        //[trucksToShow addObject:truckInfo.pl];
-        
-        //[self.map showAnnotations:trucksToShow animated:NO];
+        TruckInfo* truckInfo = [[TruckInfo alloc] initWithTitle:name address:address];//places the annotation on the map due to geocoder asynchronously converting the address to coordinates. the addAnnotation call is done within the completion block of the geocoder
+        //NSLog(@"name: %@\nlat: %f\nlon: %f",truckInfo.title, truckInfo.coordinate.latitude, truckInfo.coordinate.longitude);
+        NSLog(@"name: %@\naddress: %@",truckInfo.title, truckInfo.address);
 
-        
-        
-        
-        
-        
-        
-        
     }
     
     

@@ -11,6 +11,8 @@
 #import "TruckInfo.h"
 #import "MapViewController.h"
 #import <MapKit/MapKit.h>
+#import "AppDelegate.h"
+
 
 @implementation TruckInfo
 
@@ -29,6 +31,7 @@
     self = [super init];
     if (self) {
         _title = newTitle;
+        _address = address;
         [self addrToCoord:address];//sets the coordinate property
     }
     return self;
@@ -47,7 +50,8 @@
 
 //source 1
 -(void) addrToCoord:(NSString*) location {
-    
+    AppDelegate* dele = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    MapViewController* mvc = dele.mapVC;
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
     [geocoder geocodeAddressString:location
                  completionHandler:^(NSArray* placemarks, NSError* error){
@@ -56,12 +60,14 @@
                          MKPlacemark *placemark = [[MKPlacemark alloc] initWithPlacemark:topResult];
                          
                          _coordinate = placemark.coordinate;
-                         _pl = [[MKPlacemark alloc] initWithPlacemark:topResult];
+                         [mvc.map addAnnotation:self];
                      }
                      else {
                          NSString *errorString = [error userInfo][@"error"];
                          NSLog(@"%@", errorString);
                      }
+                     [mvc.map showAnnotations:mvc.map.annotations animated:NO];
+
                  }
      ];
 }
