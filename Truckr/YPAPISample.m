@@ -113,7 +113,8 @@ static NSString * const kSearchLimit       = @"20";
   NSDictionary *params = @{
                            @"term": term,
                            @"location": location,
-                           @"limit": kSearchLimit
+                           @"limit": kSearchLimit,
+                           @"category_filter": @"foodtrucks"
                            };
 
   return [NSURLRequest requestWithHost:kAPIHost path:kSearchPath params:params];

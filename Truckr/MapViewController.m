@@ -67,11 +67,20 @@ static NSString * const searchLocation = @"Austin, TX";
 
 }
 
+-(MKAnnotationView*)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
+    return nil;
+}
+
 
 
 -(void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
     NSArray* elems = [[NSBundle mainBundle] loadNibNamed:@"TruckCallout" owner:Nil options:nil];
     _callout = [elems lastObject];
+    _callout.exclusiveTouch = YES;
+    _callout.enabled = YES;
+    TruckInfo* t = view.annotation;
+    _callout.name.text = t.title;
+    _callout.address.text = t.address;
     [view addSubview:_callout];
     
 }
