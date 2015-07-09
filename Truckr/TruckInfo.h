@@ -13,7 +13,7 @@
 @property (copy, nonatomic) NSString* title;
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
 @property (nonatomic) MKPlacemark* pl;
-@property (nonatomic) NSString* address;
+@property (copy, nonatomic) NSString* subtitle;
 //@property (copy, nonatomic) NSString* description;
 
 -(id) initWithTitle:(NSString*) newTitle coord:(CLLocationCoordinate2D) coord;

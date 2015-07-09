@@ -31,7 +31,7 @@
     self = [super init];
     if (self) {
         _title = newTitle;
-        _address = address;
+        _subtitle = address;
         [self addrToCoord:address];//sets the coordinate property
     }
     return self;

@@ -67,21 +67,52 @@ static NSString * const searchLocation = @"Austin, TX";
 
 }
 
--(MKAnnotationView*)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
-    return nil;
+
+
+
+
+
+-(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
+    
+    TruckInfo* t = view.annotation;
+    NSLog(@"title: %@\naddress: %@", t.title,t.subtitle);
+    NSLog(@"CONTROLL ACCESSORY TAPPED");
+    
+}
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView
+            viewForAnnotation:(id <MKAnnotation>) annotation {
+    MKAnnotationView *annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation
+                                                                    reuseIdentifier:@"MKPinAnnotationView"];
+    annotationView.canShowCallout = YES;
+    
+    UIButton *favButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
+    [favButton addTarget:self
+                     action:nil
+           forControlEvents:UIControlEventTouchUpInside];
+    
+    annotationView.rightCalloutAccessoryView = favButton;
+    
+    return annotationView;
 }
 
 
-
 -(void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
+    
+    NSLog(@"here");
+    
+   
+    
+    /*
     NSArray* elems = [[NSBundle mainBundle] loadNibNamed:@"TruckCallout" owner:Nil options:nil];
     _callout = [elems lastObject];
     _callout.exclusiveTouch = YES;
     _callout.enabled = YES;
     TruckInfo* t = view.annotation;
     _callout.name.text = t.title;
-    _callout.address.text = t.address;
+    _callout.address.text = t.subtitle;
     [view addSubview:_callout];
+     */
     
 }
 
@@ -177,7 +208,7 @@ static NSString * const searchLocation = @"Austin, TX";
 
         TruckInfo* truckInfo = [[TruckInfo alloc] initWithTitle:name address:address];//places the annotation on the map due to geocoder asynchronously converting the address to coordinates. the addAnnotation call is done within the completion block of the geocoder
         //NSLog(@"name: %@\nlat: %f\nlon: %f",truckInfo.title, truckInfo.coordinate.latitude, truckInfo.coordinate.longitude);
-        NSLog(@"name: %@\naddress: %@",truckInfo.title, truckInfo.address);
+        NSLog(@"name: %@\naddress: %@",truckInfo.title, truckInfo.subtitle);
 
     }
     
