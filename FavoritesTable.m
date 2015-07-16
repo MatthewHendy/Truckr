@@ -18,7 +18,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    PFUser* user = [PFUser currentUser];
+    PFQuery *query = [PFQuery queryWithClassName:@"favoriteTable"];
+    [query whereKey:@"user" equalTo:user];
+    _favoritesArray = [query findObjects];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -28,10 +31,7 @@
 
 
 - (void) viewDidAppear:(BOOL)animated {
-    PFUser* user = [PFUser currentUser];
-    PFQuery *query = [PFQuery queryWithClassName:@"favoriteTable"];
-    [query whereKey:@"user" equalTo:user];
-    _favoritesArray = [query findObjects];
+
 }
 
 

@@ -40,7 +40,7 @@
     //get the mapViewcontroller so I can perform the segue tot he login controller
     AppDelegate* dele = [[UIApplication sharedApplication] delegate];
     MapViewController * mapVC = dele.mapVC;
-    [mapVC.quickSearchField resignFirstResponder];
+    [mapVC.view.window endEditing: YES];
     
     //NSLog(@"mapVC title is %@", mapVC.title);
     //NSLog(@"navC, the name is %@", navC.title);
@@ -56,7 +56,7 @@
     
     AppDelegate* dele = [[UIApplication sharedApplication] delegate];
     MapViewController * mapVC = dele.mapVC;
-    [mapVC.quickSearchField resignFirstResponder];
+    [mapVC.view.window endEditing: YES];
     
     [dele.sidebarVC dismissSidebarViewController];
 

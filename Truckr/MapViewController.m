@@ -74,7 +74,7 @@ static NSString * const searchLocation = @"Austin, TX";
 -(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
     
     TruckInfo* t = view.annotation;
-    NSLog(@"title: %@\naddress: %@", t.title,t.subtitle);
+    //NSLog(@"title: %@\naddress: %@", t.title,t.subtitle);
     
     
     PFUser* user = [PFUser currentUser];
@@ -82,16 +82,25 @@ static NSString * const searchLocation = @"Austin, TX";
     PFQuery *query = [PFQuery queryWithClassName:@"PFFavoriteArray"];
     [query whereKey:@"user" equalTo:user];
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        
+        
         PFObject* PFFavoriteArray = object;
-    
-        [PFFavoriteArray addObject:t forKey:@"favoriteArray"];
+
+        //[PFFavoriteArray ];
+        NSLog(@"Here inside the block");
+
         [PFFavoriteArray save];
-       
+
+        NSLog(@"favoriteArray count %lu", [PFFavoriteArray[@"favoriteArray"] count]);
+        
+        for (TruckInfo* g in PFFavoriteArray[@"favoriteArray"]) {
+            NSLog(@"truck name: %@\ntruckaddress: %@", g.title,g.subtitle);
+        }
+
         
     }];
     
 
-    
 
 
     
@@ -264,6 +273,13 @@ static NSString * const searchLocation = @"Austin, TX";
     }
     
     
+}
+
+-(void) viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    [self.view.window endEditing: YES];
+
 }
 
 /*
