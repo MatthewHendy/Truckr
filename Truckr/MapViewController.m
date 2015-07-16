@@ -14,7 +14,6 @@
 #import "AppDelegate.h"
 
 @interface MapViewController ()
-@property (retain, nonatomic) IBOutlet UITextField *quickSearchField;
 
 
 @end
@@ -76,7 +75,25 @@ static NSString * const searchLocation = @"Austin, TX";
     
     TruckInfo* t = view.annotation;
     NSLog(@"title: %@\naddress: %@", t.title,t.subtitle);
-    NSLog(@"CONTROLL ACCESSORY TAPPED");
+    
+    
+    PFUser* user = [PFUser currentUser];
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"PFFavoriteArray"];
+    [query whereKey:@"user" equalTo:user];
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        PFObject* PFFavoriteArray = object;
+    
+        [PFFavoriteArray addObject:t forKey:@"favoriteArray"];
+        [PFFavoriteArray save];
+       
+        
+    }];
+    
+
+    
+
+
     
 }
 
@@ -249,6 +266,7 @@ static NSString * const searchLocation = @"Austin, TX";
     
 }
 
+/*
 - (IBAction)logout:(id)sender {
     [PFUser logOut];
     PFUser *currentUser = [PFUser currentUser];
@@ -261,6 +279,7 @@ static NSString * const searchLocation = @"Austin, TX";
         [self performSegueWithIdentifier:@"logout" sender:self];
     }
 }
+ */
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     

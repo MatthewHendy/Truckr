@@ -20,6 +20,8 @@
 @property (strong, nonatomic) IBOutlet MKMapView *map;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (weak, nonatomic) TruckCallout* callout;
+@property (retain, nonatomic) IBOutlet UITextField *quickSearchField;
+
 
 - (void) closeCallout:(UIGestureRecognizer*) recognizer;
 

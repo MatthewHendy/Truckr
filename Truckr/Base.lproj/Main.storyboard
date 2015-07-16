@@ -41,6 +41,7 @@
                         <outlet property="map" destination="7Fg-hz-I7O" id="WHF-P1-kFj"/>
                         <outlet property="quickSearchField" destination="GHH-Yl-yt2" id="9CV-AX-6b2"/>
                         <segue destination="vXZ-lx-hvc" kind="show" identifier="logout" id="Kbk-zX-h2W"/>
+                        <segue destination="N9K-GT-3Gk" kind="show" identifier="favT" id="cbS-AG-3wW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RMr-xT-gp1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -70,13 +71,25 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hi " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GTa-gg-pKm">
                                 <rect key="frame" x="21" y="28" width="200" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PNN-xx-tru">
+                                <rect key="frame" x="33" y="141" width="168" height="31"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Favorites List">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="favoritesListButton:" destination="joz-w4-IWR" eventType="touchUpInside" id="7sJ-E2-wTZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="favoritesListButton" destination="PNN-xx-tru" id="zwf-ee-5Ez"/>
                         <outlet property="logoutButton" destination="HbG-zC-HtX" id="pzE-dg-r74"/>
                         <outlet property="userLabel" destination="GTa-gg-pKm" id="4cM-xY-22T"/>
                     </connections>
@@ -156,6 +169,32 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1915" y="232"/>
+        </scene>
+        <!--Favorites Table-->
+        <scene sceneID="NNA-Cx-leQ">
+            <objects>
+                <tableViewController id="N9K-GT-3Gk" customClass="FavoritesTable" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Ypf-5j-Iy6">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="truckCell" id="xgB-dP-nRy">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xgB-dP-nRy" id="hea-oT-jD3">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="N9K-GT-3Gk" id="bzZ-iV-QNl"/>
+                            <outlet property="delegate" destination="N9K-GT-3Gk" id="XNf-Im-h7S"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0w0-Kl-J55" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1853" y="994"/>
         </scene>
         <!--Signup View Controller-->
         <scene sceneID="Pyg-pD-bcQ">

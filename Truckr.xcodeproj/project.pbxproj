@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		148136411B52F80F001DD57C /* FavoritesTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 148136401B52F80F001DD57C /* FavoritesTable.m */; };
 		14DE2CDF1B25FDF600B56241 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DE2CDE1B25FDF600B56241 /* SignupViewController.m */; };
 		14F261B81B2200E6009DA2C3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F261B71B2200E6009DA2C3 /* main.m */; };
 		14F261BB1B2200E6009DA2C3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F261BA1B2200E6009DA2C3 /* AppDelegate.m */; };
@@ -81,6 +82,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1481363F1B52F80F001DD57C /* FavoritesTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FavoritesTable.h; path = ../FavoritesTable.h; sourceTree = "<group>"; };
+		148136401B52F80F001DD57C /* FavoritesTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FavoritesTable.m; path = ../FavoritesTable.m; sourceTree = "<group>"; };
 		14DE2CDD1B25FDF600B56241 /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
 		14DE2CDE1B25FDF600B56241 /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
 		14F261B21B2200E6009DA2C3 /* Truckr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Truckr.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -223,6 +226,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1481363E1B52F745001DD57C /* Truck Objects */ = {
+			isa = PBXGroup;
+			children = (
+				18EABD1F1B4AE89600380392 /* TruckInfo.h */,
+				18EABD201B4AE89600380392 /* TruckInfo.m */,
+				18DF2F1E1B458D0000866638 /* TruckCallout.h */,
+				18DF2F1F1B458D0000866638 /* TruckCallout.m */,
+			);
+			name = "Truck Objects";
+			sourceTree = "<group>";
+		};
 		14F261A91B2200E5009DA2C3 = {
 			isa = PBXGroup;
 			children = (
@@ -247,15 +261,14 @@
 			children = (
 				18DF2F131B41945A00866638 /* SideBar */,
 				14F2704F1B39DD2C00EFD9CC /* YelpAPI */,
-				14F261B91B2200E6009DA2C3 /* AppDelegate.h */,
-				14F261BA1B2200E6009DA2C3 /* AppDelegate.m */,
 				18DF2F171B419EA800866638 /* ParseVC's */,
+				1481363E1B52F745001DD57C /* Truck Objects */,
+				14F261BA1B2200E6009DA2C3 /* AppDelegate.m */,
+				14F261B91B2200E6009DA2C3 /* AppDelegate.h */,
 				18E296751B2F25C10083274F /* MapViewController.h */,
 				18E296761B2F25C10083274F /* MapViewController.m */,
-				18EABD1F1B4AE89600380392 /* TruckInfo.h */,
-				18EABD201B4AE89600380392 /* TruckInfo.m */,
-				18DF2F1E1B458D0000866638 /* TruckCallout.h */,
-				18DF2F1F1B458D0000866638 /* TruckCallout.m */,
+				1481363F1B52F80F001DD57C /* FavoritesTable.h */,
+				148136401B52F80F001DD57C /* FavoritesTable.m */,
 				18DF2F211B458E4F00866638 /* TruckCallout.xib */,
 				14F261C21B2200E6009DA2C3 /* Main.storyboard */,
 				14F261B51B2200E6009DA2C3 /* Supporting Files */,
@@ -565,6 +578,7 @@
 				14F2704E1B39DD1B00EFD9CC /* YPAPISample.m in Sources */,
 				14F270AF1B39E63B00EFD9CC /* NSMutableURLRequest+Parameters.m in Sources */,
 				14F270A61B39E5FF00EFD9CC /* hmac.c in Sources */,
+				148136411B52F80F001DD57C /* FavoritesTable.m in Sources */,
 				14F270941B39E59C00EFD9CC /* OAConsumer.m in Sources */,
 				18DF2F091B41941C00866638 /* SidebarAirbnbAnimation.m in Sources */,
 				14DE2CDF1B25FDF600B56241 /* SignupViewController.m in Sources */,

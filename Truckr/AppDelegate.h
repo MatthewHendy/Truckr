@@ -11,6 +11,7 @@
 #import "TheSidebarController.h"
 #import "MapViewController.h"//center VC
 #import "LeftVC.h"
+#import "FavoritesTable.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -24,6 +25,7 @@
 @property (nonatomic) UINavigationController * navC;
 @property (nonatomic) MapViewController* mapVC;
 @property (nonatomic) LeftVC * leftVC;
+@property (nonatomic) FavoritesTable* favT;
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;

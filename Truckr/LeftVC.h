@@ -11,5 +11,6 @@
 @interface LeftVC : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *userLabel;
 @property (weak, nonatomic) IBOutlet UIButton *logoutButton;
+@property (weak, nonatomic) IBOutlet UIButton *favoritesListButton;
 
 @end

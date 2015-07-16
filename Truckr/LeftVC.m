@@ -38,8 +38,9 @@
     [PFUser logOut];
     
     //get the mapViewcontroller so I can perform the segue tot he login controller
-    AppDelegate * dele = [[UIApplication sharedApplication] delegate];
+    AppDelegate* dele = [[UIApplication sharedApplication] delegate];
     MapViewController * mapVC = dele.mapVC;
+    [mapVC.quickSearchField resignFirstResponder];
     
     //NSLog(@"mapVC title is %@", mapVC.title);
     //NSLog(@"navC, the name is %@", navC.title);
@@ -49,6 +50,21 @@
     [mapVC performSegueWithIdentifier:@"logout" sender:mapVC];
     
 }
+
+
+- (IBAction)favoritesListButton:(id)sender {
+    
+    AppDelegate* dele = [[UIApplication sharedApplication] delegate];
+    MapViewController * mapVC = dele.mapVC;
+    [mapVC.quickSearchField resignFirstResponder];
+    
+    [dele.sidebarVC dismissSidebarViewController];
+
+    [mapVC performSegueWithIdentifier:@"favT" sender:mapVC];
+
+}
+
+
 
 /*
 #pragma mark - Navigation

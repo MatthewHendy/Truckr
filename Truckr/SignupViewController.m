@@ -60,10 +60,18 @@
     user.password = _pw.text;
     user.email = _email.text;
     
+
+    
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {
             NSLog(@"signed up!!");
             //display alertView
+            //create the PFFavoriteArray PFObject that will store the array of favorite trucks with each user.
+            PFObject* PFFavoriteArray = [PFObject objectWithClassName:@"PFFavoriteArray"];
+            PFFavoriteArray[@"user"] = user;
+            PFFavoriteArray[@"favoriteArray"] = [[NSMutableArray alloc] init];
+            [PFFavoriteArray save];
+            
             [[self navigationController] popToRootViewControllerAnimated:YES];
         }
         else {
