@@ -32,6 +32,12 @@
     if (self) {
         _title = newTitle;
         _subtitle = address;
+        
+        //add the necessary things to the dictionary. this dictionary will be used to store the truck information
+        _dictForJSONConvert = [[NSMutableDictionary alloc] init];
+        [_dictForJSONConvert setValue:_title forKey:@"truckTitle"];
+        [_dictForJSONConvert setValue:_subtitle forKey:@"truckAddress"];
+        
         [self addrToCoord:address];//sets the coordinate property
     }
     return self;
@@ -70,6 +76,28 @@
 
                  }
      ];
+}
+
+
+
+
+//for NSCoding protocol
+- (void) encodeWithCoder:(NSCoder *)encoder {
+    
+    [encoder encodeObject:_title forKey:@"title"];
+    [encoder encodeObject:_subtitle forKey:@"subtitle"];
+
+}
+//for NSCoding protocol
+
+- (id)initWithCoder:(NSCoder *)decoder {
+    
+    NSString * title = [decoder decodeObjectForKey:@"title"];
+    NSString * subtitle = [decoder decodeObjectForKey:@"subtitle"];
+    
+    return [self initWithTitle:title address:subtitle];
+     
+    return self;
 }
 
 

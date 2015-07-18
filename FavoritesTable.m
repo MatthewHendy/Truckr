@@ -18,10 +18,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    PFUser* user = [PFUser currentUser];
-    PFQuery *query = [PFQuery queryWithClassName:@"favoriteTable"];
-    [query whereKey:@"user" equalTo:user];
-    _favoritesArray = [query findObjects];
+ 
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -31,7 +29,13 @@
 
 
 - (void) viewDidAppear:(BOOL)animated {
-
+    PFUser* user = [PFUser currentUser];
+    PFQuery *query = [PFQuery queryWithClassName:@"PFFavoriteArray"];
+    [query whereKey:@"user" equalTo:user];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
+        _favoritesArray = objects;
+        [self.tableView reloadData];
+    }];
 }
 
 
@@ -43,13 +47,11 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
     return [_favoritesArray count];
 }
@@ -59,8 +61,8 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"truckCell" forIndexPath:indexPath];
     
     
-    TruckInfo* t = _favoritesArray[indexPath.row];
-    cell.textLabel.text = t.title;
+    NSDictionary* t = _favoritesArray[indexPath.row];
+    cell.textLabel.text = t[@"truckTitle"];
     
     return cell;
 }

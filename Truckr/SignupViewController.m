@@ -69,8 +69,8 @@
             //create the PFFavoriteArray PFObject that will store the array of favorite trucks with each user.
             PFObject* PFFavoriteArray = [PFObject objectWithClassName:@"PFFavoriteArray"];
             PFFavoriteArray[@"user"] = user;
-            PFFavoriteArray[@"favoriteArray"] = [[NSMutableArray alloc] init];
-            [PFFavoriteArray save];
+            PFFavoriteArray[@"favoriteArray"] = [[NSArray alloc] init];
+            [PFFavoriteArray saveInBackground];
             
             [[self navigationController] popToRootViewControllerAnimated:YES];
         }
