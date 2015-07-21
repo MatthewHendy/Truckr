@@ -16,10 +16,11 @@
 
 @implementation FavoritesTable
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
- 
     
+  
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -29,14 +30,16 @@
 
 
 - (void) viewDidAppear:(BOOL)animated {
-    PFUser* user = [PFUser currentUser];
-    PFQuery *query = [PFQuery queryWithClassName:@"PFFavoriteArray"];
-    [query whereKey:@"user" equalTo:user];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
-        _favoritesArray = objects;
-        [self.tableView reloadData];
-    }];
+    [super viewDidAppear:animated];
 }
+
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    AppDelegate* dele = [[UIApplication sharedApplication] delegate];
+    _favoritesArray = dele.localFavoriteArray;
+}
+
 
 
 - (void)didReceiveMemoryWarning {
@@ -52,19 +55,27 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
+    
+    
+    NSLog(@"numRows is %d",[_favoritesArray count] );
+
     return [_favoritesArray count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"truckCell" forIndexPath:indexPath];
     
-    
-    NSDictionary* t = _favoritesArray[indexPath.row];
+    NSInteger i = indexPath.row;
+    NSDictionary* t = _favoritesArray[i];
     cell.textLabel.text = t[@"truckTitle"];
+    cell.detailTextLabel.text = t[@"truckAddress"];
+    
+    NSLog(@"truck info object at index %d has name:%@\nand address: %@\n\n", i,t[@"truckTitle"],t[@"truckAddress"]);
     
     return cell;
+
 }
 
 

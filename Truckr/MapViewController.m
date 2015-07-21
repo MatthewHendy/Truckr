@@ -74,51 +74,24 @@ static NSString * const searchLocation = @"Austin, TX";
 -(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
     
     TruckInfo* t = view.annotation;
-    //BOOL b = [NSJSONSerialization isValidJSONObject:t.dictForJSONConvert ];
-    //NSLog(@"is truckinfo JSON ready: %d",b);
-    NSData* data = [NSJSONSerialization dataWithJSONObject:t.dictForJSONConvert options:NSJSONWritingPrettyPrinted error:nil];
+    AppDelegate* dele = [[UIApplication sharedApplication] delegate];
+    NSLog(@"BEFORE ADD\n%@",dele.localFavoriteArray);
+    [dele.localFavoriteArray addObject:t.dictForJSONConvert];
+    [dele saveFavArrToParse];
+    NSLog(@"AFTER ADD\n%@",dele.localFavoriteArray);
     
-    //TruckInfo* t2 = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-
-    //NSLog(@"title: %@\naddress: %@", t.title,t.subtitle);
-    //NSLog(@"t2 title: %@\nt2 address: %@", t2.title,t2.subtitle);
-
     
-    PFUser* user = [PFUser currentUser];
-    
-    PFQuery *query = [PFQuery queryWithClassName:@"PFFavoriteArray"];
-    [query whereKey:@"user" equalTo:user];
-    [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-        
-        NSLog(@"%@", object);
-        
-        if(object != nil || object != Nil) {
-           
-            [object addUniqueObject:t.dictForJSONConvert forKey:@"favoriteArray"];
-            NSLog(@"2");
-
-            [object saveInBackground];
-
-            NSLog(@"favoriteArray count %lu", [object[@"favoriteArray"] count]);
-        
-           
-        }
-        else {
-            NSLog(@"yo object is nil or Nil");
-            NSString *errorString = [error userInfo][@"error"];
-            NSLog(@"%@", errorString);
-        }
-        
-    }];
     
 
-    NSLog(@"exit block");
-
-    
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView
             viewForAnnotation:(id <MKAnnotation>) annotation {
+    
+    if([annotation isEqual:[mapView userLocation]]) {
+        return nil;
+    }
+    
     MKAnnotationView *annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation
                                                                     reuseIdentifier:@"MKPinAnnotationView"];
     annotationView.canShowCallout = YES;

@@ -11,5 +11,6 @@
 @interface FavoritesTable : UITableViewController
 
 @property (nonatomic) NSArray* favoritesArray;
+@property dispatch_group_t group;
 
 @end

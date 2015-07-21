@@ -27,6 +27,9 @@
 @property (nonatomic) LeftVC * leftVC;
 @property (nonatomic) FavoritesTable* favT;
 
+@property (nonatomic) NSMutableArray* localFavoriteArray;
+
+- (void) saveFavArrToParse;
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 
