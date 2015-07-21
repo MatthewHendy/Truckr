@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FavTableCell.h"
 
 @interface FavoritesTable : UITableViewController
 
 @property (nonatomic) NSArray* favoritesArray;
-@property dispatch_group_t group;
 
 @end

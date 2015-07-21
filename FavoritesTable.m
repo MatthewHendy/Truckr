@@ -20,7 +20,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-  
+    [self.tableView registerClass:[FavTableCell class] forCellReuseIdentifier:@"favTableCell"];
+
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -65,19 +66,29 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"truckCell" forIndexPath:indexPath];
+    FavTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"favTableCell" forIndexPath:indexPath];
+    
+    if (cell == nil)
+    {
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"FavTableCell" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
+    }
     
     NSInteger i = indexPath.row;
     NSDictionary* t = _favoritesArray[i];
-    cell.textLabel.text = t[@"truckTitle"];
-    cell.detailTextLabel.text = t[@"truckAddress"];
+    cell.truckTitleCellLabel.text = t[@"truckTitle"];
+    cell.truckAddressCellLabel.text = t[@"truckAddress"];
     
-    NSLog(@"truck info object at index %d has name:%@\nand address: %@\n\n", i,t[@"truckTitle"],t[@"truckAddress"]);
+    NSLog(@"truck info object at index %d has name:%@\nand address: %@\n\n", i,cell.truckTitleCellLabel.text,cell.truckAddressCellLabel.text);
     
     return cell;
 
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 78;
+}
 
 /*
 // Override to support conditional editing of the table view.

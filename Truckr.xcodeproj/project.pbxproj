@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		148136411B52F80F001DD57C /* FavoritesTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 148136401B52F80F001DD57C /* FavoritesTable.m */; };
+		14DBF7361B5EB99700EAAA11 /* FavTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14DBF7351B5EB99700EAAA11 /* FavTableCell.xib */; };
+		14DBF7391B5EBAD100EAAA11 /* FavTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DBF7381B5EBAD100EAAA11 /* FavTableCell.m */; };
 		14DE2CDF1B25FDF600B56241 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DE2CDE1B25FDF600B56241 /* SignupViewController.m */; };
 		14F261B81B2200E6009DA2C3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F261B71B2200E6009DA2C3 /* main.m */; };
 		14F261BB1B2200E6009DA2C3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F261BA1B2200E6009DA2C3 /* AppDelegate.m */; };
@@ -84,6 +86,9 @@
 /* Begin PBXFileReference section */
 		1481363F1B52F80F001DD57C /* FavoritesTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FavoritesTable.h; path = ../FavoritesTable.h; sourceTree = "<group>"; };
 		148136401B52F80F001DD57C /* FavoritesTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FavoritesTable.m; path = ../FavoritesTable.m; sourceTree = "<group>"; };
+		14DBF7351B5EB99700EAAA11 /* FavTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavTableCell.xib; sourceTree = "<group>"; };
+		14DBF7371B5EBAD100EAAA11 /* FavTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavTableCell.h; sourceTree = "<group>"; };
+		14DBF7381B5EBAD100EAAA11 /* FavTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavTableCell.m; sourceTree = "<group>"; };
 		14DE2CDD1B25FDF600B56241 /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
 		14DE2CDE1B25FDF600B56241 /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
 		14F261B21B2200E6009DA2C3 /* Truckr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Truckr.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -240,6 +245,9 @@
 		14F261A91B2200E5009DA2C3 = {
 			isa = PBXGroup;
 			children = (
+				14DBF7371B5EBAD100EAAA11 /* FavTableCell.h */,
+				14DBF7381B5EBAD100EAAA11 /* FavTableCell.m */,
+				14DBF7351B5EB99700EAAA11 /* FavTableCell.xib */,
 				14F261B41B2200E6009DA2C3 /* Truckr */,
 				14F261D11B2200E6009DA2C3 /* TruckrTests */,
 				14F261B31B2200E6009DA2C3 /* Products */,
@@ -532,6 +540,7 @@
 				14F261C91B2200E6009DA2C3 /* LaunchScreen.xib in Resources */,
 				18DF2F221B458E4F00866638 /* TruckCallout.xib in Resources */,
 				14F261C61B2200E6009DA2C3 /* Images.xcassets in Resources */,
+				14DBF7361B5EB99700EAAA11 /* FavTableCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -561,6 +570,7 @@
 				14F2709C1B39E59C00EFD9CC /* OAToken.m in Sources */,
 				14F270971B39E59C00EFD9CC /* OAMutableURLRequest.m in Sources */,
 				14F270B01B39E63B00EFD9CC /* NSString+URLEncoding.m in Sources */,
+				14DBF7391B5EBAD100EAAA11 /* FavTableCell.m in Sources */,
 				14F270A71B39E5FF00EFD9CC /* sha1.c in Sources */,
 				14F270951B39E59C00EFD9CC /* OADataFetcher.m in Sources */,
 				14F261C11B2200E6009DA2C3 /* LoginViewController.m in Sources */,
