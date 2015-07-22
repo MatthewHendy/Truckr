@@ -48,7 +48,7 @@
         _dictForJSONConvert = [[NSMutableDictionary alloc] init];
         [_dictForJSONConvert setValue:_title forKey:@"truckTitle"];
         [_dictForJSONConvert setValue:_subtitle forKey:@"truckAddress"];
-        [_dictForJSONConvert setValue:imageURL forKey:@"imageURL"];
+        [_dictForJSONConvert setValue:_imageURL forKey:@"imageURL"];
         [_dictForJSONConvert setValue:_mobileURL forKey:@"mobileURL"];
         [_dictForJSONConvert setValue:_isClosed forKey:@"isClosed"];
         [_dictForJSONConvert setValue:_displayPhone forKey:@"displayPhone"];

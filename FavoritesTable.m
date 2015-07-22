@@ -71,9 +71,14 @@
     
     NSString* title = t[@"truckTitle"];
     NSString* address = t[@"truckAddress"];
+    NSString* image = t[@"imageURL"];
+    UIImage* myImage = [UIImage imageWithData:
+                [NSData dataWithContentsOfURL:
+                         [NSURL URLWithString: image]]];
     
     cell.textLabel.text = title;
     cell.detailTextLabel.text = address;
+    cell.imageView.image = myImage;
     
     return cell;
 
