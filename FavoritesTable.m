@@ -20,7 +20,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.tableView registerClass:[FavTableCell class] forCellReuseIdentifier:@"favTableCell"];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -66,20 +65,15 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    FavTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"favTableCell" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
-    if (cell == nil)
-    {
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"FavTableCell" owner:self options:nil];
-        cell = [nib objectAtIndex:0];
-    }
+    NSDictionary* t = _favoritesArray[indexPath.row];
     
-    NSInteger i = indexPath.row;
-    NSDictionary* t = _favoritesArray[i];
-    cell.truckTitleCellLabel.text = t[@"truckTitle"];
-    cell.truckAddressCellLabel.text = t[@"truckAddress"];
+    NSString* title = t[@"truckTitle"];
+    NSString* address = t[@"truckAddress"];
     
-    NSLog(@"truck info object at index %d has name:%@\nand address: %@\n\n", i,cell.truckTitleCellLabel.text,cell.truckAddressCellLabel.text);
+    cell.textLabel.text = title;
+    cell.detailTextLabel.text = address;
     
     return cell;
 

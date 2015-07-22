@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "FavTableCell.h"
 
-@interface FavoritesTable : UITableViewController
+@interface FavoritesTable : UITableViewController 
 
 @property (nonatomic) NSArray* favoritesArray;
 
