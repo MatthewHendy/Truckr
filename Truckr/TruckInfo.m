@@ -31,6 +31,9 @@
     self = [super init];
     if (self) {
         _title = newTitle;
+        
+        _title = [self cleanName:_title];
+        
         _subtitle = address;
         _imageURL = imageURL;
         _mobileURL = mobileURL;
@@ -54,6 +57,14 @@
         [self addrToCoord:address];//sets the coordinate property
     }
     return self;
+}
+
+-(NSString*) cleanName: (NSString*) name {
+    
+    name = [name stringByReplacingOccurrencesOfString:@"-" withString:@" "];
+    name = [name capitalizedString];
+    
+    return name;
 }
 
 

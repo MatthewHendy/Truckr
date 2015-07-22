@@ -176,7 +176,7 @@ static NSString * const searchLocation = @"Austin, TX";
             
             for(NSDictionary* d in resultsJSON) {
                 if ([ d[@"id"] containsString:searchParam ]) {
-                    NSLog(@"%@\n\n", d);
+                    //NSLog(@"%@\n\n", d);
                     [cutResults addObject:d];
                 }
             }
@@ -223,7 +223,7 @@ static NSString * const searchLocation = @"Austin, TX";
 
         TruckInfo* truckInfo = [[TruckInfo alloc] initWithTitle:name address:address imageURL:imageURL mobileURL:mobileURL isClosed:isClosed displayPhone: displayPhone ];//places the annotation on the map due to geocoder asynchronously converting the address to coordinates. the addAnnotation call is done within the completion block of the geocoder
         //NSLog(@"name: %@\nlat: %f\nlon: %f",truckInfo.title, truckInfo.coordinate.latitude, truckInfo.coordinate.longitude);
-        NSLog(@"name: %@\naddress: %@\nimageURL: %@\nmobileURL: %@\nisClosed: %@\ndisplayPhone: %@",truckInfo.title, truckInfo.subtitle, truckInfo.imageURL, truckInfo.mobileURL, truckInfo.isClosed, truckInfo.displayPhone);
+       // NSLog(@"name: %@\naddress: %@\nimageURL: %@\nmobileURL: %@\nisClosed: %@\ndisplayPhone: %@",truckInfo.title, truckInfo.subtitle, truckInfo.imageURL, truckInfo.mobileURL, truckInfo.isClosed, truckInfo.displayPhone);
 
     }
     

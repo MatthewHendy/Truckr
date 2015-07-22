@@ -6,6 +6,8 @@
 //
 
 #import "LoginViewController.h"
+#import "AppDelegate.h"
+
 
 @interface LoginViewController ()
 
@@ -40,7 +42,35 @@
     [PFUser logInWithUsernameInBackground:_LoginUsername.text password:_LoginPassword.text block:^(PFUser *user, NSError *error) {
         if (user) {
             NSLog(@"logged in");
-            [[self navigationController] popViewControllerAnimated:YES];
+            
+            PFQuery *query = [PFQuery queryWithClassName:@"PFFavoriteArray"];
+            [query whereKey:@"user" equalTo:user];
+            [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+                
+                
+                if(object != nil || object != Nil) {
+                    
+                    
+                    AppDelegate* dele = [[UIApplication sharedApplication] delegate];
+                    
+                    dele.localFavoriteArray = object[@"favoriteArray"];
+                    
+                    NSLog(@"after signing in with different account favoriteArray count %lu", [object[@"favoriteArray"] count]);
+                    NSLog(@"after signing in with different account\n%@", dele.localFavoriteArray);
+                    
+                    [[self navigationController] popViewControllerAnimated:YES];
+                    
+                }
+                else {
+                    NSLog(@"yo object is nil or Nil");
+                    NSString *errorString = [error userInfo][@"error"];
+                    NSLog(@"%@", errorString);
+                }
+                
+            }];
+            
+            
+            
         }
         else {
             NSString *errorString = [error userInfo][@"error"];

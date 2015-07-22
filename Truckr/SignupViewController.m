@@ -7,6 +7,7 @@
 //
 
 #import "SignupViewController.h"
+#import "AppDelegate.h"
 
 @interface SignupViewController ()
 
@@ -71,6 +72,9 @@
             PFFavoriteArray[@"user"] = user;
             PFFavoriteArray[@"favoriteArray"] = [[NSArray alloc] init];
             [PFFavoriteArray saveInBackground];
+            
+            AppDelegate* dele = [[UIApplication sharedApplication] delegate];
+            dele.localFavoriteArray = [[NSMutableArray alloc] init];
             
             [[self navigationController] popToRootViewControllerAnimated:YES];
         }
