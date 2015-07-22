@@ -26,17 +26,30 @@
     return self;
 }
 
--(id) initWithTitle:(NSString *)newTitle address:(NSString* )address {
+-(id) initWithTitle:(NSString *)newTitle address:(NSString* )address imageURL:(NSString*)imageURL mobileURL:(NSString*)mobileURL isClosed:(BOOL)isClosed displayPhone:(NSString*) displayPhone {
     
     self = [super init];
     if (self) {
         _title = newTitle;
         _subtitle = address;
+        _imageURL = imageURL;
+        _mobileURL = mobileURL;
+        _displayPhone = displayPhone;
+        
+        if (isClosed) {
+            _isClosed = @"YES";
+        }
+        _isClosed = @"NO";
         
         //add the necessary things to the dictionary. this dictionary will be used to store the truck information
         _dictForJSONConvert = [[NSMutableDictionary alloc] init];
         [_dictForJSONConvert setValue:_title forKey:@"truckTitle"];
         [_dictForJSONConvert setValue:_subtitle forKey:@"truckAddress"];
+        [_dictForJSONConvert setValue:imageURL forKey:@"imageURL"];
+        [_dictForJSONConvert setValue:_mobileURL forKey:@"mobileURL"];
+        [_dictForJSONConvert setValue:_isClosed forKey:@"isClosed"];
+        [_dictForJSONConvert setValue:_displayPhone forKey:@"displayPhone"];
+        
         
         [self addrToCoord:address];//sets the coordinate property
     }
@@ -81,24 +94,6 @@
 
 
 
-//for NSCoding protocol
-- (void) encodeWithCoder:(NSCoder *)encoder {
-    
-    [encoder encodeObject:_title forKey:@"title"];
-    [encoder encodeObject:_subtitle forKey:@"subtitle"];
-
-}
-//for NSCoding protocol
-
-- (id)initWithCoder:(NSCoder *)decoder {
-    
-    NSString * title = [decoder decodeObjectForKey:@"title"];
-    NSString * subtitle = [decoder decodeObjectForKey:@"subtitle"];
-    
-    return [self initWithTitle:title address:subtitle];
-     
-    return self;
-}
 
 
 @end

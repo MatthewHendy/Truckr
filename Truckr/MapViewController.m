@@ -176,7 +176,7 @@ static NSString * const searchLocation = @"Austin, TX";
             
             for(NSDictionary* d in resultsJSON) {
                 if ([ d[@"id"] containsString:searchParam ]) {
-                    //NSLog(@"id: %@", d[@"id"]);
+                    NSLog(@"%@\n\n", d);
                     [cutResults addObject:d];
                 }
             }
@@ -210,15 +210,20 @@ static NSString * const searchLocation = @"Austin, TX";
     for (NSDictionary* d in array) {
 
         NSDictionary * location = d[@"location"];
-        NSArray * addressParts = location[@"display_address"];
         NSString* name = d[@"id"];
+        NSArray * addressParts = location[@"display_address"];
         NSString * address = [self appendFromArrayOfStrings:addressParts];
+
+        NSString* imageURL = d[@"image_url"];
+        NSString* mobileURL = d[@"mobile_url"];
+        BOOL isClosed = d[@"is_closed"];
+        NSString* displayPhone = d[@"display_phone"];
         
         //NSLog(@"%@ is located at %@",name, address);
 
-        TruckInfo* truckInfo = [[TruckInfo alloc] initWithTitle:name address:address];//places the annotation on the map due to geocoder asynchronously converting the address to coordinates. the addAnnotation call is done within the completion block of the geocoder
+        TruckInfo* truckInfo = [[TruckInfo alloc] initWithTitle:name address:address imageURL:imageURL mobileURL:mobileURL isClosed:isClosed displayPhone: displayPhone ];//places the annotation on the map due to geocoder asynchronously converting the address to coordinates. the addAnnotation call is done within the completion block of the geocoder
         //NSLog(@"name: %@\nlat: %f\nlon: %f",truckInfo.title, truckInfo.coordinate.latitude, truckInfo.coordinate.longitude);
-        NSLog(@"name: %@\naddress: %@",truckInfo.title, truckInfo.subtitle);
+        NSLog(@"name: %@\naddress: %@\nimageURL: %@\nmobileURL: %@\nisClosed: %@\ndisplayPhone: %@",truckInfo.title, truckInfo.subtitle, truckInfo.imageURL, truckInfo.mobileURL, truckInfo.isClosed, truckInfo.displayPhone);
 
     }
     
