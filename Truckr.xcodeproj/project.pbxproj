@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		148136411B52F80F001DD57C /* FavoritesTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 148136401B52F80F001DD57C /* FavoritesTable.m */; };
+		14DB5F8B1B60525E008531F2 /* TruckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DB5F8A1B60525E008531F2 /* TruckViewController.m */; };
 		14DE2CDF1B25FDF600B56241 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DE2CDE1B25FDF600B56241 /* SignupViewController.m */; };
 		14F261B81B2200E6009DA2C3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F261B71B2200E6009DA2C3 /* main.m */; };
 		14F261BB1B2200E6009DA2C3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F261BA1B2200E6009DA2C3 /* AppDelegate.m */; };
@@ -84,6 +85,8 @@
 /* Begin PBXFileReference section */
 		1481363F1B52F80F001DD57C /* FavoritesTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FavoritesTable.h; path = ../FavoritesTable.h; sourceTree = "<group>"; };
 		148136401B52F80F001DD57C /* FavoritesTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FavoritesTable.m; path = ../FavoritesTable.m; sourceTree = "<group>"; };
+		14DB5F891B60525E008531F2 /* TruckViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TruckViewController.h; sourceTree = "<group>"; };
+		14DB5F8A1B60525E008531F2 /* TruckViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TruckViewController.m; sourceTree = "<group>"; };
 		14DE2CDD1B25FDF600B56241 /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
 		14DE2CDE1B25FDF600B56241 /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
 		14F261B21B2200E6009DA2C3 /* Truckr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Truckr.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -240,6 +243,8 @@
 		14F261A91B2200E5009DA2C3 = {
 			isa = PBXGroup;
 			children = (
+				14DB5F891B60525E008531F2 /* TruckViewController.h */,
+				14DB5F8A1B60525E008531F2 /* TruckViewController.m */,
 				14F261B41B2200E6009DA2C3 /* Truckr */,
 				14F261D11B2200E6009DA2C3 /* TruckrTests */,
 				14F261B31B2200E6009DA2C3 /* Products */,
@@ -571,6 +576,7 @@
 				14F261B81B2200E6009DA2C3 /* main.m in Sources */,
 				14F270931B39E59C00EFD9CC /* OACall.m in Sources */,
 				18DF2F121B41943500866638 /* TheSidebarController.m in Sources */,
+				14DB5F8B1B60525E008531F2 /* TruckViewController.m in Sources */,
 				14F2709B1B39E59C00EFD9CC /* OAServiceTicket.m in Sources */,
 				18EABD211B4AE89600380392 /* TruckInfo.m in Sources */,
 				14F2709A1B39E59C00EFD9CC /* OARequestParameter.m in Sources */,

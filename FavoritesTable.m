@@ -8,6 +8,7 @@
 
 #import "FavoritesTable.h"
 #import "AppDelegate.h"
+#import "TruckViewController.h"
 
 
 @interface FavoritesTable ()
@@ -57,7 +58,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     
-    NSLog(@"numRows is %d",[_favoritesArray count] );
+    //NSLog(@"numRows is %d",[_favoritesArray count] );
 
     return [_favoritesArray count];
 }
@@ -83,6 +84,13 @@
     return cell;
 
 }
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    
+}
+
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -123,14 +131,41 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    
+    if ([[segue identifier] isEqualToString:@"showTruckVC"]) {
+
+    
+        NSLog(@"1");
+    
+        TruckViewController *vc = (TruckViewController *) [segue destinationViewController];
+
+        // Pass the selected object to the new view controller.
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        
+        NSDictionary* t = _favoritesArray[indexPath.row];
+        NSLog(@"dict\n%@",t);
+    
+        vc.nameLabel.text = t[@"truckTitle"];
+        vc.addressLabel.text = t[@"truckAddress"];
+        vc.phoneLabel.text = t[@"displayPhone"];
+        vc.mobileURLLabel.text = t[@"mobileURL"];
+    
+        NSString* image = t[@"imageURL"];
+        /*vc.imageView.image = [UIImage imageWithData:
+                        [NSData dataWithContentsOfURL:
+                         [NSURL URLWithString: image]]];*/
+    
+        NSLog(@"in favTable\nnameLabel: %@\nadressLabel: %@\nphoneLabel: %@\nmobileLabel: %@",vc.nameLabel.text,vc.addressLabel.text,vc.phoneLabel.text,vc.mobileURLLabel.text);
+        
+    }
+
 }
-*/
+
 
 @end
