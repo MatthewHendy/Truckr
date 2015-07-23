@@ -151,17 +151,17 @@
         NSDictionary* t = _favoritesArray[indexPath.row];
         NSLog(@"dict\n%@",t);
     
-        vc.nameLabel.text = t[@"truckTitle"];
-        vc.addressLabel.text = t[@"truckAddress"];
-        vc.phoneLabel.text = t[@"displayPhone"];
-        vc.mobileURLLabel.text = t[@"mobileURL"];
+        vc.nameText = t[@"truckTitle"];
+        vc.addressText = t[@"truckAddress"];
+        vc.phoneText = t[@"displayPhone"];
+        vc.mobileURLText = t[@"mobileURL"];
     
         NSString* image = t[@"imageURL"];
         /*vc.imageView.image = [UIImage imageWithData:
                         [NSData dataWithContentsOfURL:
                          [NSURL URLWithString: image]]];*/
     
-        NSLog(@"in favTable\nnameLabel: %@\nadressLabel: %@\nphoneLabel: %@\nmobileLabel: %@",vc.nameLabel.text,vc.addressLabel.text,vc.phoneLabel.text,vc.mobileURLLabel.text);
+        NSLog(@"in favTable\nnameLabel: %@\nadressLabel: %@\nphoneLabel: %@\nmobileLabel: %@",vc.nameText,vc.addressText,vc.phoneText,vc.mobileURLText);
         
     }
 

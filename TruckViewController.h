@@ -10,8 +10,16 @@
 
 @interface TruckViewController : UIViewController
 
-@property (strong, nonatomic) IBOutlet UIImageView *imageView;
-@property (strong, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) NSString* nameText;
+@property (weak, nonatomic) NSString* addressText;
+@property (weak, nonatomic) NSString* phoneText;
+@property (weak, nonatomic) NSString* mobileURLText;
+
+
+
+
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *addressLabel;
 @property (weak, nonatomic) IBOutlet UILabel *phoneLabel;
 @property (weak, nonatomic) IBOutlet UILabel *mobileURLLabel;

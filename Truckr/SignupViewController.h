@@ -14,5 +14,6 @@
 @property (nonatomic) IBOutlet UITextField *pw;
 @property (nonatomic) IBOutlet UITextField *confirmPw;
 @property (nonatomic) IBOutlet UITextField *email;
+@property (weak, nonatomic) IBOutlet UIButton *SignUpButton;
 
 @end

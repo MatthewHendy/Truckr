@@ -19,6 +19,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    _SignUpButton.layer.cornerRadius = 10;
+    
     NSLog(@"username: '%@'",_username.text);
 }
 

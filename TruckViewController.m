@@ -17,13 +17,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _nameLabel = [[UILabel alloc] init];
     
     //_imageView.image = self.imageView;
-    _nameLabel.text = self.nameLabel.text;
-    _addressLabel.text = self.addressLabel.text;
-    _phoneLabel.text = self.phoneLabel.text;
-    _mobileURLLabel.text = self.mobileURLLabel.text;
+    _nameText = self.nameText;
+    _addressText = self.addressText;
+    _phoneText = self.phoneText;
+    _mobileURLText = self.mobileURLText;
+    
+    
+    
+    _nameLabel.text = _nameText;
+    _addressLabel.text = _addressText;
+    _phoneLabel.text = _phoneText;
+    _mobileURLLabel.text = _mobileURLText;
     
     
     NSLog(@"in truckVC\nnameLabel: %@\nadressLabel: %@\nphoneLabel: %@\nmobileLabel: %@",_nameLabel.text,_addressLabel.text,_phoneLabel.text,_mobileURLLabel.text);
