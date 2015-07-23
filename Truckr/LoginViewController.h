@@ -15,6 +15,7 @@
 @property (nonatomic) IBOutlet UITextField *LoginPassword;
 @property (nonatomic) IBOutlet UILabel *SignUpLabel;
 @property (nonatomic) IBOutlet UIButton *SignupButton;
+@property (weak, nonatomic) IBOutlet UIButton *LogInButton;
 
 
 @end

@@ -33,31 +33,35 @@
     
     PFUser* user = [PFUser currentUser];
     
-    PFQuery *query = [PFQuery queryWithClassName:@"PFFavoriteArray"];
-    [query whereKey:@"user" equalTo:user];
-    [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+    if (user) {
         
-        
-        if(object != nil || object != Nil) {
-            
-            
-            _localFavoriteArray = object[@"favoriteArray"];
-            
-            NSLog(@"favoriteArray count %lu", [object[@"favoriteArray"] count]);
-            NSLog(@"loaded into _localfavs\n%@", _localFavoriteArray);
-
-            
-        }
-        else {
-            NSLog(@"yo object is nil or Nil");
-            NSString *errorString = [error userInfo][@"error"];
-            NSLog(@"%@", errorString);
-        }
-        
-    }];
-
     
     
+        PFQuery *query = [PFQuery queryWithClassName:@"PFFavoriteArray"];
+        [query whereKey:@"user" equalTo:user];
+        [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        
+        
+            if(object != nil || object != Nil) {
+            
+            
+                _localFavoriteArray = object[@"favoriteArray"];
+            
+                NSLog(@"favoriteArray count %lu", [object[@"favoriteArray"] count]);
+                NSLog(@"loaded into _localfavs\n%@", _localFavoriteArray);
+
+            
+            }
+            else {
+                NSLog(@"yo object is nil or Nil");
+                NSString *errorString = [error userInfo][@"error"];
+                NSLog(@"%@", errorString);
+            }
+        
+        }];
+
+    
+    }
     
     
     UIStoryboard *main = [UIStoryboard storyboardWithName:@"Main" bundle: nil];

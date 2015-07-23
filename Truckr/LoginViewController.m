@@ -18,6 +18,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    _SignupButton.layer.cornerRadius = 10;
+    _SignUpLabel.layer.cornerRadius = 10;
+    _SignUpLabel.clipsToBounds= YES;
+    _LogInButton.layer.cornerRadius = 10;
 }
 
 
