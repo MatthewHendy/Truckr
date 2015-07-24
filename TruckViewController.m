@@ -23,13 +23,16 @@
     _addressText = self.addressText;
     _phoneText = self.phoneText;
     _mobileURLText = self.mobileURLText;
-    
+    _imageURLText = self.imageURLText;
     
     
     _nameLabel.text = _nameText;
     _addressLabel.text = _addressText;
     _phoneLabel.text = _phoneText;
     _mobileURLLabel.text = _mobileURLText;
+    _imageView.image = [UIImage imageWithData:
+                [NSData dataWithContentsOfURL:
+                         [NSURL URLWithString: _imageURLText]]];
     
     
     NSLog(@"in truckVC\nnameLabel: %@\nadressLabel: %@\nphoneLabel: %@\nmobileLabel: %@",_nameLabel.text,_addressLabel.text,_phoneLabel.text,_mobileURLLabel.text);

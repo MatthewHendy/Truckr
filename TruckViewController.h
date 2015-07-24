@@ -14,8 +14,7 @@
 @property (weak, nonatomic) NSString* addressText;
 @property (weak, nonatomic) NSString* phoneText;
 @property (weak, nonatomic) NSString* mobileURLText;
-
-
+@property (weak, nonatomic) NSString* imageURLText;
 
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;

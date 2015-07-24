@@ -155,8 +155,8 @@
         vc.addressText = t[@"truckAddress"];
         vc.phoneText = t[@"displayPhone"];
         vc.mobileURLText = t[@"mobileURL"];
+        vc.imageURLText = t[@"imageURL"];
     
-        NSString* image = t[@"imageURL"];
         /*vc.imageView.image = [UIImage imageWithData:
                         [NSData dataWithContentsOfURL:
                          [NSURL URLWithString: image]]];*/
