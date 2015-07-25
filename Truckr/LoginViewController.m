@@ -18,6 +18,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    UIImage *logo = [UIImage imageNamed:@"truck-icon"];
+    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:logo];
+    
+    
     _SignupButton.layer.cornerRadius = 10;
     _SignUpLabel.layer.cornerRadius = 10;
     _SignUpLabel.clipsToBounds= YES;

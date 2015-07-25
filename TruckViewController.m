@@ -17,6 +17,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    UIImage *logo = [UIImage imageNamed:@"truck-icon"];
+    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:logo];
+
     
     //_imageView.image = self.imageView;
     _nameText = self.nameText;

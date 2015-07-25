@@ -19,6 +19,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    UIImage *logo = [UIImage imageNamed:@"truck-icon"];
+    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:logo];
+    
     _SignUpButton.layer.cornerRadius = 10;
     
     NSLog(@"username: '%@'",_username.text);

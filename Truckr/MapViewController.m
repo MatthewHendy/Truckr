@@ -63,6 +63,10 @@ static NSString * const searchLocation = @"Austin, TX";
                                                                       action:@selector(showLeftMenu:)];
     
     self.navigationItem.leftBarButtonItem = leftMenuButton;
+    
+    UIImage *logo = [UIImage imageNamed:@"truck-icon"];
+    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:logo];
+
 
 }
 

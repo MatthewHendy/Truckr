@@ -69,6 +69,11 @@
     _mapVC = [main instantiateViewControllerWithIdentifier:@"mapVC"];
     _navC = [[UINavigationController alloc] initWithRootViewController:_mapVC];
     
+    _navC.navigationBar.barTintColor = [UIColor whiteColor];
+    UIImage *logo = [UIImage imageNamed:@"truck-icon"];
+    _navC.navigationItem.titleView = [[UIImageView alloc] initWithImage:logo];
+
+    
     _leftVC = [main instantiateViewControllerWithIdentifier:@"leftVC"];
     
     _sidebarVC = [[TheSidebarController alloc] initWithContentViewController:_navC leftSidebarViewController:_leftVC storyboardsUseAutoLayout:YES];

@@ -81,6 +81,10 @@
     cell.detailTextLabel.text = address;
     cell.imageView.image = myImage;
     
+    UIImage *logo = [UIImage imageNamed:@"truck-icon"];
+    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:logo];
+
+    
     return cell;
 
 }
