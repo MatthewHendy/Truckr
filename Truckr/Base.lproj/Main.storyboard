@@ -138,7 +138,7 @@
                                 </items>
                             </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x5S-kJ-lok">
-                                <rect key="frame" x="226" y="280" width="148" height="30"/>
+                                <rect key="frame" x="226" y="329" width="148" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <state key="normal" title="   Log In   ">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -147,22 +147,13 @@
                                     <action selector="logInButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="eGP-4O-R1X"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vn2-Uz-kKI">
-                                <rect key="frame" x="226" y="242" width="148" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Username" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="xAK-m4-VPI">
-                                <rect key="frame" x="226" y="204" width="148" height="30"/>
-                                <accessibility key="accessibilityConfiguration" hint="" label="">
-                                    <accessibilityTraits key="traits" none="YES"/>
-                                    <bool key="isElement" value="NO"/>
-                                </accessibility>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vn2-Uz-kKI">
+                                <rect key="frame" x="226" y="291" width="148" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oe5-XJ-xX4">
-                                <rect key="frame" x="226" y="361" width="145" height="30"/>
+                                <rect key="frame" x="226" y="410" width="145" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <state key="normal" title="Sign Up!">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -173,24 +164,39 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Not Signed Up?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gyK-Aq-eqf">
-                                <rect key="frame" x="226" y="318" width="148" height="35"/>
+                                <rect key="frame" x="226" y="367" width="148" height="35"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="truckrLogo" translatesAutoresizingMaskIntoConstraints="NO" id="ch5-YP-l1v">
+                                <rect key="frame" x="0.0" y="72" width="600" height="128"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Username" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="xAK-m4-VPI">
+                                <rect key="frame" x="226" y="253" width="148" height="30"/>
+                                <accessibility key="accessibilityConfiguration" hint="" label="">
+                                    <accessibilityTraits key="traits" none="YES"/>
+                                    <bool key="isElement" value="NO"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstAttribute="centerX" secondItem="ch5-YP-l1v" secondAttribute="centerX" id="5EF-oY-2O7"/>
                             <constraint firstAttribute="centerX" secondItem="gyK-Aq-eqf" secondAttribute="centerX" id="Bxd-ft-TGu"/>
-                            <constraint firstAttribute="centerY" secondItem="x5S-kJ-lok" secondAttribute="centerY" constant="5" id="CT8-Yt-1EF"/>
-                            <constraint firstItem="oe5-XJ-xX4" firstAttribute="top" secondItem="gyK-Aq-eqf" secondAttribute="bottom" constant="8" id="DE8-KO-Hb9"/>
+                            <constraint firstAttribute="centerY" secondItem="x5S-kJ-lok" secondAttribute="centerY" constant="-44" id="CT8-Yt-1EF"/>
+                            <constraint firstItem="oe5-XJ-xX4" firstAttribute="top" secondItem="gyK-Aq-eqf" secondAttribute="bottom" constant="10" id="DE8-KO-Hb9"/>
                             <constraint firstAttribute="centerX" secondItem="oe5-XJ-xX4" secondAttribute="centerX" constant="1.5" id="PPq-qH-Ic0"/>
+                            <constraint firstItem="xAK-m4-VPI" firstAttribute="top" secondItem="ch5-YP-l1v" secondAttribute="bottom" constant="53" id="Pig-rE-sWp"/>
+                            <constraint firstItem="ch5-YP-l1v" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" constant="72" id="QQV-dj-WMH"/>
                             <constraint firstAttribute="centerX" secondItem="xAK-m4-VPI" secondAttribute="centerX" id="Sgk-YH-g6d"/>
                             <constraint firstAttribute="centerX" secondItem="x5S-kJ-lok" secondAttribute="centerX" id="VF4-Iv-zue"/>
-                            <constraint firstItem="gyK-Aq-eqf" firstAttribute="top" secondItem="x5S-kJ-lok" secondAttribute="bottom" constant="8" id="gSs-jG-qbE"/>
-                            <constraint firstItem="vn2-Uz-kKI" firstAttribute="top" secondItem="xAK-m4-VPI" secondAttribute="bottom" constant="8" id="nMH-OK-Mcw"/>
-                            <constraint firstItem="x5S-kJ-lok" firstAttribute="top" secondItem="vn2-Uz-kKI" secondAttribute="bottom" constant="8" id="oFt-Ah-M9a"/>
+                            <constraint firstItem="gyK-Aq-eqf" firstAttribute="top" secondItem="x5S-kJ-lok" secondAttribute="bottom" constant="10" id="gSs-jG-qbE"/>
+                            <constraint firstItem="vn2-Uz-kKI" firstAttribute="top" secondItem="xAK-m4-VPI" secondAttribute="bottom" constant="10" id="nMH-OK-Mcw"/>
+                            <constraint firstItem="x5S-kJ-lok" firstAttribute="top" secondItem="vn2-Uz-kKI" secondAttribute="bottom" constant="10" id="oFt-Ah-M9a"/>
                             <constraint firstAttribute="centerX" secondItem="vn2-Uz-kKI" secondAttribute="centerX" id="pxc-UF-pCL"/>
                         </constraints>
                     </view>
@@ -362,25 +368,31 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="mobileURLLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sha-tU-nLa">
-                                <rect key="frame" x="27" y="365" width="358" height="45"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="nameLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aNs-io-gvX">
                                 <rect key="frame" x="202" y="112" width="293" height="47"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="32g-l9-xSb">
+                                <rect key="frame" x="27" y="346" width="331" height="30"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" button="YES" link="YES"/>
+                                </accessibility>
+                                <state key="normal" title="mobileURLLabel">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="mobileURLPressed:" destination="dy0-gc-oIn" eventType="touchUpInside" id="M1n-zI-UBd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="addressLabel" destination="hED-wr-TnM" id="UfC-su-JAX"/>
                         <outlet property="imageView" destination="37g-JP-lkz" id="EcZ-nq-thr"/>
-                        <outlet property="mobileURLLabel" destination="sha-tU-nLa" id="snf-L1-luv"/>
+                        <outlet property="mobileURLLabel" destination="32g-l9-xSb" id="PCq-X6-T3m"/>
                         <outlet property="nameLabel" destination="aNs-io-gvX" id="YzI-yr-knn"/>
                         <outlet property="phoneLabel" destination="2f9-K2-Jz8" id="vBJ-B5-hEX"/>
                     </connections>
@@ -411,5 +423,6 @@
     <resources>
         <image name="chil" width="1000" height="750"/>
         <image name="sample-316-truck" width="32" height="20"/>
+        <image name="truckrLogo" width="848" height="258"/>
     </resources>
 </document>

@@ -32,16 +32,25 @@
     _nameLabel.text = _nameText;
     _addressLabel.text = _addressText;
     _phoneLabel.text = _phoneText;
-    _mobileURLLabel.text = _mobileURLText;
+    [_mobileURLLabel setTitle:_mobileURLText forState:UIControlStateNormal];
     _imageView.image = [UIImage imageWithData:
                 [NSData dataWithContentsOfURL:
                          [NSURL URLWithString: _imageURLText]]];
     
     
-    NSLog(@"in truckVC\nnameLabel: %@\nadressLabel: %@\nphoneLabel: %@\nmobileLabel: %@",_nameLabel.text,_addressLabel.text,_phoneLabel.text,_mobileURLLabel.text);
+    NSLog(@"in truckVC\nnameLabel: %@\nadressLabel: %@\nphoneLabel: %@\nmobileLabel: %@",_nameLabel.text,_addressLabel.text,_phoneLabel.text,_mobileURLLabel.titleLabel.text);
     
     // Do any additional setup after loading the view.
 }
+
+
+- (IBAction)mobileURLPressed:(id)sender {
+    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:_mobileURLText]];
+
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

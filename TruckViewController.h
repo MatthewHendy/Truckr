@@ -21,7 +21,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *addressLabel;
 @property (weak, nonatomic) IBOutlet UILabel *phoneLabel;
-@property (weak, nonatomic) IBOutlet UILabel *mobileURLLabel;
+@property (weak, nonatomic) IBOutlet UIButton *mobileURLLabel;
+
 
 
 
