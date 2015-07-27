@@ -21,6 +21,10 @@
     UIImage *logo = [UIImage imageNamed:@"truck-icon"];
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:logo];
     
+    //if user taps away from text field the app dismisses the keyboard
+    UITapGestureRecognizer* tapBackground = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard:)];
+    [tapBackground setNumberOfTapsRequired:1];
+    [self.view addGestureRecognizer:tapBackground];
     
     _SignupButton.layer.cornerRadius = 10;
     _SignUpLabel.layer.cornerRadius = 10;
@@ -28,6 +32,10 @@
     _LogInButton.layer.cornerRadius = 10;
 }
 
+
+-(void) dismissKeyboard:(id)sender {
+    [self.view endEditing:YES];
+}
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];

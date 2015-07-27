@@ -66,13 +66,20 @@ static NSString * const searchLocation = @"Austin, TX";
     
     UIImage *logo = [UIImage imageNamed:@"truck-icon"];
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:logo];
+    
+    
+    //if user taps away from text field the app dismisses the keyboard
+    UITapGestureRecognizer* tapBackground = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard:)];
+    [tapBackground setNumberOfTapsRequired:1];
+    [self.view addGestureRecognizer:tapBackground];
+
 
 
 }
 
-
-
-
+-(void) dismissKeyboard:(id)sender {
+    [self.view endEditing:YES];
+}
 
 
 -(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
