@@ -377,7 +377,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="37g-JP-lkz">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="37g-JP-lkz">
                                 <rect key="frame" x="16" y="72" width="157" height="149"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="mZX-Z5-aRz"/>
@@ -433,7 +433,6 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="2f9-K2-Jz8" firstAttribute="top" secondItem="37g-JP-lkz" secondAttribute="bottom" priority="999" constant="10" id="A7i-W5-n6D"/>
                             <constraint firstItem="37g-JP-lkz" firstAttribute="top" secondItem="sFm-60-6kN" secondAttribute="top" priority="999" constant="78" id="BuT-Br-zZn"/>
                             <constraint firstAttribute="trailing" secondItem="32g-l9-xSb" secondAttribute="trailing" priority="999" constant="30" id="PZr-0M-mx0"/>
                             <constraint firstAttribute="trailing" secondItem="2f9-K2-Jz8" secondAttribute="trailing" priority="999" constant="30" id="QIu-0m-5sN"/>

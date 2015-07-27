@@ -41,6 +41,8 @@
     _addressLabel.layer.cornerRadius = 10;
     _phoneLabel.layer.cornerRadius = 10;
     _mobileURLLabel.layer.cornerRadius = 10;
+    _imageView.layer.masksToBounds = YES;
+    _imageView.layer.cornerRadius = 10;
     
     _nameLabel.layer.borderWidth = 2.0f;
     _nameLabel.layer.borderColor = [[UIColor whiteColor] CGColor];
@@ -53,6 +55,9 @@
     
     _mobileURLLabel.layer.borderWidth = 2.0f;
     _mobileURLLabel.layer.borderColor = [[UIColor whiteColor] CGColor];
+    
+    _imageView.layer.borderWidth = 2.0f;
+    _imageView.layer.borderColor = [[UIColor whiteColor] CGColor];
     
     
     NSLog(@"in truckVC\nnameLabel: %@\nadressLabel: %@\nphoneLabel: %@\nmobileLabel: %@",_nameLabel.text,_addressLabel.text,_phoneLabel.text,_mobileURLLabel.titleLabel.text);
