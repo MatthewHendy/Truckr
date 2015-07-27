@@ -23,7 +23,6 @@
 @property (retain, nonatomic) IBOutlet UITextField *quickSearchField;
 
 
-- (void) closeCallout:(UIGestureRecognizer*) recognizer;
 
 
 @end

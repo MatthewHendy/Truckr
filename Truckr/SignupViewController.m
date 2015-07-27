@@ -36,12 +36,25 @@
     [self.view endEditing:YES];
 }
 
+-(void) displayAlert:(NSString*) title message:(NSString*) message {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    [alert show];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    NSLog(@"enter pressed");
+    if (textField.tag == 1) {
+        [self signup:self];
+        [textField resignFirstResponder];
+        return YES;
+    }
+    return NO;
+}
 
 - (IBAction)signup:(id)sender {
     
@@ -49,22 +62,23 @@
     
     if ([_username.text isEqualToString:@""]) {
         NSLog(@"enter a username");
+        [self displayAlert:@"You Forgot Something..." message:@"enter a username"];
         return;
     }
     if ([_pw.text isEqualToString:@""]){
-        NSLog(@"enter a password");
+        [self displayAlert:@"You Forgot Something..." message:@"Enter a Passsword"];
         return;
     }
     if ([_confirmPw.text isEqualToString:@""]) {
-        NSLog(@"enter a confirm password");
+        [self displayAlert:@"You Forgot Something..." message:@"Confirm your Password"];
         return;
     }
     if (![_pw.text isEqualToString:_confirmPw.text]) {
-        NSLog(@"the password and confirm password dont match");
+        [self displayAlert:@"So Sorry" message:@"The Password and Confirm Password Don't Match"];
         return;
     }
     if ([_email.text isEqualToString:@""]) {
-        NSLog(@"enter an email");
+        [self displayAlert:@"You Forgot Something..." message:@"Enter an Email"];
         return;
     }
         

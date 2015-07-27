@@ -37,6 +37,21 @@
     [self.view endEditing:YES];
 }
 
+-(void) displayAlert:(NSString*) title message:(NSString*) message {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    [alert show];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    NSLog(@"enter pressed");
+    if (textField.tag == 1) {
+        [self logInButton:self];
+        [textField resignFirstResponder];
+        return YES;
+    }
+    return NO;
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
@@ -81,6 +96,7 @@
                     NSLog(@"yo object is nil or Nil");
                     NSString *errorString = [error userInfo][@"error"];
                     NSLog(@"%@", errorString);
+                    [self displayAlert:@"Error Logging In" message:errorString];
                 }
                 
             }];
@@ -91,6 +107,8 @@
         else {
             NSString *errorString = [error userInfo][@"error"];
             NSLog(@"%@", errorString);
+            [self displayAlert:@"Error Logging In" message:errorString];
+
         }
     }];
     

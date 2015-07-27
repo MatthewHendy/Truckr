@@ -18,10 +18,7 @@
 
 @end
 
-static NSString * const kAPIHost           = @"api.yelp.com";
-static NSString * const kSearchPath        = @"/v2/search/";
-static NSString * const kBusinessPath      = @"/v2/business/";
-static NSString * const kSearchLimit       = @"3";
+
 static NSString * const searchLocation = @"Austin, TX";
 
 @implementation MapViewController
@@ -80,6 +77,12 @@ static NSString * const searchLocation = @"Austin, TX";
 -(void) dismissKeyboard:(id)sender {
     [self.view endEditing:YES];
 }
+
+-(void) displayAlert:(NSString*) title message:(NSString*) message {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    [alert show];
+}
+
 
 
 -(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
@@ -163,6 +166,7 @@ static NSString * const searchLocation = @"Austin, TX";
     NSLog(@"enter pressed");
     if (textField.tag == 1) {
         [self yelp:_quickSearchField.text];
+        [textField resignFirstResponder];
         return YES;
     }
     return NO;
