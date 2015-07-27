@@ -186,7 +186,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="truckrLogo" translatesAutoresizingMaskIntoConstraints="NO" id="ch5-YP-l1v">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="truckrLogo" translatesAutoresizingMaskIntoConstraints="NO" id="ch5-YP-l1v">
                                 <rect key="frame" x="92" y="72" width="418" height="85"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="d0y-9F-ppv"/>
@@ -217,7 +217,6 @@
                             <constraint firstAttribute="centerX" secondItem="x5S-kJ-lok" secondAttribute="centerX" priority="999" constant="-1" id="VF4-Iv-zue"/>
                             <constraint firstItem="gyK-Aq-eqf" firstAttribute="top" secondItem="x5S-kJ-lok" secondAttribute="bottom" priority="999" constant="8" id="gSs-jG-qbE"/>
                             <constraint firstItem="vn2-Uz-kKI" firstAttribute="top" secondItem="xAK-m4-VPI" secondAttribute="bottom" priority="999" constant="8" id="nMH-OK-Mcw"/>
-                            <constraint firstItem="ch5-YP-l1v" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" priority="999" constant="118" id="nlN-Hs-i8a"/>
                             <constraint firstItem="x5S-kJ-lok" firstAttribute="top" secondItem="vn2-Uz-kKI" secondAttribute="bottom" priority="999" constant="8" id="oFt-Ah-M9a"/>
                             <constraint firstAttribute="centerX" secondItem="vn2-Uz-kKI" secondAttribute="centerX" priority="999" constant="1" id="pxc-UF-pCL"/>
                         </constraints>
@@ -300,28 +299,43 @@
                                 </items>
                             </navigationBar>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="3kQ-EK-r9V">
-                                <rect key="frame" x="232" y="451" width="137" height="30"/>
+                                <rect key="frame" x="232" y="264" width="137" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="rLy-Wf-fXU"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="b2i-x1-1c5">
-                                <rect key="frame" x="232" y="396" width="137" height="30"/>
+                                <rect key="frame" x="232" y="231" width="137" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="hx0-JI-gQw"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="NoY-4B-baF">
-                                <rect key="frame" x="232" y="344" width="137" height="25"/>
+                                <rect key="frame" x="232" y="198" width="137" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="6bN-bR-6AZ"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Fex-h2-uuf">
-                                <rect key="frame" x="232" y="290" width="137" height="30"/>
+                                <rect key="frame" x="232" y="165" width="137" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="hPj-N3-NeD"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lno-8c-r7z">
-                                <rect key="frame" x="260" y="506" width="80" height="30"/>
+                                <rect key="frame" x="260" y="297" width="80" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="kRI-6l-9ZP"/>
+                                </constraints>
                                 <state key="normal" title="Sign Up">
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -330,28 +344,31 @@
                                     <action selector="signup:" destination="HEi-28-O3M" eventType="touchUpInside" id="1yV-oI-elG"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="truckrLogo" translatesAutoresizingMaskIntoConstraints="NO" id="DPd-He-p9S">
-                                <rect key="frame" x="30" y="72" width="529" height="169"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="truckrLogo" translatesAutoresizingMaskIntoConstraints="NO" id="DPd-He-p9S">
+                                <rect key="frame" x="28" y="72" width="418" height="85"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="85" id="97q-Lx-kmd"/>
+                                    <constraint firstAttribute="width" constant="300" id="Uol-AI-qPH"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="lno-8c-r7z" secondAttribute="bottom" constant="15" id="7Q5-oo-eGI"/>
-                            <constraint firstItem="lno-8c-r7z" firstAttribute="top" secondItem="3kQ-EK-r9V" secondAttribute="bottom" constant="20" id="7wW-zc-g09"/>
-                            <constraint firstItem="DPd-He-p9S" firstAttribute="leading" secondItem="RGA-2o-iDr" secondAttribute="leading" constant="15" id="7xV-3y-bKh"/>
-                            <constraint firstAttribute="centerX" secondItem="NoY-4B-baF" secondAttribute="centerX" id="9w5-lY-eBF"/>
-                            <constraint firstAttribute="bottom" secondItem="DPd-He-p9S" secondAttribute="bottom" constant="260" id="D1b-9z-kkj"/>
-                            <constraint firstAttribute="trailing" secondItem="DPd-He-p9S" secondAttribute="trailing" constant="15" id="IK4-TX-PtR"/>
-                            <constraint firstItem="DPd-He-p9S" firstAttribute="top" secondItem="RGA-2o-iDr" secondAttribute="top" constant="90" id="J0T-ve-9Dk"/>
-                            <constraint firstAttribute="centerX" secondItem="b2i-x1-1c5" secondAttribute="centerX" id="Rnu-tR-AaZ"/>
-                            <constraint firstItem="NoY-4B-baF" firstAttribute="top" secondItem="Fex-h2-uuf" secondAttribute="bottom" constant="20" id="TcT-7v-heo"/>
-                            <constraint firstItem="b2i-x1-1c5" firstAttribute="top" secondItem="NoY-4B-baF" secondAttribute="bottom" constant="20" id="VZN-Ia-ZHG"/>
-                            <constraint firstAttribute="centerX" secondItem="Fex-h2-uuf" secondAttribute="centerX" id="cHw-He-Ohh"/>
-                            <constraint firstAttribute="centerX" secondItem="3kQ-EK-r9V" secondAttribute="centerX" id="dRZ-T2-ZcO"/>
-                            <constraint firstItem="3kQ-EK-r9V" firstAttribute="top" secondItem="b2i-x1-1c5" secondAttribute="bottom" constant="20" id="iRb-JR-6m3"/>
-                            <constraint firstAttribute="centerX" secondItem="lno-8c-r7z" secondAttribute="centerX" id="k4g-ZE-B7B"/>
-                            <constraint firstItem="Fex-h2-uuf" firstAttribute="top" secondItem="DPd-He-p9S" secondAttribute="bottom" constant="20" id="o42-2S-tZs"/>
-                            <constraint firstAttribute="centerX" secondItem="DPd-He-p9S" secondAttribute="centerX" constant="4" id="yL1-IV-Dvt"/>
+                            <constraint firstAttribute="bottom" secondItem="lno-8c-r7z" secondAttribute="bottom" priority="999" constant="40" id="7Q5-oo-eGI"/>
+                            <constraint firstItem="lno-8c-r7z" firstAttribute="top" secondItem="3kQ-EK-r9V" secondAttribute="bottom" priority="999" constant="8" id="7wW-zc-g09"/>
+                            <constraint firstAttribute="centerX" secondItem="NoY-4B-baF" secondAttribute="centerX" priority="999" id="9w5-lY-eBF"/>
+                            <constraint firstAttribute="bottom" secondItem="DPd-He-p9S" secondAttribute="bottom" priority="999" constant="443" id="D1b-9z-kkj"/>
+                            <constraint firstAttribute="trailing" secondItem="DPd-He-p9S" secondAttribute="trailing" priority="999" constant="15" id="IK4-TX-PtR"/>
+                            <constraint firstItem="DPd-He-p9S" firstAttribute="top" secondItem="RGA-2o-iDr" secondAttribute="top" priority="999" constant="72" id="J0T-ve-9Dk"/>
+                            <constraint firstAttribute="centerX" secondItem="b2i-x1-1c5" secondAttribute="centerX" priority="999" id="Rnu-tR-AaZ"/>
+                            <constraint firstItem="NoY-4B-baF" firstAttribute="top" secondItem="Fex-h2-uuf" secondAttribute="bottom" priority="999" constant="8" id="TcT-7v-heo"/>
+                            <constraint firstItem="b2i-x1-1c5" firstAttribute="top" secondItem="NoY-4B-baF" secondAttribute="bottom" priority="999" constant="8" id="VZN-Ia-ZHG"/>
+                            <constraint firstAttribute="centerX" secondItem="Fex-h2-uuf" secondAttribute="centerX" priority="999" id="cHw-He-Ohh"/>
+                            <constraint firstAttribute="centerX" secondItem="3kQ-EK-r9V" secondAttribute="centerX" priority="999" id="dRZ-T2-ZcO"/>
+                            <constraint firstItem="3kQ-EK-r9V" firstAttribute="top" secondItem="b2i-x1-1c5" secondAttribute="bottom" priority="999" constant="8" id="iRb-JR-6m3"/>
+                            <constraint firstAttribute="centerX" secondItem="lno-8c-r7z" secondAttribute="centerX" priority="999" id="k4g-ZE-B7B"/>
+                            <constraint firstItem="Fex-h2-uuf" firstAttribute="top" secondItem="DPd-He-p9S" secondAttribute="bottom" priority="999" constant="8" id="o42-2S-tZs"/>
+                            <constraint firstAttribute="centerX" secondItem="DPd-He-p9S" secondAttribute="centerX" priority="999" id="yL1-IV-Dvt"/>
                         </constraints>
                     </view>
                     <connections>
