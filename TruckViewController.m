@@ -37,6 +37,23 @@
                 [NSData dataWithContentsOfURL:
                          [NSURL URLWithString: _imageURLText]]];
     
+    _nameLabel.layer.cornerRadius = 10;
+    _addressLabel.layer.cornerRadius = 10;
+    _phoneLabel.layer.cornerRadius = 10;
+    _mobileURLLabel.layer.cornerRadius = 10;
+    
+    _nameLabel.layer.borderWidth = 2.0f;
+    _nameLabel.layer.borderColor = [[UIColor whiteColor] CGColor];
+    
+    _addressLabel.layer.borderWidth = 2.0f;
+    _addressLabel.layer.borderColor = [[UIColor whiteColor] CGColor];
+    
+    _phoneLabel.layer.borderWidth = 2.0f;
+    _phoneLabel.layer.borderColor = [[UIColor whiteColor] CGColor];
+    
+    _mobileURLLabel.layer.borderWidth = 2.0f;
+    _mobileURLLabel.layer.borderColor = [[UIColor whiteColor] CGColor];
+    
     
     NSLog(@"in truckVC\nnameLabel: %@\nadressLabel: %@\nphoneLabel: %@\nmobileLabel: %@",_nameLabel.text,_addressLabel.text,_phoneLabel.text,_mobileURLLabel.titleLabel.text);
     
