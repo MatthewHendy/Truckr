@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
-@interface SignupViewController : UIViewController
+@interface SignupViewController : UIViewController <UITextFieldDelegate>
 @property (nonatomic) IBOutlet UITextField *username;
 @property (nonatomic) IBOutlet UITextField *pw;
 @property (nonatomic) IBOutlet UITextField *confirmPw;

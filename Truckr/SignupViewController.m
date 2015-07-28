@@ -29,6 +29,12 @@
     
     _SignUpButton.layer.cornerRadius = 10;
     
+    _username.delegate = self;
+    _pw.delegate = self;
+    _confirmPw.delegate = self;
+    _email.delegate = self;
+    
+    
     NSLog(@"username: '%@'",_username.text);
 }
 
@@ -47,13 +53,10 @@
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    NSLog(@"enter pressed");
-    if (textField.tag == 1) {
-        [self signup:self];
-        [textField resignFirstResponder];
-        return YES;
-    }
-    return NO;
+    NSLog(@"signup screen enter pressed");
+    [self signup:nil];
+    [textField resignFirstResponder];
+    return YES;
 }
 
 - (IBAction)signup:(id)sender {

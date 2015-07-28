@@ -10,7 +10,7 @@
 #import <Parse/Parse.h>
 #import "SignupViewController.h"
 
-@interface LoginViewController : UIViewController
+@interface LoginViewController : UIViewController <UITextFieldDelegate>
 @property (nonatomic) IBOutlet UITextField *LoginUsername;
 @property (nonatomic) IBOutlet UITextField *LoginPassword;
 @property (nonatomic) IBOutlet UILabel *SignUpLabel;

@@ -30,6 +30,10 @@
     _SignUpLabel.layer.cornerRadius = 10;
     _SignUpLabel.clipsToBounds= YES;
     _LogInButton.layer.cornerRadius = 10;
+    
+    
+    _LoginUsername.delegate = self;
+    _LoginPassword.delegate = self;
 }
 
 
@@ -43,13 +47,11 @@
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    NSLog(@"enter pressed");
-    if (textField.tag == 1) {
-        [self logInButton:self];
-        [textField resignFirstResponder];
-        return YES;
-    }
-    return NO;
+    NSLog(@"login screen enter pressed");
+    [self logInButton:nil];
+    [textField resignFirstResponder];
+    return YES;
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
