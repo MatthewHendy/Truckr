@@ -16,11 +16,13 @@
 
 
 
-@interface MapViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate, UITextFieldDelegate>
+@interface MapViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet MKMapView *map;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (weak, nonatomic) TruckCallout* callout;
 @property (retain, nonatomic) IBOutlet UITextField *quickSearchField;
+
+@property (weak, nonatomic) IBOutlet UITableView *searchesTable;
 
 
 

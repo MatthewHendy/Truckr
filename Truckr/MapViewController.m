@@ -15,6 +15,7 @@
 
 @interface MapViewController ()
 
+@property (nonatomic) NSMutableArray* searchesArray;
 
 @end
 
@@ -23,6 +24,46 @@ static NSString * const searchLocation = @"Austin, TX";
 
 @implementation MapViewController
 
+@synthesize searchesTable;
+
+
+//Table View code
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    NSLog(@"numRows is %d",[_searchesArray count] );
+    return [_searchesArray count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSLog(@"here in cellForRow");
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    
+    NSDictionary* t = _searchesArray[indexPath.row];
+    
+    NSString* title = t[@"truckTitle"];
+    NSString* address = t[@"truckAddress"];
+    NSString* image = t[@"imageURL"];
+    UIImage* myImage = [UIImage imageWithData:
+                        [NSData dataWithContentsOfURL:
+                         [NSURL URLWithString: image]]];
+    
+    cell.textLabel.text = title;
+    cell.detailTextLabel.text = address;
+    cell.imageView.image = myImage;
+    
+    UIImage *logo = [UIImage imageNamed:@"truck-icon"];
+    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:logo];
+    
+    
+    return cell;
+    
+}
 
 
 - (void)viewDidLoad {
@@ -94,7 +135,7 @@ static NSString * const searchLocation = @"Austin, TX";
     [dele saveFavArrToParse];
     NSLog(@"AFTER ADD\n%@",dele.localFavoriteArray);
     
-    
+    [self displayAlert:@"Truck added to your favorites list" message:@"√ √ √"];
     
 
 }
@@ -124,19 +165,6 @@ static NSString * const searchLocation = @"Austin, TX";
 -(void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
     
     NSLog(@"here");
-    
-   
-    
-    /*
-    NSArray* elems = [[NSBundle mainBundle] loadNibNamed:@"TruckCallout" owner:Nil options:nil];
-    _callout = [elems lastObject];
-    _callout.exclusiveTouch = YES;
-    _callout.enabled = YES;
-    TruckInfo* t = view.annotation;
-    _callout.name.text = t.title;
-    _callout.address.text = t.subtitle;
-    [view addSubview:_callout];
-     */
     
 }
 
@@ -190,13 +218,16 @@ static NSString * const searchLocation = @"Austin, TX";
             //NSLog(@"number of results %d", [resultsJSON count]);
             
             for(NSDictionary* d in resultsJSON) {
-                if ([ d[@"id"] containsString:searchParam ]) {
+                BOOL categoryMatch = [self searchParam:searchParam inList:d[@"categories"]];
+
+                if ([ d[@"id"] containsString:searchParam ] || categoryMatch) {
                     //NSLog(@"%@\n\n", d);
                     [cutResults addObject:d];
                 }
             }
             
-            
+            _searchesArray = cutResults;
+            [searchesTable reloadData];
             
             
            
@@ -215,8 +246,21 @@ static NSString * const searchLocation = @"Austin, TX";
 }
 
 
-
-
+- (BOOL) searchParam:(NSString*) searchParam inList:(NSDictionary*) dict {
+ 
+    NSLog(@"Looking for %@ in \n%@",searchParam,dict);
+    
+    for(NSArray* a in dict) {
+        for (NSString* str in a) {
+            if ([str caseInsensitiveCompare:searchParam] == NSOrderedSame) {
+                NSLog(@"%@ is equal to %@", str,searchParam);
+                return YES;
+            }
+        }
+    }
+    
+    return NO;
+}
 
 - (void) dropPinOnAddress:(NSMutableArray*) array { //from Apple documentation. Source 1
     [self.map removeAnnotations:[self.map annotations]];
