@@ -22,7 +22,7 @@
 @property (weak, nonatomic) TruckCallout* callout;
 @property (retain, nonatomic) IBOutlet UITextField *quickSearchField;
 
-@property (weak, nonatomic) IBOutlet UITableView *searchesTable;
+@property (strong, nonatomic) IBOutlet UITableView *searchesTable;
 
 
 

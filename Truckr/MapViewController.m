@@ -45,29 +45,31 @@ static NSString * const searchLocation = @"Austin, TX";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSLog(@"here in cellForRow");
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
-    }
-    
     NSDictionary* t = _searchesArray[indexPath.row];
     
-    NSString* title = t[@"truckTitle"];
-    NSString* address = t[@"truckAddress"];
-    NSString* image = t[@"imageURL"];
+    
+    NSDictionary * location = t[@"location"];
+    NSString* name = t[@"id"];
+    NSArray * addressParts = location[@"display_address"];
+    NSString * address = [self appendFromArrayOfStrings:addressParts];
+
+    name = [name stringByReplacingOccurrencesOfString:@"-" withString:@" "];
+    name = [name capitalizedString];
+    
+    NSString* image = t[@"image_url"];
     UIImage* myImage = [UIImage imageWithData:
                         [NSData dataWithContentsOfURL:
                          [NSURL URLWithString: image]]];
     
-    cell.textLabel.text = title;
+    cell.textLabel.text = name;
     cell.detailTextLabel.text = address;
     cell.imageView.image = myImage;
     
-    
-    NSLog(@"here in cellForRow 2");
+    NSLog(@"here in cellForRow %d\nname: %@\naddress: %@\n\n",[_searchesArray count],name, address);
+    //NSLog(@"here in cellForRow 2\nname: %@\naddress: %@\n\n",cell.textLabel.text, cell.detailTextLabel.text);
 
     
     
@@ -219,7 +221,7 @@ static NSString * const searchLocation = @"Austin, TX";
             //this array will have the JSON's that have id's that contain the original user entered search term this trims down the returned trucks to ones that the user wants
             NSMutableArray* cutResults = [[NSMutableArray alloc] init];
             
-            NSLog(@"number of results %d", [resultsJSON count]);
+            //NSLog(@"number of results %d", [resultsJSON count]);
 
             
             for(NSDictionary* d in resultsJSON) {
@@ -233,15 +235,8 @@ static NSString * const searchLocation = @"Austin, TX";
             
             _searchesArray = cutResults;
             
-            NSLog(@"0000000000");
-            
-            [searchesTable reloadData];
-            
-            
-           
-
-            
             [self dropPinOnAddress:cutResults];
+            [searchesTable reloadData];
 
         } else {
             NSLog(@"No business was found");
@@ -250,15 +245,11 @@ static NSString * const searchLocation = @"Austin, TX";
         dispatch_group_leave(requestGroup);
     }];
     
-    NSLog(@"1111111111111");
-    [searchesTable reloadData];
-
+ 
     
     dispatch_group_wait(requestGroup, DISPATCH_TIME_FOREVER); // This avoids the program exiting before all our asynchronous callbacks have been made.
     
-    NSLog(@"22222222222");
-    [searchesTable reloadData];
-
+ 
 }
 
 
@@ -278,7 +269,7 @@ static NSString * const searchLocation = @"Austin, TX";
     return NO;
 }
 
-- (void) dropPinOnAddress:(NSMutableArray*) array { //from Apple documentation. Source 1
+- (void) dropPinOnAddress:(NSMutableArray*) array {
     [self.map removeAnnotations:[self.map annotations]];
     
     
