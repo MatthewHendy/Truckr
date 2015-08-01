@@ -32,6 +32,9 @@
 
 - (void) viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    
+    UIImage *logo = [UIImage imageNamed:@"truck-icon"];
+    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:logo];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -81,8 +84,6 @@
     cell.detailTextLabel.text = address;
     cell.imageView.image = myImage;
     
-    UIImage *logo = [UIImage imageNamed:@"truck-icon"];
-    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:logo];
 
     
     return cell;

@@ -38,11 +38,20 @@ static NSString * const searchLocation = @"Austin, TX";
     return [_searchesArray count];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 78;
+}
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     NSLog(@"here in cellForRow");
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
+    }
     
     NSDictionary* t = _searchesArray[indexPath.row];
     
@@ -57,8 +66,9 @@ static NSString * const searchLocation = @"Austin, TX";
     cell.detailTextLabel.text = address;
     cell.imageView.image = myImage;
     
-    UIImage *logo = [UIImage imageNamed:@"truck-icon"];
-    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:logo];
+    
+    NSLog(@"here in cellForRow 2");
+
     
     
     return cell;
@@ -87,7 +97,8 @@ static NSString * const searchLocation = @"Austin, TX";
     [_map setUserTrackingMode:MKUserTrackingModeFollow animated:YES];    
     [_map setCenterCoordinate:_map.userLocation.location.coordinate animated:YES];
     
-    CLLocationCoordinate2D center = CLLocationCoordinate2DMake(30.30926, -97.723481);
+    //set maps center
+    CLLocationCoordinate2D center = CLLocationCoordinate2DMake(30.30926, -97.723481);//only for emulator version, use userLocation in mobile version
     MKCoordinateSpan span = MKCoordinateSpanMake(0.5f, 0.5f);
     MKCoordinateRegion region = MKCoordinateRegionMake (center, span);
     [_map setRegion:region];
@@ -102,6 +113,7 @@ static NSString * const searchLocation = @"Austin, TX";
     
     self.navigationItem.leftBarButtonItem = leftMenuButton;
     
+    //set the nav bar icon image
     UIImage *logo = [UIImage imageNamed:@"truck-icon"];
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:logo];
     
@@ -111,6 +123,9 @@ static NSString * const searchLocation = @"Austin, TX";
     [tapBackground setNumberOfTapsRequired:1];
     [self.view addGestureRecognizer:tapBackground];
 
+    //setdatasource and delegate for search results table
+    [self.searchesTable setDelegate:self];
+    [self.searchesTable setDataSource:self];
 
 
 }
@@ -162,17 +177,6 @@ static NSString * const searchLocation = @"Austin, TX";
 }
 
 
--(void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
-    
-    NSLog(@"here");
-    
-}
-
-- (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view {
-    [_callout removeFromSuperview];
-}
-
-
 - (void)showLeftMenu:(id)sender
 {
     AppDelegate* dele = (AppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -215,7 +219,8 @@ static NSString * const searchLocation = @"Austin, TX";
             //this array will have the JSON's that have id's that contain the original user entered search term this trims down the returned trucks to ones that the user wants
             NSMutableArray* cutResults = [[NSMutableArray alloc] init];
             
-            //NSLog(@"number of results %d", [resultsJSON count]);
+            NSLog(@"number of results %d", [resultsJSON count]);
+
             
             for(NSDictionary* d in resultsJSON) {
                 BOOL categoryMatch = [self searchParam:searchParam inList:d[@"categories"]];
@@ -227,6 +232,9 @@ static NSString * const searchLocation = @"Austin, TX";
             }
             
             _searchesArray = cutResults;
+            
+            NSLog(@"0000000000");
+            
             [searchesTable reloadData];
             
             
@@ -242,18 +250,26 @@ static NSString * const searchLocation = @"Austin, TX";
         dispatch_group_leave(requestGroup);
     }];
     
+    NSLog(@"1111111111111");
+    [searchesTable reloadData];
+
+    
     dispatch_group_wait(requestGroup, DISPATCH_TIME_FOREVER); // This avoids the program exiting before all our asynchronous callbacks have been made.
+    
+    NSLog(@"22222222222");
+    [searchesTable reloadData];
+
 }
 
 
 - (BOOL) searchParam:(NSString*) searchParam inList:(NSDictionary*) dict {
  
-    NSLog(@"Looking for %@ in \n%@",searchParam,dict);
+    //NSLog(@"Looking for %@ in \n%@",searchParam,dict);
     
     for(NSArray* a in dict) {
         for (NSString* str in a) {
             if ([str caseInsensitiveCompare:searchParam] == NSOrderedSame) {
-                NSLog(@"%@ is equal to %@", str,searchParam);
+                //NSLog(@"%@ is equal to %@", str,searchParam);
                 return YES;
             }
         }
