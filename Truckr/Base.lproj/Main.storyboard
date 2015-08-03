@@ -48,6 +48,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="dy0-gc-oIn" kind="show" id="Bni-dw-Ebv"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -130,7 +133,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gle-u5-KpJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="949" y="930"/>
+            <point key="canvasLocation" x="503" y="942"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="ufC-wZ-h7g">
@@ -291,7 +294,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0w0-Kl-J55" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1715" y="1086"/>
+            <point key="canvasLocation" x="1237" y="910"/>
         </scene>
         <!--Signup View Controller-->
         <scene sceneID="Pyg-pD-bcQ">
@@ -394,7 +397,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GAP-c2-73V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2835" y="399"/>
+            <point key="canvasLocation" x="2635" y="232"/>
         </scene>
         <!--Truck View Controller-->
         <scene sceneID="gI7-cg-NZ5">
@@ -489,7 +492,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R5q-KJ-RkV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2527" y="1080"/>
+            <point key="canvasLocation" x="1915" y="922"/>
         </scene>
         <!--navC-->
         <scene sceneID="N7P-HA-Ncn">
@@ -515,4 +518,7 @@
         <image name="sample-316-truck" width="32" height="20"/>
         <image name="truckrLogo" width="848" height="258"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Bni-dw-Ebv"/>
+    </inferredMetricsTieBreakers>
 </document>

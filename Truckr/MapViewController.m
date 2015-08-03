@@ -71,9 +71,13 @@ static NSString * const searchLocation = @"Austin, TX";
     NSLog(@"here in cellForRow %d\nname: %@\naddress: %@\n\n",[_searchesArray count],name, address);
     //NSLog(@"here in cellForRow 2\nname: %@\naddress: %@\n\n",cell.textLabel.text, cell.detailTextLabel.text);
 
-    
-    
     return cell;
+    
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"Clicked");
     
 }
 
@@ -121,9 +125,11 @@ static NSString * const searchLocation = @"Austin, TX";
     
     
     //if user taps away from text field the app dismisses the keyboard
+    
     UITapGestureRecognizer* tapBackground = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard:)];
     [tapBackground setNumberOfTapsRequired:1];
-    [self.view addGestureRecognizer:tapBackground];
+    [self.map addGestureRecognizer:tapBackground];
+    
 
     //setdatasource and delegate for search results table
     [self.searchesTable setDelegate:self];
@@ -234,9 +240,12 @@ static NSString * const searchLocation = @"Austin, TX";
             }
             
             _searchesArray = cutResults;
-            
-            [self dropPinOnAddress:cutResults];
             [searchesTable reloadData];
+
+            [self dropPinOnAddress:cutResults];
+            
+
+            
 
         } else {
             NSLog(@"No business was found");
@@ -288,6 +297,8 @@ static NSString * const searchLocation = @"Austin, TX";
         //NSLog(@"%@ is located at %@",name, address);
 
         TruckInfo* truckInfo = [[TruckInfo alloc] initWithTitle:name address:address imageURL:imageURL mobileURL:mobileURL isClosed:isClosed displayPhone: displayPhone ];//places the annotation on the map due to geocoder asynchronously converting the address to coordinates. the addAnnotation call is done within the completion block of the geocoder
+        
+        
         //NSLog(@"name: %@\nlat: %f\nlon: %f",truckInfo.title, truckInfo.coordinate.latitude, truckInfo.coordinate.longitude);
        // NSLog(@"name: %@\naddress: %@\nimageURL: %@\nmobileURL: %@\nisClosed: %@\ndisplayPhone: %@",truckInfo.title, truckInfo.subtitle, truckInfo.imageURL, truckInfo.mobileURL, truckInfo.isClosed, truckInfo.displayPhone);
 
