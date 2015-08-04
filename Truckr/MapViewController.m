@@ -71,6 +71,9 @@ static NSString * const searchLocation = @"Austin, TX";
     NSLog(@"here in cellForRow %d\nname: %@\naddress: %@\n\n",[_searchesArray count],name, address);
     //NSLog(@"here in cellForRow 2\nname: %@\naddress: %@\n\n",cell.textLabel.text, cell.detailTextLabel.text);
 
+    UIButton *addFavoritesButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
+    [cell addSubview:addFavoritesButton];
+
     return cell;
     
 }
@@ -151,8 +154,16 @@ static NSString * const searchLocation = @"Austin, TX";
 
 -(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
     
-    TruckInfo* t = view.annotation;
     AppDelegate* dele = [[UIApplication sharedApplication] delegate];
+    TruckInfo* t = view.annotation;
+
+    if ([dele.localFavoriteArray containsObject:t.dictForJSONConvert]) {
+        
+        [self displayAlert:@"You already have that truck in your favorites list!!" message:@"D'oh  X__X"];
+        return;
+    }
+    
+    
     NSLog(@"BEFORE ADD\n%@",dele.localFavoriteArray);
     [dele.localFavoriteArray addObject:t.dictForJSONConvert];
     [dele saveFavArrToParse];

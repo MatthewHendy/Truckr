@@ -10,6 +10,6 @@
 
 @interface FavoritesTable : UITableViewController 
 
-@property (nonatomic) NSArray* favoritesArray;
+@property (nonatomic) NSMutableArray* favoritesArray;
 
 @end
