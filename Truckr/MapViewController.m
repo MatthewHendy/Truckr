@@ -50,19 +50,22 @@ static NSString * const searchLocation = @"Austin, TX";
     
     NSDictionary* t = _searchesArray[indexPath.row];
     
-    
+    //get location and parse address
     NSDictionary * location = t[@"location"];
-    NSString* name = t[@"id"];
     NSArray * addressParts = location[@"display_address"];
-    NSString * address = [self appendFromArrayOfStrings:addressParts];
-
-    name = [name stringByReplacingOccurrencesOfString:@"-" withString:@" "];
-    name = [name capitalizedString];
+    NSString * address = [self appendFromArrayOfStrings:addressParts];//final address
     
+    //get name and parse it
+    NSString* name = t[@"id"];
+    name = [name stringByReplacingOccurrencesOfString:@"-" withString:@" "];
+    name = [name capitalizedString];//final name
+
+    //get imageURL and put it into a UIImage
     NSString* image = t[@"image_url"];
     UIImage* myImage = [UIImage imageWithData:
                         [NSData dataWithContentsOfURL:
                          [NSURL URLWithString: image]]];
+    
     
     cell.textLabel.text = name;
     cell.detailTextLabel.text = address;
@@ -72,9 +75,62 @@ static NSString * const searchLocation = @"Austin, TX";
     //NSLog(@"here in cellForRow 2\nname: %@\naddress: %@\n\n",cell.textLabel.text, cell.detailTextLabel.text);
 
     UIButton *addFavoritesButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
+    [addFavoritesButton addTarget:self action:@selector(addFavorite:) forControlEvents:UIControlEventTouchUpInside];
     [cell addSubview:addFavoritesButton];
 
     return cell;
+    
+}
+
+-(void)addFavorite:(id)sender {
+    //Get the superview from this button which will be our cell
+    UITableViewCell *owningCell = (UITableViewCell*)[sender superview];
+    NSIndexPath *indexPath = [self.searchesTable indexPathForCell:owningCell];
+    
+    //use the indexPath to get the information associated with this cell
+    NSDictionary* t = _searchesArray[indexPath.row];
+    NSLog(@"%@",t);
+    
+    //get name and parse it
+    NSString* name = t[@"id"];
+    name = [name stringByReplacingOccurrencesOfString:@"-" withString:@" "];
+    name = [name capitalizedString];//final name
+    
+    NSDictionary * location = t[@"location"];
+    NSArray * addressParts = location[@"display_address"];
+    NSString * address = [self appendFromArrayOfStrings:addressParts];//final address
+    
+    NSString* imageURL = t[@"image_url"];
+    NSString* mobileURL = t[@"mobile_url"];
+    NSString* isClosed = t[@"is_closed"];
+    NSString* displayPhone = t[@""];
+    
+    //now use that information to create a JSON acceptable dictionary like the truckInfo annotation does so I can save the truck to Parse
+    
+    NSMutableDictionary* dictForJSONConvert = [[NSMutableDictionary alloc] init];
+    [dictForJSONConvert setValue:name forKey:@"truckTitle"];
+    [dictForJSONConvert setValue:address forKey:@"truckAddress"];
+    [dictForJSONConvert setValue:imageURL forKey:@"imageURL"];
+    [dictForJSONConvert setValue:mobileURL forKey:@"mobileURL"];
+    [dictForJSONConvert setValue:isClosed forKey:@"isClosed"];
+    [dictForJSONConvert setValue:displayPhone forKey:@"displayPhone"];
+    
+    
+    AppDelegate* dele = [[UIApplication sharedApplication] delegate];
+
+    if ([dele.localFavoriteArray containsObject:dictForJSONConvert]) {
+        
+        [self displayAlert:@"You already have that truck in your favorites list!!" message:@"D'oh  X__X"];
+        return;
+    }
+    
+    
+    NSLog(@"BEFORE ADD\n%@",dele.localFavoriteArray);
+    [dele.localFavoriteArray addObject:dictForJSONConvert];
+    [dele saveFavArrToParse];
+    NSLog(@"AFTER ADD\n%@",dele.localFavoriteArray);
+    
+    [self displayAlert:@"Truck added to your favorites list" message:@"√ √ √"];
     
 }
 
@@ -265,11 +321,9 @@ static NSString * const searchLocation = @"Austin, TX";
         dispatch_group_leave(requestGroup);
     }];
     
- 
     
     dispatch_group_wait(requestGroup, DISPATCH_TIME_FOREVER); // This avoids the program exiting before all our asynchronous callbacks have been made.
     
- 
 }
 
 
