@@ -25,7 +25,7 @@
 
 -(id) initWithTitle:(NSString*) newTitle coord:(CLLocationCoordinate2D) coord;
 
--(id) initWithTitle:(NSString *)newTitle address:(NSString* )address imageURL:(NSString*)imageURL mobileURL:(NSString*)mobileURL isClosed:(BOOL)isClosed displayPhone:(NSString*) displayPhone;
+-(id) initWithTitle:(NSString *)newTitle address:(NSString* )address imageURL:(NSString*)imageURL mobileURL:(NSString*)mobileURL displayPhone:(NSString*) displayPhone;
 
 -(MKAnnotationView*) annotationView;
 

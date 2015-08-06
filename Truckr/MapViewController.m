@@ -102,8 +102,7 @@ static NSString * const searchLocation = @"Austin, TX";
     
     NSString* imageURL = t[@"image_url"];
     NSString* mobileURL = t[@"mobile_url"];
-    NSString* isClosed = t[@"is_closed"];
-    NSString* displayPhone = t[@""];
+    NSString* displayPhone = t[@"display_phone"];
     
     //now use that information to create a JSON acceptable dictionary like the truckInfo annotation does so I can save the truck to Parse
     
@@ -112,9 +111,7 @@ static NSString * const searchLocation = @"Austin, TX";
     [dictForJSONConvert setValue:address forKey:@"truckAddress"];
     [dictForJSONConvert setValue:imageURL forKey:@"imageURL"];
     [dictForJSONConvert setValue:mobileURL forKey:@"mobileURL"];
-    [dictForJSONConvert setValue:isClosed forKey:@"isClosed"];
     [dictForJSONConvert setValue:displayPhone forKey:@"displayPhone"];
-    
     
     AppDelegate* dele = [[UIApplication sharedApplication] delegate];
 
@@ -356,12 +353,11 @@ static NSString * const searchLocation = @"Austin, TX";
 
         NSString* imageURL = d[@"image_url"];
         NSString* mobileURL = d[@"mobile_url"];
-        BOOL isClosed = d[@"is_closed"];
         NSString* displayPhone = d[@"display_phone"];
         
         //NSLog(@"%@ is located at %@",name, address);
 
-        TruckInfo* truckInfo = [[TruckInfo alloc] initWithTitle:name address:address imageURL:imageURL mobileURL:mobileURL isClosed:isClosed displayPhone: displayPhone ];//places the annotation on the map due to geocoder asynchronously converting the address to coordinates. the addAnnotation call is done within the completion block of the geocoder
+        TruckInfo* truckInfo = [[TruckInfo alloc] initWithTitle:name address:address imageURL:imageURL mobileURL:mobileURL displayPhone:displayPhone ];//places the annotation on the map due to geocoder asynchronously converting the address to coordinates. the addAnnotation call is done within the completion block of the geocoder
         
         
         //NSLog(@"name: %@\nlat: %f\nlon: %f",truckInfo.title, truckInfo.coordinate.latitude, truckInfo.coordinate.longitude);

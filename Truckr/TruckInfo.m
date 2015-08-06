@@ -26,7 +26,7 @@
     return self;
 }
 
--(id) initWithTitle:(NSString *)newTitle address:(NSString* )address imageURL:(NSString*)imageURL mobileURL:(NSString*)mobileURL isClosed:(BOOL)isClosed displayPhone:(NSString*) displayPhone {
+-(id) initWithTitle:(NSString *)newTitle address:(NSString* )address imageURL:(NSString*)imageURL mobileURL:(NSString*)mobileURL  displayPhone:(NSString*) displayPhone {
     
     self = [super init];
     if (self) {
@@ -39,18 +39,12 @@
         _mobileURL = mobileURL;
         _displayPhone = displayPhone;
         
-        if (isClosed) {
-            _isClosed = @"YES";
-        }
-        _isClosed = @"NO";
-        
         //add the necessary things to the dictionary. this dictionary will be used to store the truck information
         _dictForJSONConvert = [[NSMutableDictionary alloc] init];
         [_dictForJSONConvert setValue:_title forKey:@"truckTitle"];
         [_dictForJSONConvert setValue:_subtitle forKey:@"truckAddress"];
         [_dictForJSONConvert setValue:_imageURL forKey:@"imageURL"];
         [_dictForJSONConvert setValue:_mobileURL forKey:@"mobileURL"];
-        [_dictForJSONConvert setValue:_isClosed forKey:@"isClosed"];
         [_dictForJSONConvert setValue:_displayPhone forKey:@"displayPhone"];
         
         
