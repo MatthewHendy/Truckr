@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Zpk-O1-RWQ">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--mapVC-->
@@ -18,13 +17,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Fg-hz-I7O">
-                                <rect key="frame" x="0.0" y="94" width="600" height="289"/>
+                                <rect key="frame" x="0.0" y="94" width="600" height="235"/>
                             </mapView>
-                            <textField clipsSubviews="YES" tag="1" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="search" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="GHH-Yl-yt2">
-                                <rect key="frame" x="0.0" y="64" width="600" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
-                            </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="78" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Olq-QO-4yG">
                                 <rect key="frame" x="0.0" y="383" width="600" height="371"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -90,6 +84,11 @@
                                     <outlet property="delegate" destination="PD4-0Z-3ZW" id="2o6-4i-9ha"/>
                                 </connections>
                             </tableView>
+                            <textField clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="search" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="GHH-Yl-yt2">
+                                <rect key="frame" x="0.0" y="64" width="600" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -97,10 +96,11 @@
                             <constraint firstAttribute="trailing" secondItem="Olq-QO-4yG" secondAttribute="trailing" id="9Vl-fR-jog"/>
                             <constraint firstItem="Olq-QO-4yG" firstAttribute="top" secondItem="7Fg-hz-I7O" secondAttribute="bottom" id="IN4-ft-bhQ"/>
                             <constraint firstItem="GHH-Yl-yt2" firstAttribute="leading" secondItem="zXO-oP-3dA" secondAttribute="leading" id="IXI-ww-LwT"/>
-                            <constraint firstItem="7Fg-hz-I7O" firstAttribute="topMargin" secondItem="zXO-oP-3dA" secondAttribute="top" constant="94" id="a7f-Qb-2hN"/>
+                            <constraint firstItem="7Fg-hz-I7O" firstAttribute="top" secondItem="GHH-Yl-yt2" secondAttribute="bottom" id="aY3-Pd-ZNn"/>
                             <constraint firstAttribute="trailing" secondItem="GHH-Yl-yt2" secondAttribute="trailing" id="c6Q-xc-JAL"/>
+                            <constraint firstItem="GHH-Yl-yt2" firstAttribute="top" secondItem="zXO-oP-3dA" secondAttribute="top" constant="64" id="csb-A6-5CP"/>
                             <constraint firstAttribute="trailing" secondItem="7Fg-hz-I7O" secondAttribute="trailing" id="eC9-ng-8Ks"/>
-                            <constraint firstItem="xCA-qb-jeD" firstAttribute="top" secondItem="7Fg-hz-I7O" secondAttribute="bottom" constant="217" id="gMK-yV-oLD"/>
+                            <constraint firstItem="xCA-qb-jeD" firstAttribute="top" secondItem="7Fg-hz-I7O" secondAttribute="bottom" constant="271" id="gMK-yV-oLD"/>
                             <constraint firstItem="Olq-QO-4yG" firstAttribute="leading" secondItem="zXO-oP-3dA" secondAttribute="leading" id="gj3-3i-OQB"/>
                         </constraints>
                     </view>
