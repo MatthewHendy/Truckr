@@ -249,7 +249,7 @@ static NSString * const searchLocation = @"Austin, TX";
                 BOOL categoryMatch = [self searchParam:searchParam inList:d[@"categories"]];
 
                 if ([ d[@"id"] containsString:searchParam ] || categoryMatch) {
-                    //NSLog(@"%@\n\n", d);
+                    NSLog(@"%@\n\n", d);
                     [cutResults addObject:d];
                 }
             }

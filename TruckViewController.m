@@ -59,6 +59,16 @@
     _imageView.layer.borderWidth = 2.0f;
     _imageView.layer.borderColor = [[UIColor whiteColor] CGColor];
     
+    if (!_nameLabel.text)
+        _nameLabel.text = @"There isn't a listed name";
+    if (!_addressLabel.text)
+        _addressLabel.text = @"There isn't a listed address";
+    if (!_phoneLabel.text)
+        _phoneLabel.text = @"There isn't a listed phone number";
+    if (!_phoneLabel.text)
+        _phoneLabel.text = @"There isn't a URL for the website";
+    if (!_imageURLText)
+        _imageView.image = [UIImage imageNamed:@"defaultTruck"];
     
     NSLog(@"in truckVC\nnameLabel: %@\nadressLabel: %@\nphoneLabel: %@\nmobileLabel: %@",_nameLabel.text,_addressLabel.text,_phoneLabel.text,_mobileURLLabel.titleLabel.text);
     
