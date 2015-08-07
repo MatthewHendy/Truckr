@@ -29,26 +29,52 @@
                                 <rect key="frame" x="0.0" y="383" width="600" height="371"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="9Cb-01-s1R" detailTextLabel="8he-VM-CbD" rowHeight="78" style="IBUITableViewCellStyleSubtitle" id="uzH-KF-Zdn">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="78" id="uzH-KF-Zdn" customClass="searchesTableCell">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uzH-KF-Zdn" id="vZ0-0B-J7r">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9Cb-01-s1R">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hov-gx-OIS">
+                                                    <rect key="frame" x="0.0" y="0.0" width="103" height="77"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="77" id="Igz-aY-HS5"/>
+                                                        <constraint firstAttribute="width" constant="103" id="Qzm-Zh-JGT"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pUB-Fi-Zd0">
+                                                    <rect key="frame" x="111" y="28" width="337" height="41"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8he-VM-CbD">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2CU-Qp-g6K">
+                                                    <rect key="frame" x="545" y="28" width="22" height="22"/>
+                                                    <state key="normal">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="addFavoritesButtonClicked:" destination="uzH-KF-Zdn" eventType="touchUpInside" id="cmL-T6-gYN"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NiB-88-Nor">
+                                                    <rect key="frame" x="111" y="0.0" width="337" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="hov-gx-OIS" firstAttribute="leading" secondItem="vZ0-0B-J7r" secondAttribute="leading" id="86Y-Wz-9BY"/>
+                                                <constraint firstItem="NiB-88-Nor" firstAttribute="leading" secondItem="vZ0-0B-J7r" secondAttribute="leading" constant="111" id="87V-eV-YSO"/>
+                                                <constraint firstAttribute="trailing" secondItem="2CU-Qp-g6K" secondAttribute="trailing" id="O24-uK-Vga"/>
+                                                <constraint firstItem="pUB-Fi-Zd0" firstAttribute="leading" secondItem="vZ0-0B-J7r" secondAttribute="leading" constant="111" id="OGg-XI-YEG"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="addFavoritesButton" destination="2CU-Qp-g6K" id="occ-Cg-B6x"/>
+                                            <outlet property="cellAddress" destination="pUB-Fi-Zd0" id="1cY-Ns-Bfr"/>
+                                            <outlet property="cellImage" destination="hov-gx-OIS" id="F5J-Oh-kur"/>
+                                            <outlet property="cellTitle" destination="NiB-88-Nor" id="THk-Kn-2oh"/>
                                             <segue destination="dy0-gc-oIn" kind="show" id="Bni-dw-Ebv"/>
                                         </connections>
                                     </tableViewCell>
@@ -438,6 +464,15 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="phoneLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2f9-K2-Jz8">
+                                <rect key="frame" x="16" y="326" width="568" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="XL4-Qw-bSK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="32g-l9-xSb">
                                 <rect key="frame" x="27" y="407" width="557" height="71"/>
                                 <accessibility key="accessibilityConfiguration">
@@ -455,15 +490,6 @@
                                     <action selector="mobileURLPressed:" destination="dy0-gc-oIn" eventType="touchUpInside" id="M1n-zI-UBd"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="phoneLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2f9-K2-Jz8">
-                                <rect key="frame" x="16" y="326" width="568" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="XL4-Qw-bSK"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>

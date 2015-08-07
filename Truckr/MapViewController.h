@@ -12,6 +12,7 @@
 #import <MapKit/MapKit.h>
 #import "TruckCallout.h"
 #import "TruckInfo.h"
+#import "searchesTableCell.h"
 
 
 
