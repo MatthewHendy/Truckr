@@ -39,7 +39,7 @@ static NSString * const searchLocation = @"Austin, TX";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 78;
+    return 70;
 }
 
 
