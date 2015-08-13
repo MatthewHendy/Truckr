@@ -49,12 +49,6 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pUB-Fi-Zd0">
-                                                    <rect key="frame" x="111" y="17" width="426" height="49"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2CU-Qp-g6K">
                                                     <rect key="frame" x="545" y="24" width="22" height="22"/>
                                                     <constraints>
@@ -68,6 +62,12 @@
                                                         <action selector="addFavoritesButtonClicked:" destination="uzH-KF-Zdn" eventType="touchUpInside" id="cmL-T6-gYN"/>
                                                     </connections>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pUB-Fi-Zd0">
+                                                    <rect key="frame" x="111" y="20" width="426" height="49"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="hov-gx-OIS" firstAttribute="leading" secondItem="vZ0-0B-J7r" secondAttribute="leading" id="86Y-Wz-9BY"/>
@@ -83,7 +83,7 @@
                                             <outlet property="cellAddress" destination="pUB-Fi-Zd0" id="1cY-Ns-Bfr"/>
                                             <outlet property="cellImage" destination="hov-gx-OIS" id="F5J-Oh-kur"/>
                                             <outlet property="cellTitle" destination="NiB-88-Nor" id="THk-Kn-2oh"/>
-                                            <segue destination="dy0-gc-oIn" kind="show" id="Bni-dw-Ebv"/>
+                                            <segue destination="dy0-gc-oIn" kind="show" identifier="showTruckVC" id="Bni-dw-Ebv"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

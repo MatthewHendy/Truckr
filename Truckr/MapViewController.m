@@ -256,7 +256,7 @@ static NSString * const searchLocation = @"Austin, TX";
             
             _searchesArray = cutResults;
             [searchesTable reloadData];
-
+            [self beginRefreshingTableView];
             [self dropPinOnAddress:cutResults];
             
 
@@ -375,12 +375,49 @@ static NSString * const searchLocation = @"Austin, TX";
 }
  */
 
-- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    NSLog(@"SHOWTRUCK\n\n");
+    if ([[segue identifier] isEqualToString:@"showTruckVC"]) {
+        
+        
+        NSLog(@"1");
+        NSIndexPath *indexPath = [self.searchesTable indexPathForCell:sender];
+
+        TruckViewController *vc = (TruckViewController *) [segue destinationViewController];
+        searchesTableCell *cell = (searchesTableCell*) [self.searchesTable cellForRowAtIndexPath:indexPath];
+        
+        // Pass the selected object to the new view controller.
+        
+        NSDictionary* t = _searchesArray[indexPath.row];
+        NSLog(@"dict\n%@",t);
+        
+        vc.nameText = cell.cellTitle.text;
+        vc.addressText = cell.cellAddress.text;
+        vc.phoneText = cell.displayPhone;
+        vc.mobileURLText = cell.mobileURL;
+        vc.imageURLText = cell.imageURL;
+        
+        /*vc.imageView.image = [UIImage imageWithData:
+         [NSData dataWithContentsOfURL:
+         [NSURL URLWithString: image]]];*/
+        
+        NSLog(@"in favTable\nnameLabel: %@\nadressLabel: %@\nphoneLabel: %@\nmobileLabel: %@",vc.nameText,vc.addressText,vc.phoneText,vc.mobileURLText);
+        
+    }
     
 }
 
 
-
+- (void)beginRefreshingTableView {
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.1];
+    self.searchesTable.contentOffset = CGPointMake(0, -60.0f);
+    [UIView commitAnimations];
+    
+}
 
 
 
