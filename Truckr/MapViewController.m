@@ -15,7 +15,6 @@
 
 @interface MapViewController ()
 
-@property (nonatomic) NSMutableArray* searchesArray;
 
 @end
 
@@ -158,23 +157,30 @@ static NSString * const searchLocation = @"Austin, TX";
 
 -(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
     
-    AppDelegate* dele = [[UIApplication sharedApplication] delegate];
     TruckInfo* t = view.annotation;
 
-    if ([dele.localFavoriteArray containsObject:t.dictForJSONConvert]) {
+    if (control.tag == 0) {
+        NSLog(@"AADDDING TO FAVORITES\n\n\n\n");
+        AppDelegate* dele = [[UIApplication sharedApplication] delegate];
+
+        if ([dele.localFavoriteArray containsObject:t.dictForJSONConvert]) {
         
-        [self displayAlert:@"You already have that truck in your favorites list!!" message:@"D'oh  X__X"];
-        return;
+            [self displayAlert:@"You already have that truck in your favorites list!!" message:@"D'oh  X__X"];
+            return;
+        }
+    
+    
+        NSLog(@"BEFORE ADD\n%@",dele.localFavoriteArray);
+        [dele.localFavoriteArray addObject:t.dictForJSONConvert];
+        [dele saveFavArrToParse];
+        NSLog(@"AFTER ADD\n%@",dele.localFavoriteArray);
+    
+        [self displayAlert:@"Truck added to your favorites list" message:@"√ √ √"];
     }
-    
-    
-    NSLog(@"BEFORE ADD\n%@",dele.localFavoriteArray);
-    [dele.localFavoriteArray addObject:t.dictForJSONConvert];
-    [dele saveFavArrToParse];
-    NSLog(@"AFTER ADD\n%@",dele.localFavoriteArray);
-    
-    [self displayAlert:@"Truck added to your favorites list" message:@"√ √ √"];
-    
+    else {
+        NSLog(@"SEGUING ");
+        [self performSegueWithIdentifier:@"showTruckVC" sender:t];
+    }
 
 }
 
@@ -189,12 +195,23 @@ static NSString * const searchLocation = @"Austin, TX";
                                                                     reuseIdentifier:@"MKPinAnnotationView"];
     annotationView.canShowCallout = YES;
     
+    //add favorites button
     UIButton *favButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
     [favButton addTarget:self
                      action:nil
            forControlEvents:UIControlEventTouchUpInside];
-    
+    //add tag to zero to differentiate from the info button.
+    favButton.tag = 0;
     annotationView.rightCalloutAccessoryView = favButton;
+
+    //add segue to info screen button
+    UIButton *infoSegue = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    [favButton addTarget:self
+                  action:nil
+        forControlEvents:UIControlEventTouchUpInside];
+    //make tag 1
+    infoSegue.tag = 1;
+    annotationView.leftCalloutAccessoryView = infoSegue;
     
     return annotationView;
 }
@@ -382,28 +399,39 @@ static NSString * const searchLocation = @"Austin, TX";
     if ([[segue identifier] isEqualToString:@"showTruckVC"]) {
         
         
-        NSLog(@"1");
-        NSIndexPath *indexPath = [self.searchesTable indexPathForCell:sender];
+        if ([sender isKindOfClass:[TruckInfo class]]) {
+            NSLog(@"hey its segueing from the map annotation\n\n\n\n\n\n");
+            TruckViewController *vc = (TruckViewController *) [segue destinationViewController];
+            TruckInfo *info = (TruckInfo *) sender;
+            
+            vc.nameText = info.title;
+            vc.addressText = info.subtitle;
+            vc.phoneText = info.displayPhone;
+            vc.mobileURLText = info.mobileURL;
+            vc.imageURLText = info.imageURL;
+        }
+        
+        else {
+            
+            NSLog(@"hey its seging from the cell\n\n\n\n\n\n");
+            NSIndexPath *indexPath = [self.searchesTable indexPathForCell:sender];
 
-        TruckViewController *vc = (TruckViewController *) [segue destinationViewController];
-        searchesTableCell *cell = (searchesTableCell*) [self.searchesTable cellForRowAtIndexPath:indexPath];
+            TruckViewController *vc = (TruckViewController *) [segue destinationViewController];
+            searchesTableCell *cell = (searchesTableCell*) [self.searchesTable cellForRowAtIndexPath:indexPath];
         
-        // Pass the selected object to the new view controller.
+            vc.nameText = cell.cellTitle.text;
+            vc.addressText = cell.cellAddress.text;
+            vc.phoneText = cell.displayPhone;
+            vc.mobileURLText = cell.mobileURL;
+            vc.imageURLText = cell.imageURL;
         
-        NSDictionary* t = _searchesArray[indexPath.row];
-        NSLog(@"dict\n%@",t);
+            /*vc.imageView.image = [UIImage imageWithData:
+             [NSData dataWithContentsOfURL:
+             [NSURL URLWithString: image]]];*/
         
-        vc.nameText = cell.cellTitle.text;
-        vc.addressText = cell.cellAddress.text;
-        vc.phoneText = cell.displayPhone;
-        vc.mobileURLText = cell.mobileURL;
-        vc.imageURLText = cell.imageURL;
+            NSLog(@"in favTable\nnameLabel: %@\nadressLabel: %@\nphoneLabel: %@\nmobileLabel: %@",vc.nameText,vc.addressText,vc.phoneText,vc.mobileURLText);
+        }
         
-        /*vc.imageView.image = [UIImage imageWithData:
-         [NSData dataWithContentsOfURL:
-         [NSURL URLWithString: image]]];*/
-        
-        NSLog(@"in favTable\nnameLabel: %@\nadressLabel: %@\nphoneLabel: %@\nmobileLabel: %@",vc.nameText,vc.addressText,vc.phoneText,vc.mobileURLText);
         
     }
     

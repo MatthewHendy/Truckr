@@ -14,6 +14,7 @@
 #import "TruckInfo.h"
 #import "searchesTableCell.h"
 #import "TruckViewController.h"
+#import "MapViewController.h"
 
 
 
@@ -25,6 +26,7 @@
 @property (retain, nonatomic) IBOutlet UITextField *quickSearchField;
 
 @property (strong, nonatomic) IBOutlet UITableView *searchesTable;
+@property (nonatomic) NSMutableArray* searchesArray;
 
 
 

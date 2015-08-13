@@ -16,7 +16,6 @@ static NSString * const kSearchLimit       = @"20";
 
 #pragma mark - Public
 
-
 - (void) queryForArrayOfResults:(NSString*) term location: (NSString*) location completionHandler:(void (^)(NSDictionary * resultsJSON, NSError *error))completionHandler {
     
     NSLog(@"Querying the Search API with term \'%@\' and location \'%@'", term, location);

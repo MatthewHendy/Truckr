@@ -19,7 +19,7 @@
 */
 
 - (IBAction)fav:(id)sender {
-    NSLog(@"fav button pressed");
+    NSLog(@"fnhdjbdhjbdhfbdhbfdjhfbfav button pressed");
 }
 
 

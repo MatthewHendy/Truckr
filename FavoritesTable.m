@@ -152,8 +152,7 @@
     // Get the new view controller using [segue destinationViewController].
     
     if ([[segue identifier] isEqualToString:@"showTruckVC"]) {
-
-    
+        
         NSLog(@"1");
     
         TruckViewController *vc = (TruckViewController *) [segue destinationViewController];
