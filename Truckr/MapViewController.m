@@ -252,14 +252,26 @@ static NSString * const searchLocation = @"Austin, TX";
     dispatch_group_enter(requestGroup);
     [APISample queryForArrayOfResults:searchParam location:searchLocation completionHandler:^(NSDictionary *resultsJSON, NSError *error) {
         
+        
+        if([resultsJSON count] == 0) {
+            NSLog(@"SOrry THER WERERe not results \n\n\n\n");
+            dispatch_async(dispatch_get_main_queue(), ^ {
+                [[[UIAlertView alloc] initWithTitle:@"There were no trucks with that name"
+                                             message:nil
+                                            delegate:nil
+                                   cancelButtonTitle:@"OK"
+                                   otherButtonTitles:nil
+                   ] show];
+            });
+        }
+
         if (error) {
-            NSLog(@"An error happened during the request: %@", error);
+            [self displayAlert:@"An error happened during the request" message:[NSString stringWithFormat:@"%@",error]];
         } else if (resultsJSON) {
             
             //this array will have the JSON's that have id's that contain the original user entered search term this trims down the returned trucks to ones that the user wants
             NSMutableArray* cutResults = [[NSMutableArray alloc] init];
             
-            //NSLog(@"number of results %d", [resultsJSON count]);
 
             
             for(NSDictionary* d in resultsJSON) {
@@ -276,11 +288,8 @@ static NSString * const searchLocation = @"Austin, TX";
             [self beginRefreshingTableView];
             [self dropPinOnAddress:cutResults];
             
-
-            
-
         } else {
-            NSLog(@"No business was found");
+            [self displayAlert:@"No business was found" message:@"Try another search"];
         }
         
         dispatch_group_leave(requestGroup);

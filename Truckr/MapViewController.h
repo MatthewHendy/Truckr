@@ -28,6 +28,7 @@
 @property (strong, nonatomic) IBOutlet UITableView *searchesTable;
 @property (nonatomic) NSMutableArray* searchesArray;
 
+-(void) displayAlert:(NSString*) title message:(NSString*) message;
 
 
 

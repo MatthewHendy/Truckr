@@ -25,7 +25,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    NSLog(@"did finish launching ");
+    //NSLog(@"did finish launching ");
     
     [Parse setApplicationId:@"q1z8UUnjXCYVN4bnNcDulVqF8ZaoInbQUkyzGWdk"
                   clientKey:@"Z6UUYyVdqOMR7POAif0HImojwueUdHy1OWiqXJHq"];
@@ -55,6 +55,7 @@
             else {
                 NSLog(@"yo object is nil or Nil");
                 NSString *errorString = [error userInfo][@"error"];
+                [self displayAlert:@"There's something wrong" message:errorString];
                 NSLog(@"%@", errorString);
             }
         
@@ -82,6 +83,11 @@
     self.window.rootViewController = _sidebarVC;
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+-(void) displayAlert:(NSString*) title message:(NSString*) message {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    [alert show];
 }
 
 - (void) saveFavArrToParse {
