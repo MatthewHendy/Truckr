@@ -27,6 +27,7 @@
     
     //NSLog(@"did finish launching ");
     
+    
     [Parse setApplicationId:@"q1z8UUnjXCYVN4bnNcDulVqF8ZaoInbQUkyzGWdk"
                   clientKey:@"Z6UUYyVdqOMR7POAif0HImojwueUdHy1OWiqXJHq"];
     
@@ -68,6 +69,8 @@
     UIStoryboard *main = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
     
     _mapVC = [main instantiateViewControllerWithIdentifier:@"mapVC"];
+    
+ 
     _navC = [[UINavigationController alloc] initWithRootViewController:_mapVC];
     
     _navC.navigationBar.barTintColor = [UIColor whiteColor];

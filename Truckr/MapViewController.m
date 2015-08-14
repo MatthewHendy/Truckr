@@ -103,6 +103,8 @@ static NSString * const searchLocation = @"Austin, TX";
     }
     
     [_locationManager startUpdatingLocation];
+    
+    NSLog(@"latitude: %f\nlongitude: %f",_map.userLocation.location.coordinate.latitude, _map.userLocation.location.coordinate.longitude);
 
     //set map properties
     _map.delegate = self;
@@ -237,7 +239,13 @@ static NSString * const searchLocation = @"Austin, TX";
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     NSLog(@"enter pressed");
     
-    [self testInternetConnection];
+    BOOL b = [self testInternetConnection];
+    
+    if (!b) {
+        NSLog(@"Connection failed");
+        return NO;
+    }
+    
     
     if (textField.tag == 1) {
         [self yelp:_quickSearchField.text];
@@ -291,7 +299,6 @@ static NSString * const searchLocation = @"Austin, TX";
             dispatch_async(dispatch_get_main_queue(), ^ {
                 [searchesTable reloadData];
             });
-            [self beginRefreshingTableView];
             [self dropPinOnAddress:cutResults];
             
         } else {
@@ -453,49 +460,28 @@ static NSString * const searchLocation = @"Austin, TX";
 }
 
 
-- (void)beginRefreshingTableView {
-    
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:0.1];
-    self.searchesTable.contentOffset = CGPointMake(0, -60.0f);
-    [UIView commitAnimations];
-    
-}
-
-
 // Checks if we have an internet connection or not
-- (void)testInternetConnection
+- (BOOL)testInternetConnection
 {
     Reachability *internetReachableFoo;
 
     internetReachableFoo = [Reachability reachabilityWithHostname:@"www.google.com"];
     
-    // Internet is reachable
-    internetReachableFoo.reachableBlock = ^(Reachability*reach)
-    {
-        // Update the UI on the main thread
-        dispatch_async(dispatch_get_main_queue(), ^{
-            
-            NSLog(@"Yayyy, we have the interwebs!");
-        });
-    };
     
-    // Internet is not reachable
-    internetReachableFoo.unreachableBlock = ^(Reachability*reach)
-    {
-        // Update the UI on the main thread
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [[[UIAlertView alloc] initWithTitle:@"There is no internet connection"
-                                        message:nil
-                                       delegate:nil
-                              cancelButtonTitle:@"OK"
-                              otherButtonTitles:nil
-              ] show];
-            NSLog(@"Someone broke the internet :(");
-        });
-    };
+    if (internetReachableFoo.isReachable) {
+        NSLog(@"INTERNET!!!\n\n\n\n\n");
+        return 1;
+    }
+    
+    else {
+        [self displayAlert:@"No internet connection" message:@":("];
+        return 0;
+    }
+    
     
     [internetReachableFoo startNotifier];
+    return 1;
+    
 }
 
 
