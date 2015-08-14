@@ -15,6 +15,8 @@
 #import "searchesTableCell.h"
 #import "TruckViewController.h"
 #import "MapViewController.h"
+#import "Reachability.h"
+
 
 
 

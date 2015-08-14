@@ -236,6 +236,9 @@ static NSString * const searchLocation = @"Austin, TX";
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     NSLog(@"enter pressed");
+    
+    [self testInternetConnection];
+    
     if (textField.tag == 1) {
         [self yelp:_quickSearchField.text];
         [textField resignFirstResponder];
@@ -284,7 +287,10 @@ static NSString * const searchLocation = @"Austin, TX";
             }
             
             _searchesArray = cutResults;
-            [searchesTable reloadData];
+            
+            dispatch_async(dispatch_get_main_queue(), ^ {
+                [searchesTable reloadData];
+            });
             [self beginRefreshingTableView];
             [self dropPinOnAddress:cutResults];
             
@@ -456,6 +462,41 @@ static NSString * const searchLocation = @"Austin, TX";
     
 }
 
+
+// Checks if we have an internet connection or not
+- (void)testInternetConnection
+{
+    Reachability *internetReachableFoo;
+
+    internetReachableFoo = [Reachability reachabilityWithHostname:@"www.google.com"];
+    
+    // Internet is reachable
+    internetReachableFoo.reachableBlock = ^(Reachability*reach)
+    {
+        // Update the UI on the main thread
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            NSLog(@"Yayyy, we have the interwebs!");
+        });
+    };
+    
+    // Internet is not reachable
+    internetReachableFoo.unreachableBlock = ^(Reachability*reach)
+    {
+        // Update the UI on the main thread
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[[UIAlertView alloc] initWithTitle:@"There is no internet connection"
+                                        message:nil
+                                       delegate:nil
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil
+              ] show];
+            NSLog(@"Someone broke the internet :(");
+        });
+    };
+    
+    [internetReachableFoo startNotifier];
+}
 
 
 //useful code for dropping annotation points and setting regions
