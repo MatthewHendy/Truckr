@@ -12,6 +12,7 @@
 #import "MapViewController.h"//center VC
 #import "LeftVC.h"
 #import "FavoritesTable.h"
+#import "Reachability.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

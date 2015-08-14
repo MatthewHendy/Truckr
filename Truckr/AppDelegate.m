@@ -22,11 +22,49 @@
 @implementation AppDelegate
 
 
+//set up listener for internet connection to save favorite array as soon as internet connection is reestablished.
+- (void)checkNetworkStatus:(NSNotification *)notice {
+    // called after network status changes
+    Reachability * internetReachable;
+    internetReachable = [Reachability reachabilityForInternetConnection];
+
+    
+    NetworkStatus internetStatus = [internetReachable currentReachabilityStatus];
+    switch (internetStatus)
+    {
+        case NotReachable:
+        {
+            NSLog(@"The internet is down.");
+            break;
+        }
+        case ReachableViaWiFi:
+        {
+            NSLog(@"The internet is working via WIFI");
+            [self saveFavArrToParse];
+            break;
+        }
+        case ReachableViaWWAN:
+        {
+            NSLog(@"The internet is working via WWAN!");
+            break;
+        }
+    }
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
     //NSLog(@"did finish launching ");
     
+    Reachability * internetReachable;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(checkNetworkStatus:)
+                                                 name:kReachabilityChangedNotification object:nil];
+    
+    // Set up Reachability
+    internetReachable = [Reachability reachabilityForInternetConnection];
+    [internetReachable startNotifier];
     
     [Parse setApplicationId:@"q1z8UUnjXCYVN4bnNcDulVqF8ZaoInbQUkyzGWdk"
                   clientKey:@"Z6UUYyVdqOMR7POAif0HImojwueUdHy1OWiqXJHq"];
@@ -103,7 +141,6 @@
         
         
         if(object != nil || object != Nil) {
-            
             
             object[@"favoriteArray"] = _localFavoriteArray;
             
