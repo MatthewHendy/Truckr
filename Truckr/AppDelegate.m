@@ -86,16 +86,16 @@
             
                 _localFavoriteArray = object[@"favoriteArray"];
             
-                NSLog(@"favoriteArray count %lu", [object[@"favoriteArray"] count]);
-                NSLog(@"loaded into _localfavs\n%@", _localFavoriteArray);
+                //NSLog(@"favoriteArray count %lu", [object[@"favoriteArray"] count]);
+                //NSLog(@"loaded into _localfavs\n%@", _localFavoriteArray);
 
             
             }
             else {
-                NSLog(@"yo object is nil or Nil");
+                //NSLog(@"yo object is nil or Nil");
                 NSString *errorString = [error userInfo][@"error"];
                 [self displayAlert:@"There's something wrong" message:errorString];
-                NSLog(@"%@", errorString);
+                //NSLog(@"%@", errorString);
             }
         
         }];

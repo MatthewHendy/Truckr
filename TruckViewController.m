@@ -31,7 +31,7 @@
     
     _nameLabel.text = _nameText;
     _addressLabel.text = _addressText;
-    _phoneLabel.text = _phoneText;
+    [_phoneButton setTitle:_phoneText forState:UIControlStateNormal];
     [_mobileURLLabel setTitle:_mobileURLText forState:UIControlStateNormal];
     _imageView.image = [UIImage imageWithData:
                 [NSData dataWithContentsOfURL:
@@ -39,7 +39,7 @@
     
     _nameLabel.layer.cornerRadius = 10;
     _addressLabel.layer.cornerRadius = 10;
-    _phoneLabel.layer.cornerRadius = 10;
+    _phoneButton.layer.cornerRadius = 10;
     _mobileURLLabel.layer.cornerRadius = 10;
     _imageView.layer.masksToBounds = YES;
     _imageView.layer.cornerRadius = 10;
@@ -50,8 +50,8 @@
     _addressLabel.layer.borderWidth = 2.0f;
     _addressLabel.layer.borderColor = [[UIColor whiteColor] CGColor];
     
-    _phoneLabel.layer.borderWidth = 2.0f;
-    _phoneLabel.layer.borderColor = [[UIColor whiteColor] CGColor];
+    _phoneButton.layer.borderWidth = 2.0f;
+    _phoneButton.layer.borderColor = [[UIColor whiteColor] CGColor];
     
     _mobileURLLabel.layer.borderWidth = 2.0f;
     _mobileURLLabel.layer.borderColor = [[UIColor whiteColor] CGColor];
@@ -63,17 +63,29 @@
         _nameLabel.text = @"There isn't a listed name";
     if (!_addressLabel.text)
         _addressLabel.text = @"There isn't a listed address";
-    if (!_phoneLabel.text)
-        _phoneLabel.text = @"There isn't a listed phone number";
-    if (!_phoneLabel.text)
-        _phoneLabel.text = @"There isn't a URL for the website";
+    if (!_phoneButton.titleLabel.text)
+        [_phoneButton setTitle:@"There isn't a listed phone number" forState:UIControlStateNormal];
+    if (!_mobileURLLabel.titleLabel.text)
+        [_phoneButton setTitle:@"There isn't a URL for the website" forState:UIControlStateNormal];
     if (!_imageURLText)
         _imageView.image = [UIImage imageNamed:@"defaultTruck"];
     
-    NSLog(@"in truckVC\nnameLabel: %@\nadressLabel: %@\nphoneLabel: %@\nmobileLabel: %@",_nameLabel.text,_addressLabel.text,_phoneLabel.text,_mobileURLLabel.titleLabel.text);
+    NSLog(@"in truckVC\nnameLabel: %@\nadressLabel: %@\nphoneLabel: %@\nmobileLabel: %@",_nameLabel.text,_addressLabel.text,_phoneButton.titleLabel.text,_mobileURLLabel.titleLabel.text);
     
     // Do any additional setup after loading the view.
 }
+
+
+- (IBAction)phoneButtonPressed:(id)sender {
+    NSString *cleanedNumber = [[_phoneText componentsSeparatedByCharactersInSet:[[NSCharacterSet characterSetWithCharactersInString:@"0123456789"] invertedSet]] componentsJoinedByString:@""];
+    //NSLog(@"calling %@",cleanedNumber);
+
+    NSString *finalProduct = [@"telprompt://" stringByAppendingString:cleanedNumber];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:finalProduct]];
+
+
+}
+
 
 
 - (IBAction)mobileURLPressed:(id)sender {

@@ -33,7 +33,7 @@ static NSString * const searchLocation = @"Austin, TX";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSLog(@"numRows is %d",[_searchesArray count] );
+    //NSLog(@"numRows is %d",[_searchesArray count] );
     return [_searchesArray count];
 }
 
@@ -74,7 +74,7 @@ static NSString * const searchLocation = @"Austin, TX";
     cell.displayPhone = t[@"display_phone"];
     cell.row = indexPath.row;
     
-    NSLog(@"here in cellForRow %d\nname: %@\naddress: %@\n\n",[_searchesArray count],name, address);
+    //NSLog(@"here in cellForRow %d\nname: %@\naddress: %@\n\n",[_searchesArray count],name, address);
     //NSLog(@"here in cellForRow 2\nname: %@\naddress: %@\n\n",cell.textLabel.text, cell.detailTextLabel.text);
 
     return cell;
@@ -85,6 +85,20 @@ static NSString * const searchLocation = @"Austin, TX";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"Clicked");
     
+}
+
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+    NSLog(@"didUpdateToLocation: %@", newLocation);
+    CLLocation *currentLocation = newLocation;
+    
+    if (currentLocation != nil) {
+        NSString *longy = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude];
+        NSString *lats = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.latitude];
+        
+        NSLog(@"LONGTIUDE: %@\nLATITUDE: %@",longy,lats);
+    }
 }
 
 
@@ -104,14 +118,15 @@ static NSString * const searchLocation = @"Austin, TX";
     
     [_locationManager startUpdatingLocation];
     
-    NSLog(@"latitude: %f\nlongitude: %f",_map.userLocation.location.coordinate.latitude, _map.userLocation.location.coordinate.longitude);
+    
+    NSLog(@"latitudeerinos: %f\nlongituderinos: %f",_locationManager.location.coordinate.latitude, _locationManager.location.coordinate.longitude);
 
-    //set map properties
+    //set map properties for once i get the user location working. i think its the emulator issue
     _map.delegate = self;
     [_map setUserTrackingMode:MKUserTrackingModeFollow animated:YES];    
     [_map setCenterCoordinate:_map.userLocation.location.coordinate animated:YES];
     
-    //set maps center
+    //set maps center. hard coded in because for some reason i can't get the coordinates from the user location
     CLLocationCoordinate2D center = CLLocationCoordinate2DMake(30.30926, -97.723481);//only for emulator version, use userLocation in mobile version
     MKCoordinateSpan span = MKCoordinateSpanMake(0.5f, 0.5f);
     MKCoordinateRegion region = MKCoordinateRegionMake (center, span);
@@ -266,6 +281,7 @@ static NSString * const searchLocation = @"Austin, TX";
         
         if([resultsJSON count] == 0) {
             NSLog(@"SOrry THER WERERe not results \n\n\n\n");
+            //display alert on main queue
             dispatch_async(dispatch_get_main_queue(), ^ {
                 [[[UIAlertView alloc] initWithTitle:@"There were no trucks with that name"
                                              message:nil
@@ -283,15 +299,28 @@ static NSString * const searchLocation = @"Austin, TX";
             //this array will have the JSON's that have id's that contain the original user entered search term this trims down the returned trucks to ones that the user wants
             NSMutableArray* cutResults = [[NSMutableArray alloc] init];
             
-
-            
             for(NSDictionary* d in resultsJSON) {
                 BOOL categoryMatch = [self searchParam:searchParam inList:d[@"categories"]];
-
+                NSLog(@"1");
+                NSLog(@"%@",d);
+                NSLog(@"2");
                 if ([ d[@"id"] containsString:searchParam ] || categoryMatch) {
-                    NSLog(@"%@\n\n", d);
+                    //NSLog(@"%@\n\n", d);
                     [cutResults addObject:d];
                 }
+                
+            }
+            
+            //if the filtered search has nothing left then display appropriate message
+            if ([cutResults count] == 0) {
+                dispatch_async(dispatch_get_main_queue(), ^ {
+                    [[[UIAlertView alloc] initWithTitle:@"There were no trucks with that name"
+                                                message:nil
+                                               delegate:nil
+                                      cancelButtonTitle:@"OK"
+                                      otherButtonTitles:nil
+                      ] show];
+                });
             }
             
             _searchesArray = cutResults;
@@ -302,7 +331,16 @@ static NSString * const searchLocation = @"Austin, TX";
             [self dropPinOnAddress:cutResults];
             
         } else {
-            [self displayAlert:@"No business was found" message:@"Try another search"];
+            
+            dispatch_async(dispatch_get_main_queue(), ^ {
+                [[[UIAlertView alloc] initWithTitle:@"There were no trucks with that name"
+                                            message:nil
+                                           delegate:nil
+                                  cancelButtonTitle:@"OK"
+                                  otherButtonTitles:nil
+                  ] show];
+            });
+            //[self displayAlert:@"No business was found" message:@"Try another search"];
         }
         
         dispatch_group_leave(requestGroup);
