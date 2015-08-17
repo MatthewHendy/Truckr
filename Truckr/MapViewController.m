@@ -19,7 +19,7 @@
 @end
 
 
-static NSString * const searchLocation = @"Austin, TX";
+static NSString * searchLocation = @"Austin, TX";
 
 @implementation MapViewController
 
@@ -101,6 +101,33 @@ static NSString * const searchLocation = @"Austin, TX";
     }
 }
 
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    NSLog(@"did update to locations %@", locations[0]);
+    CLLocation *location = locations[0];
+    float latitude = location.coordinate.latitude;
+    float longitude = location.coordinate.longitude;
+    
+    CLLocationCoordinate2D center = CLLocationCoordinate2DMake(latitude, longitude);//only for emulator version, use userLocation in mobile version
+    MKCoordinateSpan span = MKCoordinateSpanMake(0.5f, 0.5f);
+    MKCoordinateRegion region = MKCoordinateRegionMake (center, span);
+    [_map setRegion:region];
+    
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+
+    [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
+        
+        MKPlacemark* placemark = placemarks[0];
+        NSLog(@"%@\n\n\n", placemark);
+        
+        NSString *city = placemark.locality;
+        NSString *state = placemark.addressDictionary[@"State"];
+        NSString* newCityAndState = [[city stringByAppendingString:@", "] stringByAppendingString:state];
+        
+        NSLog(@"%@\n\n\n\n",newCityAndState);
+
+        searchLocation = newCityAndState;
+    }];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -126,11 +153,13 @@ static NSString * const searchLocation = @"Austin, TX";
     [_map setUserTrackingMode:MKUserTrackingModeFollow animated:YES];    
     [_map setCenterCoordinate:_map.userLocation.location.coordinate animated:YES];
     
+    /*
     //set maps center. hard coded in because for some reason i can't get the coordinates from the user location
     CLLocationCoordinate2D center = CLLocationCoordinate2DMake(30.30926, -97.723481);//only for emulator version, use userLocation in mobile version
     MKCoordinateSpan span = MKCoordinateSpanMake(0.5f, 0.5f);
     MKCoordinateRegion region = MKCoordinateRegionMake (center, span);
     [_map setRegion:region];
+     */
     
     _quickSearchField.delegate = self;
  
@@ -278,23 +307,11 @@ static NSString * const searchLocation = @"Austin, TX";
     dispatch_group_enter(requestGroup);
     [APISample queryForArrayOfResults:searchParam location:searchLocation completionHandler:^(NSDictionary *resultsJSON, NSError *error) {
         
-        
-        if([resultsJSON count] == 0) {
-            NSLog(@"SOrry THER WERERe not results \n\n\n\n");
-            //display alert on main queue
-            dispatch_async(dispatch_get_main_queue(), ^ {
-                [[[UIAlertView alloc] initWithTitle:@"There were no trucks with that name"
-                                             message:nil
-                                            delegate:nil
-                                   cancelButtonTitle:@"OK"
-                                   otherButtonTitles:nil
-                   ] show];
-            });
-        }
-
         if (error) {
             [self displayAlert:@"An error happened during the request" message:[NSString stringWithFormat:@"%@",error]];
-        } else if (resultsJSON) {
+        }
+        
+        else if (resultsJSON) {
             
             //this array will have the JSON's that have id's that contain the original user entered search term this trims down the returned trucks to ones that the user wants
             NSMutableArray* cutResults = [[NSMutableArray alloc] init];
