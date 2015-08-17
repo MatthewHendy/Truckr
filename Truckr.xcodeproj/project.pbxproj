@@ -64,8 +64,6 @@
 		18DF2F121B41943500866638 /* TheSidebarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DF2F111B41943500866638 /* TheSidebarController.m */; };
 		18DF2F151B4197FE00866638 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18DF2F141B4197FE00866638 /* CoreGraphics.framework */; };
 		18DF2F1A1B419EF800866638 /* LeftVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DF2F191B419EF800866638 /* LeftVC.m */; };
-		18DF2F201B458D0000866638 /* TruckCallout.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DF2F1F1B458D0000866638 /* TruckCallout.m */; };
-		18DF2F221B458E4F00866638 /* TruckCallout.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18DF2F211B458E4F00866638 /* TruckCallout.xib */; };
 		18E1A82E1B31E66B00A9CC84 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E1A82D1B31E66B00A9CC84 /* MapKit.framework */; };
 		18E296771B2F25C10083274F /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E296761B2F25C10083274F /* MapViewController.m */; };
 		18E296821B2F2A030083274F /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E296811B2F2A020083274F /* Bolts.framework */; };
@@ -85,14 +83,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1457BCCB1B7D96A5002E163C /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
-		1457BCCC1B7D96A5002E163C /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		1457BCCB1B7D96A5002E163C /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = ../Reachability.h; sourceTree = "<group>"; };
+		1457BCCC1B7D96A5002E163C /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = ../Reachability.m; sourceTree = "<group>"; };
 		1481363F1B52F80F001DD57C /* FavoritesTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FavoritesTable.h; path = ../FavoritesTable.h; sourceTree = "<group>"; };
 		148136401B52F80F001DD57C /* FavoritesTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FavoritesTable.m; path = ../FavoritesTable.m; sourceTree = "<group>"; };
-		14DA4FD71B75415F00829A20 /* searchesTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = searchesTableCell.h; sourceTree = "<group>"; };
-		14DA4FD81B75415F00829A20 /* searchesTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = searchesTableCell.m; sourceTree = "<group>"; };
-		14DB5F891B60525E008531F2 /* TruckViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TruckViewController.h; sourceTree = "<group>"; };
-		14DB5F8A1B60525E008531F2 /* TruckViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TruckViewController.m; sourceTree = "<group>"; };
+		14DA4FD71B75415F00829A20 /* searchesTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = searchesTableCell.h; path = ../searchesTableCell.h; sourceTree = "<group>"; };
+		14DA4FD81B75415F00829A20 /* searchesTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = searchesTableCell.m; path = ../searchesTableCell.m; sourceTree = "<group>"; };
+		14DB5F891B60525E008531F2 /* TruckViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TruckViewController.h; path = ../TruckViewController.h; sourceTree = "<group>"; };
+		14DB5F8A1B60525E008531F2 /* TruckViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TruckViewController.m; path = ../TruckViewController.m; sourceTree = "<group>"; };
 		14DE2CDD1B25FDF600B56241 /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
 		14DE2CDE1B25FDF600B56241 /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
 		14F261B21B2200E6009DA2C3 /* Truckr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Truckr.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -184,9 +182,6 @@
 		18DF2F141B4197FE00866638 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		18DF2F181B419EF800866638 /* LeftVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftVC.h; sourceTree = "<group>"; };
 		18DF2F191B419EF800866638 /* LeftVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftVC.m; sourceTree = "<group>"; };
-		18DF2F1E1B458D0000866638 /* TruckCallout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TruckCallout.h; sourceTree = "<group>"; };
-		18DF2F1F1B458D0000866638 /* TruckCallout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TruckCallout.m; sourceTree = "<group>"; };
-		18DF2F211B458E4F00866638 /* TruckCallout.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TruckCallout.xib; sourceTree = "<group>"; };
 		18E1A82D1B31E66B00A9CC84 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		18E296751B2F25C10083274F /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		18E296761B2F25C10083274F /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
@@ -235,26 +230,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1481363E1B52F745001DD57C /* Truck Objects */ = {
+		1481363E1B52F745001DD57C /* TruckInfo */ = {
 			isa = PBXGroup;
 			children = (
 				18EABD1F1B4AE89600380392 /* TruckInfo.h */,
 				18EABD201B4AE89600380392 /* TruckInfo.m */,
-				18DF2F1E1B458D0000866638 /* TruckCallout.h */,
-				18DF2F1F1B458D0000866638 /* TruckCallout.m */,
 			);
-			name = "Truck Objects";
+			name = TruckInfo;
+			sourceTree = "<group>";
+		};
+		14E0C17B1B8259EC00006476 /* Main View */ = {
+			isa = PBXGroup;
+			children = (
+				18E296751B2F25C10083274F /* MapViewController.h */,
+				18E296761B2F25C10083274F /* MapViewController.m */,
+				14DA4FD71B75415F00829A20 /* searchesTableCell.h */,
+				14DA4FD81B75415F00829A20 /* searchesTableCell.m */,
+			);
+			name = "Main View";
+			sourceTree = "<group>";
+		};
+		14E0C17C1B825A1900006476 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				1457BCCB1B7D96A5002E163C /* Reachability.h */,
+				1457BCCC1B7D96A5002E163C /* Reachability.m */,
+			);
+			name = Reachability;
+			sourceTree = "<group>";
+		};
+		14E0C17D1B825A4800006476 /* Secondary Views */ = {
+			isa = PBXGroup;
+			children = (
+				14DB5F891B60525E008531F2 /* TruckViewController.h */,
+				14DB5F8A1B60525E008531F2 /* TruckViewController.m */,
+				1481363F1B52F80F001DD57C /* FavoritesTable.h */,
+				148136401B52F80F001DD57C /* FavoritesTable.m */,
+			);
+			name = "Secondary Views";
 			sourceTree = "<group>";
 		};
 		14F261A91B2200E5009DA2C3 = {
 			isa = PBXGroup;
 			children = (
-				1457BCCB1B7D96A5002E163C /* Reachability.h */,
-				1457BCCC1B7D96A5002E163C /* Reachability.m */,
-				14DA4FD71B75415F00829A20 /* searchesTableCell.h */,
-				14DA4FD81B75415F00829A20 /* searchesTableCell.m */,
-				14DB5F891B60525E008531F2 /* TruckViewController.h */,
-				14DB5F8A1B60525E008531F2 /* TruckViewController.m */,
 				14F261B41B2200E6009DA2C3 /* Truckr */,
 				14F261D11B2200E6009DA2C3 /* TruckrTests */,
 				14F261B31B2200E6009DA2C3 /* Products */,
@@ -274,18 +292,16 @@
 		14F261B41B2200E6009DA2C3 /* Truckr */ = {
 			isa = PBXGroup;
 			children = (
-				18DF2F131B41945A00866638 /* SideBar */,
-				14F2704F1B39DD2C00EFD9CC /* YelpAPI */,
-				18DF2F171B419EA800866638 /* ParseVC's */,
-				1481363E1B52F745001DD57C /* Truck Objects */,
 				14F261BA1B2200E6009DA2C3 /* AppDelegate.m */,
 				14F261B91B2200E6009DA2C3 /* AppDelegate.h */,
-				18E296751B2F25C10083274F /* MapViewController.h */,
-				18E296761B2F25C10083274F /* MapViewController.m */,
-				1481363F1B52F80F001DD57C /* FavoritesTable.h */,
-				148136401B52F80F001DD57C /* FavoritesTable.m */,
-				18DF2F211B458E4F00866638 /* TruckCallout.xib */,
 				14F261C21B2200E6009DA2C3 /* Main.storyboard */,
+				14E0C17B1B8259EC00006476 /* Main View */,
+				14E0C17D1B825A4800006476 /* Secondary Views */,
+				18DF2F131B41945A00866638 /* SideBar */,
+				14E0C17C1B825A1900006476 /* Reachability */,
+				14F2704F1B39DD2C00EFD9CC /* YelpAPI */,
+				18DF2F171B419EA800866638 /* ParseVC's */,
+				1481363E1B52F745001DD57C /* TruckInfo */,
 				14F261B51B2200E6009DA2C3 /* Supporting Files */,
 			);
 			path = Truckr;
@@ -545,7 +561,6 @@
 			files = (
 				14F261C41B2200E6009DA2C3 /* Main.storyboard in Resources */,
 				14F261C91B2200E6009DA2C3 /* LaunchScreen.xib in Resources */,
-				18DF2F221B458E4F00866638 /* TruckCallout.xib in Resources */,
 				14F261C61B2200E6009DA2C3 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -568,7 +583,6 @@
 				14F2709D1B39E59C00EFD9CC /* OATokenManager.m in Sources */,
 				18DF2F0F1B41941C00866638 /* SidebarWunderlistAnimation.m in Sources */,
 				14F261BB1B2200E6009DA2C3 /* AppDelegate.m in Sources */,
-				18DF2F201B458D0000866638 /* TruckCallout.m in Sources */,
 				18DF2F0C1B41941C00866638 /* SidebarFeedlyAnimation.m in Sources */,
 				14F270991B39E59C00EFD9CC /* OAProblem.m in Sources */,
 				14F270B11B39E63B00EFD9CC /* NSURL+Base.m in Sources */,
