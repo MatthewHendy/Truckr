@@ -28,6 +28,10 @@
 @property (strong, nonatomic) IBOutlet UITableView *searchesTable;
 @property (nonatomic) NSMutableArray* searchesArray;
 
+@property (nonatomic) float latitude;
+@property (nonatomic) float longitude;
+
+
 -(void) displayAlert:(NSString*) title message:(NSString*) message;
 
 

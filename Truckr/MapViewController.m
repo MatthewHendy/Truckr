@@ -104,16 +104,10 @@ static NSString * searchLocation = @"Austin, TX";
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
     NSLog(@"did update to locations %@", locations[0]);
     CLLocation *location = locations[0];
-    float latitude = location.coordinate.latitude;
-    float longitude = location.coordinate.longitude;
-    
-    CLLocationCoordinate2D center = CLLocationCoordinate2DMake(latitude, longitude);//only for emulator version, use userLocation in mobile version
-    MKCoordinateSpan span = MKCoordinateSpanMake(0.5f, 0.5f);
-    MKCoordinateRegion region = MKCoordinateRegionMake (center, span);
-    [_map setRegion:region];
+    _latitude = location.coordinate.latitude;
+    _longitude = location.coordinate.longitude;
     
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-
     [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
         
         MKPlacemark* placemark = placemarks[0];
@@ -153,13 +147,13 @@ static NSString * searchLocation = @"Austin, TX";
     [_map setUserTrackingMode:MKUserTrackingModeFollow animated:YES];    
     [_map setCenterCoordinate:_map.userLocation.location.coordinate animated:YES];
     
-    /*
+    
     //set maps center. hard coded in because for some reason i can't get the coordinates from the user location
-    CLLocationCoordinate2D center = CLLocationCoordinate2DMake(30.30926, -97.723481);//only for emulator version, use userLocation in mobile version
+    CLLocationCoordinate2D center = CLLocationCoordinate2DMake(_latitude, _longitude);//only for emulator version, use userLocation in mobile version
     MKCoordinateSpan span = MKCoordinateSpanMake(0.5f, 0.5f);
     MKCoordinateRegion region = MKCoordinateRegionMake (center, span);
     [_map setRegion:region];
-     */
+    
     
     _quickSearchField.delegate = self;
  
@@ -172,7 +166,7 @@ static NSString * searchLocation = @"Austin, TX";
     self.navigationItem.leftBarButtonItem = leftMenuButton;
     
     //set the nav bar icon image
-    UIImage *logo = [UIImage imageNamed:@"truck-icon"];
+    UIImage *logo = [UIImage imageNamed:@"finaltruckriconclear"];
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:logo];
     
     

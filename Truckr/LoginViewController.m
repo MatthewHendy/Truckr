@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIImage *logo = [UIImage imageNamed:@"truck-icon"];
+    UIImage *logo = [UIImage imageNamed:@"finaltruckriconclear"];
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:logo];
     
     //if user taps away from text field the app dismisses the keyboard

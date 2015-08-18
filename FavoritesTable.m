@@ -33,7 +33,7 @@
 - (void) viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    UIImage *logo = [UIImage imageNamed:@"truck-icon"];
+    UIImage *logo = [UIImage imageNamed:@"finaltruckriconclear"];
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:logo];
 }
 

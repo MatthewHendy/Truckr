@@ -28,7 +28,7 @@
                                 <rect key="frame" x="0.0" y="352" width="600" height="248"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="h1L-Zy-t9F"/>
+                                    <constraint firstAttribute="height" constant="150" id="h1L-Zy-t9F"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="70" id="uzH-KF-Zdn" customClass="searchesTableCell">
