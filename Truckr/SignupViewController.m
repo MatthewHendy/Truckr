@@ -109,9 +109,14 @@
             
             [[self navigationController] popToRootViewControllerAnimated:YES];
         }
-        else {
-            NSString *errorString = [error userInfo][@"error"];
-            NSLog(@"%@", errorString);
+        else if (!succeeded) {
+            dispatch_async(dispatch_get_main_queue(), ^ {
+
+                NSString *errorString = [error userInfo][@"error"];
+                NSLog(@"%@", errorString);
+                [self displayAlert:@"Error signing up" message:errorString];
+            });
+
         }
     }];
     

@@ -40,7 +40,10 @@
         case ReachableViaWiFi:
         {
             NSLog(@"The internet is working via WIFI");
-            [self saveFavArrToParse];
+            PFUser* user = [PFUser currentUser];
+            //only try and save the fav array if someone is logged in otherwise it will crash
+            if(user)
+                [self saveFavArrToParse];
             break;
         }
         case ReachableViaWWAN:
