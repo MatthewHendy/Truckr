@@ -97,7 +97,7 @@
             else {
                 //NSLog(@"yo object is nil or Nil");
                 NSString *errorString = [error userInfo][@"error"];
-                [self displayAlert:@"There's something wrong" message:errorString];
+                //[self displayAlert:@"There's something wrong" message:errorString];
                 //NSLog(@"%@", errorString);
             }
         
