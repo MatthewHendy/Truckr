@@ -88,39 +88,31 @@ static NSString * searchLocation = @"Austin, TX";
 }
 
 
-- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
-{
-    NSLog(@"didUpdateToLocation: %@", newLocation);
-    CLLocation *currentLocation = newLocation;
-    
-    if (currentLocation != nil) {
-        NSString *longy = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude];
-        NSString *lats = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.latitude];
-        
-        NSLog(@"LONGTIUDE: %@\nLATITUDE: %@",longy,lats);
-    }
-}
-
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
-    NSLog(@"did update to locations %@", locations[0]);
+    //NSLog(@"did update to locations %@", locations[0]);
     CLLocation *location = locations[0];
     _latitude = location.coordinate.latitude;
     _longitude = location.coordinate.longitude;
     
-    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-    [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
+    if (location != nil) {        
+        CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+        [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
+            
+            MKPlacemark* placemark = placemarks[0];
+            //NSLog(@"%@\n\n\n", placemark);
+            
+            NSString *city = placemark.locality;
+            NSString *state = placemark.addressDictionary[@"State"];
+            NSString* newCityAndState = [[city stringByAppendingString:@", "] stringByAppendingString:state];
+            
+            NSLog(@"%@\n\n\n\n",newCityAndState);
+            
+            searchLocation = newCityAndState;
+        }];
         
-        MKPlacemark* placemark = placemarks[0];
-        NSLog(@"%@\n\n\n", placemark);
-        
-        NSString *city = placemark.locality;
-        NSString *state = placemark.addressDictionary[@"State"];
-        NSString* newCityAndState = [[city stringByAppendingString:@", "] stringByAppendingString:state];
-        
-        NSLog(@"%@\n\n\n\n",newCityAndState);
-
-        searchLocation = newCityAndState;
-    }];
+    }
+    
+    
 }
 
 - (void)viewDidLoad {
@@ -312,9 +304,9 @@ static NSString * searchLocation = @"Austin, TX";
             
             for(NSDictionary* d in resultsJSON) {
                 BOOL categoryMatch = [self searchParam:searchParam inList:d[@"categories"]];
-                NSLog(@"1");
-                NSLog(@"%@",d);
-                NSLog(@"2");
+                //NSLog(@"1");
+                //NSLog(@"%@",d);
+                //NSLog(@"2");
                 if ([ d[@"id"] containsString:searchParam ] || categoryMatch) {
                     //NSLog(@"%@\n\n", d);
                     [cutResults addObject:d];
