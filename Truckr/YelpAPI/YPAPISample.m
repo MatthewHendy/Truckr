@@ -113,7 +113,7 @@ static NSString * const kSearchLimit       = @"20";
                            @"term": term,
                            @"location": location,
                            @"limit": kSearchLimit,
-                           @"category_filter": @"foodtrucks"
+                           @"category_filter": @"foodtrucks,foodstands"
                            };
 
   return [NSURLRequest requestWithHost:kAPIHost path:kSearchPath params:params];
